@@ -86,7 +86,7 @@ const ImageExpand = ({ selector }: Props) => {
         setTimeout(() => {
           _expandIt();
         }, 50);
-      }, 50);
+      }, 200);
     }
 
     return () => {
@@ -137,7 +137,7 @@ const ImageExpand = ({ selector }: Props) => {
         setBounding(initialBounding);
         window.removeEventListener("resize", _expandIt);
       }, 150);
-    }, 350);
+    }, 400);
   };
 
   return (
