@@ -36,6 +36,6 @@
       transform 0.4s var(--cubic), padding-top 0.4s var(--cubic);
   }
   img {
-    // max-height: 80vh;
+    max-height: calc(var(--vh) * 100 - var(--space-lg) * 2);
   }
 }
