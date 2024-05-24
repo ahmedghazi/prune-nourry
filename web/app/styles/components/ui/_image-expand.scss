@@ -32,8 +32,8 @@
     }
   }
   &.is-anime .outer {
-    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
-      transform 0.2s ease-in-out, padding-top 0.2s ease-in-out;
+    transition: width 0.4s var(--cubic), height 0.4s var(--cubic),
+      transform 0.4s var(--cubic), padding-top 0.4s var(--cubic);
   }
   img {
     // max-height: 80vh;
