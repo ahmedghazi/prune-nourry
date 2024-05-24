@@ -1,0 +1,134 @@
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: var(--space-lg);
+  z-index: 50;
+  transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
+  &.is-down {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  line-height: 1;
+  .site-name {
+    // font-size: var(--text-lg);
+    // line-height: 1;
+  }
+  .col-span-8 {
+    align-self: end;
+  }
+
+  button.cart-menu {
+    line-height: 1;
+  }
+  button.btn {
+    text-decoration: none;
+    &.is-current {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-position: under;
+    }
+  }
+  nav {
+    a {
+      position: relative;
+      display: block;
+
+      &:hover,
+      &:active,
+      &.is-current {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-position: under;
+      }
+    }
+    ul {
+      justify-content: space-between;
+      li {
+        &.has-sub-menu:hover .sub-menu {
+          display: flex;
+        }
+        &:has(.is-current) {
+          .menu-item > a {
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
+            text-underline-position: under;
+          }
+          ul.sub-menu {
+            display: flex;
+          }
+        }
+      }
+      &.sub-menu {
+        justify-content: initial;
+        position: absolute;
+        display: none;
+        gap: 1em;
+        padding-top: 10px;
+        li {
+          white-space: nowrap;
+        }
+        // &:has(.has-products) {
+        //   display: flex;
+        // }
+      }
+    }
+  }
+}
+
+body[data-template="is-product"] header {
+  li.has-sub-menu .menu-item > a {
+    // display: block;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
+  }
+  ul.sub-menu {
+    // display: flex;
+  }
+}
+
+@media all and (max-width: $md) {
+  header {
+    padding: var(--space-md--mobile);
+    nav {
+      position: fixed;
+      inset: 0;
+      background-color: white;
+      padding: var(--space-md--mobile);
+      display: none;
+      font-size: var(--text-lg--mobile);
+      z-index: 1;
+      &.is-active {
+        display: block;
+      }
+      ul {
+        height: 100%;
+        // background-color: red;
+        justify-content: flex-start;
+        gap: 0.4em;
+        li {
+          // background-color: red;
+        }
+        li:last-child {
+          flex: 2;
+          .locale-switcher,
+          ul {
+            height: 100%;
+          }
+          ul {
+            align-items: end;
+          }
+        }
+        .sub-menu {
+          display: flex;
+          flex-direction: column;
+          position: initial;
+          gap: 0.4em;
+          padding-top: 0.4em;
+        }
+      }
+    }
+  }
+}

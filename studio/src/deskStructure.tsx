@@ -1,0 +1,107 @@
+// import {BiDockTop, BiDockBottom} from 'react-icons/bi'
+// import {ControlsIcon} from '@sanity/icons'
+import {ListItemBuilder, StructureResolver} from 'sanity/desk'
+// import {SEOPane} from 'sanity-plugin-seo-pane'
+import {resolveProductionUrl} from './actions/resolveProductionUrl'
+import SeoPreview from './previews/seo/index'
+const remoteURL = 'https://buildingbooks.gtsb.io'
+const localURL = 'http://localhost:8000'
+const previewURL = window.location.hostname === 'localhost' ? localURL + '' : remoteURL + ''
+
+// If you add document types to desk structure manually, you can add them to this function to prevent duplicates in the root pane
+const hiddenDocTypes = (listItem: ListItemBuilder) => {
+  const id = listItem.getId()
+
+  if (!id) {
+    return false
+  }
+
+  return ![
+    'home',
+    'media.tag',
+    'pageModulaire',
+    'tag',
+    'project',
+    'product',
+    'settings',
+    'infos',
+    'news',
+    'contact',
+  ].includes(id)
+}
+
+export const structure = (S) =>
+  S.list()
+    .title('Base')
+    .items([
+      S.listItem()
+        .title('Réglages (header, footer, ...)')
+        .schemaType('settings')
+        .child(
+          S.editor()
+            .title('Réglages (header, footer, ...)')
+            .schemaType('settings')
+            .documentId('settings'),
+        ),
+      S.divider(),
+
+      S.listItem()
+        .title('Accueil')
+        .schemaType('home')
+        .child(S.editor().title('Home').schemaType('home').documentId('home')),
+
+      S.listItem()
+        .title('Infos (Artist)')
+        .schemaType('infos')
+        .child(S.editor().title('Infos (Artist)').schemaType('infos').documentId('infos')),
+
+      S.listItem()
+        .title('News')
+        .schemaType('news')
+        .child(S.editor().title('News').schemaType('news').documentId('news')),
+
+      S.listItem()
+        .title('Contact')
+        .schemaType('contact')
+        .child(S.editor().title('Contact').schemaType('contact').documentId('contact')),
+
+      S.divider(),
+
+      S.listItem()
+        .title('Pages')
+        .schemaType('pageModulaire')
+        .child(S.documentTypeList('pageModulaire')),
+      // S.divider(),
+
+      // S.listItem().title('Projects').schemaType('project').child(S.documentTypeList('project')),
+
+      S.divider(),
+
+      /**
+       * with seo preview
+       */
+
+      // S.listItem()
+      //   .title('Projets')
+      //   .schemaType('project')
+      //   .child(
+      //     S.documentTypeList('project').child((id) =>
+      //       S.document().schemaType('project').documentId(id).views([
+      //         // The default form for editing a document
+      //         S.view.form(),
+
+      //         // Render the current selected document’s values as JSON
+      //         // S.view.component(SeoPreview).title('Seo preview').options({previewURL}),
+      //       ]),
+      //     ),
+      //   ),
+
+      S.listItem().title('Projets').schemaType('project').child(S.documentTypeList('project')),
+      S.divider(),
+
+      S.listItem().title('Products').schemaType('product').child(S.documentTypeList('product')),
+      S.listItem().title('Tags').schemaType('tag').child(S.documentTypeList('tag')),
+
+      // We also need to remove the new singletons from the main list
+      ...S.documentTypeListItems().filter(hiddenDocTypes),
+    ])

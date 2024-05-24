@@ -1,0 +1,13 @@
+{
+  "name": "air-french-band",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "s": "cd studio && yarn dev",
+    "w": "cd web && yarn dev",
+    "d": "git add . && git commit -m 'fix' && git push"
+  },
+  "repository": "git@github.com:ahmedghazi/airfrenchband.git",
+  "author": "ahmedghazi <atmet.ghazi@gmail.com>"
+}

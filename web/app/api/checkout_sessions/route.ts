@@ -1,0 +1,69 @@
+import { ProductExtend } from "@/app/types/extend";
+import { NextApiRequest, NextApiResponse } from "next";
+import { NextRequest, NextResponse } from "next/server";
+import Stripe from "stripe";
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
+export async function POST(
+  // export default async function handler(
+  req: NextRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return new NextResponse(JSON.stringify({ message: "INVALID_METHOD" }), {
+      status: 405,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
+  const body = await req.json(); // res now contains body
+  const { cartItems } = body;
+  console.log(req);
+
+  const transformItems = cartItems.map((item: ProductExtend) => {
+    const unit_amount: number = item.price || 0;
+    return {
+      price_data: {
+        currency: "eur",
+        product_data: {
+          name: item.title?.en,
+          description: item.blurb?.en || "",
+          images: [item.imageCover?.asset.url],
+        },
+        unit_amount: unit_amount * 100,
+      },
+      // amount: item.price || 0,
+      // price: item.price,
+      quantity: item.quantity,
+    };
+  });
+  try {
+    // Create Checkout Sessions from body params.
+    const checkoutSession: Stripe.Checkout.Session =
+      await stripe.checkout.sessions.create({
+        line_items: transformItems,
+        mode: "payment",
+        success_url: `${req.headers.get("origin")}/?success=true`,
+        cancel_url: `${req.headers.get("origin")}/?canceled=true`,
+      });
+    console.log("session", checkoutSession.url);
+    // res.redirect(303, session.url);
+    return NextResponse.json({
+      result: checkoutSession,
+      url: checkoutSession.url,
+      origin: req.headers.get("origin"),
+      ok: true,
+    });
+  } catch (error) {
+    const error_response = {
+      status: "error",
+      message: error.message,
+      raw: error,
+    };
+    return new NextResponse(JSON.stringify(error_response), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

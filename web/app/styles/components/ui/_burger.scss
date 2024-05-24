@@ -1,0 +1,30 @@
+.burger-wrapper {
+  position: fixed;
+  right: var(--space-md--mobile);
+  top: var(--space-md--mobile);
+  z-index: 999;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    // background-color: green;
+  }
+  &.is-active {
+    .burger {
+      @include burger-to-cross();
+    }
+    & + nav {
+      display: block;
+    }
+  }
+  .burger {
+    transform: translateY(10px);
+    @include burger(25px, 3px, 4px);
+  }
+}

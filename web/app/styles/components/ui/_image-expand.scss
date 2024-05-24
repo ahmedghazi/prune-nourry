@@ -1,0 +1,35 @@
+.image-expand {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s var(--cubic);
+  will-change: opacity;
+  background-color: white;
+  /* backdrop-filter: blur(50px) contrast(110%); */
+  z-index: 251;
+  .outer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  &.is-placed {
+    opacity: 1;
+    pointer-events: all;
+    cursor: zoom-out;
+  }
+  &.is-anime .outer {
+    transition: width 0.2s ease-out, height 0.2s ease-out,
+      transform 0.2s ease-out;
+  }
+  img {
+    max-height: 80vh;
+  }
+}

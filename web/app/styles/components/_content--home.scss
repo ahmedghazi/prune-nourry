@@ -1,0 +1,23 @@
+html:has(body[data-template="is-home"]),
+body[data-template="is-home"] {
+  overflow: hidden;
+}
+body[data-template="is-home"] main {
+  padding: 0;
+}
+.content-home {
+  .slide img {
+    height: calc(var(--vh) * 100) !important;
+    object-fit: cover;
+  }
+
+  .caption {
+    position: absolute;
+    right: var(--space-lg);
+    bottom: var(--space-lg);
+    // padding: var(--space-lg);
+  }
+  .slick-dots li {
+    line-height: 0;
+  }
+}

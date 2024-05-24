@@ -1,0 +1,44 @@
+.content-news {
+  form .inner {
+    font-size: var(--text-md);
+    margin-bottom: var(--space-md);
+    input {
+      margin-bottom: toRem(18);
+      &::placeholder {
+        color: var(--color-gray);
+      }
+    }
+    button {
+      color: var(--color-gray);
+    }
+  }
+  .modal {
+    background: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc(var(--vw) * 100);
+    height: calc(var(--vh) * 100);
+    padding: var(--header-height) var(--space-lg) var(--space-lg);
+    overflow-y: auto;
+
+    .btn--close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 999;
+      padding: var(--space-md);
+    }
+
+    @media all and (max-width: $md) {
+      padding: var(--header-height) var(--space-md--mobile)
+        var(--space-md--mobile);
+      .media {
+        max-width: calc(var(--vw) * 100 - var(--space-md--mobile) * 2);
+      }
+      .btn--close {
+        padding: 0;
+      }
+    }
+  }
+}

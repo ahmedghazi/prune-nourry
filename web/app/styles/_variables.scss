@@ -1,0 +1,58 @@
+/* BASE VARIABLES
+ *******************/
+:root {
+  --app-height: 100vh;
+  --header-height: 43.5px;
+
+  --color-primary: #000;
+  --color-gray: rgb(175, 176, 176);
+  --color-hover: rgb(175, 176, 176);
+  --color-muted: rgb(175, 176, 176);
+
+  --font-primary: "MNKYKlaus-Medium", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+
+  // --space-xs: 0.4em; //5
+  --space-sm: 0.875rem; //14
+  --space-md: 1.75rem; //28
+  --space-lg: 2.563rem; //41
+  // --space-xl: 3.75rem; //60
+  // --space-xxl: 6.25rem; //100
+  --space-md--mobile: 1.375rem; //16px;
+  // --space-lg--mobile: 22px; //16px;
+
+  --text-sm: 0.875rem; //11pt / 14px
+  --text-md: 1.125rem; //14pt / 18px
+  --text-lg: 2.813rem; //34pt / 45px
+
+  --text-sm--mobile: 0.75rem; //12px
+  --text-lg--mobile: 1.625rem; //26.8px
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  // --cubic: cubic-bezier(0.53, 0, 0.36, 1);
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  // --text-xl: clamp(26px, 5.21vw, 75px);
+
+  --border-width: 2px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 9px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+/* Breakpoints */
+$sm: 768px;
+$md: 1080px;
+$lg: 1441px;

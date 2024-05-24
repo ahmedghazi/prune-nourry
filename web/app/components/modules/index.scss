@@ -1,0 +1,27 @@
+.modules {
+  section {
+    width: 100%;
+    // margin-bottom: var(--space-xl);
+    &:empty {
+      display: none;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media all and (max-width: 1080px) {
+  .modules {
+    .module--slider {
+      .slick-slide,
+      .slide,
+      img {
+        max-width: calc(100vw - calc(var(--space-md--mobile) * 2));
+        width: calc(100vw - calc(var(--space-md--mobile) * 2));
+        img {
+        }
+      }
+    }
+  }
+}
