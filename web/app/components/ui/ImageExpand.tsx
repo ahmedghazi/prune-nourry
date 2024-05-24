@@ -29,7 +29,9 @@ const ImageExpand = ({ selector }: Props) => {
   }, []);
 
   useEffect(() => {
-    addListeners();
+    setTimeout(() => {
+      addListeners();
+    }, 500);
 
     return () => {
       removeListeners();
@@ -61,6 +63,7 @@ const ImageExpand = ({ selector }: Props) => {
   };
 
   const _placeIt = ({ target }: any) => {
+    console.log("_placeIt", target);
     if (!target) return;
     if (!ref.current) return;
 
@@ -99,8 +102,8 @@ const ImageExpand = ({ selector }: Props) => {
     const windowHeight = window.innerHeight;
     // const { width, height } = bounding
     // console.log(windowWidth, windowHeight);
-    const newWith = (windowWidth * 80) / 100;
-    const newHeight = (windowHeight * 80) / 100;
+    const newWith = (windowWidth * 100) / 100;
+    const newHeight = (windowHeight * 100) / 100;
 
     const translateX = (windowWidth - newWith) / 2;
     const translateY = (windowHeight - newHeight) / 2;
@@ -151,9 +154,8 @@ const ImageExpand = ({ selector }: Props) => {
         <div className='inner'>
           {image && (
             <figure>
-              <div>
-                <img src={image.src} alt='' />
-              </div>
+              <img src={image.src} alt='' />
+
               {/* {bounding.y} */}
               <figcaption className='text-sm  py-05e absolute'>
                 {image.alt}

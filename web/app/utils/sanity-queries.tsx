@@ -76,7 +76,6 @@ export const homeQuery = groq`*[_type == "home"][0]{
   }
 }`;
 export async function getHome(): Promise<Home> {
-  console.log(homeQuery);
   return cachedClient(homeQuery, {});
 }
 
