@@ -71,7 +71,9 @@ const Cart = (props: Props) => {
   return (
     <div className={clsx("cart pb-md")}>
       <div className='header flex justify-between'>
-        <button onClick={() => router.back()}>{"< Back"}</button>
+        <button onClick={() => router.back()}>{`< ${_localizeText(
+          "back"
+        )}`}</button>
         {/* <div className='label'>Cart</div> */}
       </div>
       <div className='row'>

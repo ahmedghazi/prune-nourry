@@ -21,3 +21,21 @@ body[data-template="is-home"] main {
     line-height: 0;
   }
 }
+
+@media all and (max-width: $md) {
+  .content-home {
+    .slick-slider {
+      .caption {
+        right: unset;
+        left: var(--space-md--mobile);
+        bottom: var(--space-md--mobile);
+      }
+      .slick-dots {
+        left: unset;
+        right: var(--space-md--mobile);
+        bottom: var(--space-md--mobile);
+        transform: translateX(0);
+      }
+    }
+  }
+}

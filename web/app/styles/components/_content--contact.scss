@@ -3,3 +3,10 @@
     border: none;
   }
 }
+@media all and (max-width: $md) {
+  .content-contact {
+    .credits p {
+      line-height: 1.4;
+    }
+  }
+}

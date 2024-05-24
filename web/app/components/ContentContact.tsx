@@ -46,11 +46,13 @@ const ContentContact = ({ input }: Props) => {
           </div>
         )}
         {input.credits && (
-          <div className='text text-md'>
-            <PortableText
-              value={_localizeField(input.credits)}
-              components={portableTextComponents}
-            />
+          <div className='credits'>
+            <div className='text text-md'>
+              <PortableText
+                value={_localizeField(input.credits)}
+                components={portableTextComponents}
+              />
+            </div>
           </div>
         )}
       </div>

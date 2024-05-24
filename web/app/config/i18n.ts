@@ -1,3 +1,5 @@
+import AddToCart from "../components/shop/AddToCart";
+
 const i18n = {
   fr: {
     default: true,
@@ -13,6 +15,9 @@ const i18n = {
     lastName: "Nom",
     subscribe: "S'abooner",
     card: "Panier",
+    back: "Retour",
+    addToCart: "Ajout au panier",
+    viewCart: "Aller au panier",
   },
   en: {
     default: false,
@@ -28,6 +33,9 @@ const i18n = {
     lastName: "Last Name",
     subscribe: "Subscribe",
     cart: "Cart",
+    back: "Back",
+    addToCart: "Add to cart",
+    viewCart: "View cart",
   },
 };
 

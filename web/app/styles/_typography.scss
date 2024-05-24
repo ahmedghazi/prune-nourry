@@ -137,11 +137,12 @@ strong {
 
 button {
   background: transparent;
-  &.btn {
-    text-decoration: underline;
-  }
+  &.btn,
   &.is-current {
+    // text-decoration: underline;
     text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
   }
 }
 

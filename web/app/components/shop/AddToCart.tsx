@@ -1,7 +1,8 @@
 import { ProductExtend } from "@/app/types/extend";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import useShop from "./ShopContext";
 import { _localizeText } from "@/app/utils/utils";
+import Link from "next/link";
 
 type Props = {
   input: ProductExtend;
@@ -10,6 +11,12 @@ type Props = {
 const AddToCart = ({ input }: Props) => {
   const { cartItems, setCartItems } = useShop();
   const [qty, setQty] = useState<number>(1);
+
+  const productIsInCart = useMemo(() => {
+    return cartItems.filter((el) => el._id === input._id)[0];
+  }, [cartItems]);
+
+  console.log({ productIsInCart });
 
   const _onClick = () => {
     //ajout ou update le produit dans le panier
@@ -31,6 +38,8 @@ const AddToCart = ({ input }: Props) => {
     // if (qty > 1) _onClick();
   }, [qty]);
 
+  const viewCartLabel = _localizeText("viewCart");
+
   return (
     <div className='add-to-cart'>
       <div className='price mb-md'>{input.price}€</div>
@@ -46,9 +55,16 @@ const AddToCart = ({ input }: Props) => {
         </div>
       </div>
 
-      <button onClick={() => _onClick()} className='btn'>
-        Add to cart
-      </button>
+      <div className='flex gap-md'>
+        <button onClick={() => _onClick()} className='btn'>
+          {_localizeText("addToCart")}
+        </button>
+        {productIsInCart && (
+          <Link href='/cart' className='td-u'>
+            {viewCartLabel}
+          </Link>
+        )}
+      </div>
     </div>
   );
 };
