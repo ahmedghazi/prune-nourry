@@ -11,6 +11,7 @@ import {
   ModuleProjects,
   ModuleProducts,
   LocaleString,
+  ModuleExhibitions,
 } from "../types/schema";
 import Modules from "./modules";
 import { _localizeField } from "../utils/utils";
@@ -27,6 +28,7 @@ type Props = {
         | SanityKeyed<ModuleSlider>
         | SanityKeyed<ModuleProjects>
         | SanityKeyed<ModuleProducts>
+        | SanityKeyed<ModuleExhibitions>
       >
     | any;
 };

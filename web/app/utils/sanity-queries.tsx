@@ -15,6 +15,7 @@ import {
   figure,
   moduleArtworks,
   moduleEmbed,
+  moduleExhibitions,
   moduleImages,
   modulePress,
   moduleProducts,
@@ -100,7 +101,8 @@ export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.curren
     ${moduleVideo},
     ${moduleVideos},
     ${moduleArtworks},
-    ${modulePress}
+    ${modulePress},
+    ${moduleExhibitions}
   },
 }`;
 export async function getPageModulaire(slug: string): Promise<PageModulaire> {

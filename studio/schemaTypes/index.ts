@@ -25,6 +25,7 @@ import interTitre from './objects/interTitre'
 import figure from './objects/figure'
 import artwork from './objects/artwork'
 import newsArticle from './objects/newsArticle'
+import exhibition from './objects/exhibition'
 
 // import moduleImage from './objects/modules/imageUI'
 import moduleImages from './objects/modules/imagesUI'
@@ -38,6 +39,7 @@ import moduleVideos from './objects/modules/videosUI'
 import moduleSlider from './objects/modules/sliderUI'
 import moduleProducts from './objects/modules/productsUI'
 import moduleArtworks from './objects/modules/artworksUI'
+import moduleExhibitions from './objects/modules/exhibitionsUI'
 import modulePress from './objects/modules/pressUI'
 
 import product from './shop/product'
@@ -76,6 +78,7 @@ export const schemaTypes = [
   artwork,
   newsArticle,
   newsInstagram,
+  exhibition,
 
   // moduleImage,
   moduleImages,
@@ -89,6 +92,7 @@ export const schemaTypes = [
   moduleSlider,
   moduleProducts,
   moduleArtworks,
+  moduleExhibitions,
   modulePress,
 
   product,

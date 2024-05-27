@@ -9,4 +9,5 @@ export default [
   {type: 'moduleSlider'},
   {type: 'moduleProjects'},
   {type: 'moduleProducts'},
+  {type: 'moduleExhibitions'},
 ]

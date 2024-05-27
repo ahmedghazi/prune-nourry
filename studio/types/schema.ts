@@ -241,6 +241,7 @@ export interface PageModulaire extends SanityDocument {
     | SanityKeyed<ModuleSlider>
     | SanityKeyed<ModuleProjects>
     | SanityKeyed<ModuleProducts>
+    | SanityKeyed<ModuleExhibitions>
   >;
 }
 
@@ -329,6 +330,7 @@ export interface Project extends SanityDocument {
     | SanityKeyed<ModuleSlider>
     | SanityKeyed<ModuleProjects>
     | SanityKeyed<ModuleProducts>
+    | SanityKeyed<ModuleExhibitions>
   >;
 }
 
@@ -927,6 +929,30 @@ export type NewsInstagram = {
   images?: Array<SanityKeyed<Figure>>;
 };
 
+export type Exhibition = {
+  _type: "exhibition";
+  /**
+   * title — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * text — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
+
+  /**
+   * slider — `array`
+   *
+   *
+   */
+  slider?: Array<SanityKeyed<Figure>>;
+};
+
 export type ModuleImages = {
   _type: "moduleImages";
   /**
@@ -1151,6 +1177,23 @@ export type ModuleArtworks = {
    *
    */
   items?: Array<SanityKeyed<Artwork>>;
+};
+
+export type ModuleExhibitions = {
+  _type: "moduleExhibitions";
+  /**
+   * title — `string`
+   *
+   * Module title
+   */
+  title?: string;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyed<Exhibition>>;
 };
 
 export type ModulePress = {

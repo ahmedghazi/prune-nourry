@@ -25,6 +25,9 @@ const ModuleArtworksUI = dynamic(() => import("./ModuleArtworksUI"), {
 const ModulePressUI = dynamic(() => import("./ModulePressUI"), {
   ssr: false,
 });
+const ModuleExhibitionsUI = dynamic(() => import("./ModuleExhibitionsUI"), {
+  ssr: false,
+});
 
 import "./index.scss";
 
@@ -50,6 +53,8 @@ const Modules = ({ input }: any) => {
           return <ModuleArtworksUI key={module._key} input={module} />;
         case "modulePress":
           return <ModulePressUI key={module._key} input={module} />;
+        case "moduleExhibitions":
+          return <ModuleExhibitionsUI key={module._key} input={module} />;
         default:
           return null;
       }

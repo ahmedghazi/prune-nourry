@@ -181,6 +181,19 @@ _type == 'modulePress' => {
 }
 `;
 
+export const moduleExhibitions = `
+_type == 'moduleExhibitions' => {
+	...,
+	items[]{
+		...,
+		slider[]{
+			${figure}
+		},
+
+	}
+}
+`;
+
 export const moduleEmbed = `
 	_type == 'moduleEmbed' => {
 		...,
