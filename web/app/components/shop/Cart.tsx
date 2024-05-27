@@ -128,9 +128,9 @@ const Cart = (props: Props) => {
   const { cartItems, setCartItems } = useShop();
   const [open, setOpen] = useState<boolean>(false);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const success = searchParams.get("success");
-  const canceled = searchParams.get("canceled");
+  // const searchParams = useSearchParams();
+  // const success = searchParams.get("success");
+  // const canceled = searchParams.get("canceled");
 
   useEffect(() => {
     const tokenOpen = subscribe("CART_OPEN", () => {
@@ -171,7 +171,8 @@ const Cart = (props: Props) => {
     }
   };
   // console.log(router.back());
-  const isPostCheckout = success || canceled;
+  // const isPostCheckout = success || canceled;
+  const isPostCheckout = false;
   return (
     <div className={clsx("cart pb-md")}>
       <div className='header flex justify-between md:absolute left-0'>
@@ -182,7 +183,7 @@ const Cart = (props: Props) => {
       </div>
       <div className='row'>
         <div className='col-md-6 col-md-offset-4'>
-          {isPostCheckout && (
+          {/* {isPostCheckout && (
             <div className='post-checkout'>
               {success && (
                 <div className='msg'>
@@ -191,7 +192,7 @@ const Cart = (props: Props) => {
               )}
               {canceled && <div className='msg'>canceled</div>}
             </div>
-          )}
+          )} */}
           {!isPostCheckout && (
             <div className='result'>
               {cartItems.length > 0 && (
