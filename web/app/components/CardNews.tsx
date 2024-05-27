@@ -28,13 +28,19 @@ const CardNews = ({ input }: Props) => {
           </div>
         </aside>
         <div className='md:col-span-5 order-1 md:order-2'>
-          {input.image && input.image.image && (
-            <Figure
-              asset={input.image.image.asset}
-              width={600}
-              alt={_localizeField(input.title)}
-            />
-          )}
+          <a
+            href={input.link?.link}
+            target='_blank'
+            rel='noopener noreferrer'
+            className='td-u'>
+            {input.image && input.image.image && (
+              <Figure
+                asset={input.image.image.asset}
+                width={600}
+                alt={_localizeField(input.title)}
+              />
+            )}
+          </a>
         </div>
       </div>
     </article>
