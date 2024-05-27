@@ -56,6 +56,7 @@ export default defineType({
       title: 'Soustitre',
       description: 'optionnel en fonction du model de page',
       group: 'editorial',
+      hidden: true,
     }),
     defineField({
       name: 'slug',

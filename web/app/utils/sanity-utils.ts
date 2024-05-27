@@ -21,7 +21,7 @@ type SanityImage = {
 export function urlFor(source: SanityImageAsset, maxWidth: number = 2000): any {
   // console.log(source.assetId);
   if (!source) {
-    return "https://cdn.sanity.io/images/a0uiujrw/production/8f2b0dd562caf56e9daa73c6e1806d6f91326173-720x713.jpg";
+    return "/placeholder.png";
   }
   // console.log("here after test");
   //7cbf348a36c255502fdd8b4d2ae93c902e2c2ba8-900x400.png?rect=215,0,378,400&w=2000&fit=max&auto=format&dpr=2

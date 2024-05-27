@@ -71,6 +71,10 @@ export const homeQuery = groq`*[_type == "home"][0]{
   seo{
     ${seo}
    },
+   link->{
+    _type,
+    slug
+  },
    slider[]{
     ${figure}
   }

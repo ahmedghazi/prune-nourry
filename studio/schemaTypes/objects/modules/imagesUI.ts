@@ -35,9 +35,10 @@ export default defineField({
         list: [
           {title: 'Default', value: 'default'},
           {title: 'Masonry', value: 'masonry'},
-        ], // <-- predefined values
-        layout: 'radio', // <-- defaults to 'dropdown'
+        ],
+        layout: 'radio',
       },
+      hidden: true,
     }),
   ],
 

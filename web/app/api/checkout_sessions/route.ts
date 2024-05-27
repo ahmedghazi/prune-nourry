@@ -19,7 +19,7 @@ export async function POST(
 
   const body = await req.json(); // res now contains body
   const { cartItems } = body;
-  console.log(req);
+  console.log(req.headers.get("referer"));
 
   const transformItems = cartItems.map((item: ProductExtend) => {
     const unit_amount: number = item.price || 0;
@@ -43,14 +43,24 @@ export async function POST(
     const checkoutSession: Stripe.Checkout.Session =
       await stripe.checkout.sessions.create({
         line_items: transformItems,
+        shipping_options: [
+          {
+            shipping_rate: "shr_1PKzXrJIJCqsla6x9PXiRu1U",
+          },
+          {
+            shipping_rate: "shr_1PKzUdJIJCqsla6x23rAGSAC",
+          },
+        ],
+
         mode: "payment",
-        success_url: `${req.headers.get("origin")}/?success=true`,
-        cancel_url: `${req.headers.get("origin")}/?canceled=true`,
+        success_url: `${req.headers.get("referer")}/?success=true`,
+        cancel_url: `${req.headers.get("referer")}/?canceled=true`,
       });
     console.log("session", checkoutSession.url);
     // res.redirect(303, session.url);
     return NextResponse.json({
       result: checkoutSession,
+      cartItems: cartItems,
       url: checkoutSession.url,
       origin: req.headers.get("origin"),
       ok: true,

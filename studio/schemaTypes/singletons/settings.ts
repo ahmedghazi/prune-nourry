@@ -89,6 +89,7 @@ export default defineType({
           type: 'linkExternal',
         },
       ],
+      hidden: true,
       group: 'footer',
     }),
 

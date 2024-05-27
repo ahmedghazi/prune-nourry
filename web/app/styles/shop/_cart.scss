@@ -8,28 +8,28 @@
     .items {
       // grid-column-start: 5;
       // grid-column: span 6 / span 6;
-
-      .cart-item {
-        display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        padding-top: var(--space-md);
-        padding-bottom: var(--space-md);
-        border-bottom: var(--border);
-        &:first-child {
-          padding-top: 0;
-        }
-        .quantity.flex {
-          justify-content: space-between;
-        }
-        .col-infos {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          height: 100%;
-        }
-      }
     }
   }
+  .cart-item {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: var(--border);
+    &:first-child {
+      padding-top: 0;
+    }
+    .quantity.flex {
+      justify-content: space-between;
+    }
+    .col-infos {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+  }
+
   .footer {
     color: var(--color-gray);
   }

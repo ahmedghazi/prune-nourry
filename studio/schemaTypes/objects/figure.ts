@@ -28,7 +28,7 @@ export default defineField({
       title: 'Image',
       description: 'jpg, 1400px de large, 72dpi',
       options: {
-        hotspot: true,
+        // hotspot: true,
       },
       // fields: [
       //   // {name: 'title', title: 'Title', type: 'string'},

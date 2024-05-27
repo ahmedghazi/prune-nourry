@@ -46,6 +46,20 @@ export default defineType({
     }),
 
     defineField({
+      name: 'link',
+      title: 'Link on click on the slider',
+      type: 'reference',
+      weak: true,
+      to: [
+        {type: 'pageModulaire'},
+        {type: 'project'},
+        {type: 'home'},
+        {type: 'infos'},
+        {type: 'news'},
+      ],
+      group: 'editorial',
+    }),
+    defineField({
       name: 'slider',
       title: 'Slider',
       type: 'array',

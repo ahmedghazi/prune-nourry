@@ -37,7 +37,7 @@ export default async function RootLayout({
                 <main className='md:px-lg md:pb-lg'>{children}</main>
                 {/* </PageTransition> */}
 
-                <ImageExpand selector={".module--images img"} />
+                {/* <ImageExpand selector={".module--images img"} /> */}
               </PageContextProvider>
             </ShopWrapper>
           </LocaleContextProvider>

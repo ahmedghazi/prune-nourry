@@ -14,7 +14,7 @@ const LocalesSwitcher = ({ buttonSize = "regular" }) => {
     <div className='locale-switcher '>
       <ul className='flex gap-05e'>
         {Object.values(i18n).map((item, i) => (
-          <li key={`locale-${i.toString()}`} className={clsx("uppercase")}>
+          <li key={`locale-${i.toString()}`} className='capitalize'>
             <button
               onClick={() => dispatch(item.locale)}
               className={clsx(
@@ -22,7 +22,7 @@ const LocalesSwitcher = ({ buttonSize = "regular" }) => {
                 locale === item.locale ? "is-current" : ""
                 // locale === item.locale ? "is-active" : ""
               )}>
-              {item.label.toUpperCase()}
+              {item.label}
             </button>
           </li>
         ))}

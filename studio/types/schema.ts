@@ -66,6 +66,13 @@ export interface Home extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
+   * Link on click on the slider — `reference`
+   *
+   *
+   */
+  link?: SanityReference<PageModulaire | Project | Home | Infos | News>;
+
+  /**
    * Slider — `array`
    *
    *

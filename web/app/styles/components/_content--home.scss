@@ -2,13 +2,22 @@ html:has(body[data-template="is-home"]),
 body[data-template="is-home"] {
   overflow: hidden;
 }
+body[data-template="is-home"] {
+  header nav {
+    opacity: 0;
+  }
+}
 body[data-template="is-home"] main {
   padding: 0;
 }
 .content-home {
+  cursor: pointer;
   .slide img {
     height: calc(var(--vh) * 100) !important;
     object-fit: cover;
+  }
+  .slick-arrow {
+    display: none !important;
   }
 
   .caption {

@@ -1,29 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import Figure from "../ui/Figure";
-import { ModuleImages } from "@/app/types/schema";
+import FigureComponent from "../ui/Figure";
+import { Figure, ModuleImages } from "@/app/types/schema";
 import Masonry from "react-masonry-css";
+
+type ItemProps = {
+  input: Figure;
+};
+const Item = ({ input }: ItemProps) => {
+  const [active, setActive] = useState<boolean>(false);
+  return (
+    <div
+      className={clsx(
+        "item md:mb-md- cursor-zoom-in",
+        active && "col-span-4 is-active cursor-zoom-out"
+      )}
+      onClick={() => setActive(!active)}>
+      <FigureComponent asset={input.image?.asset} width={1000} />
+    </div>
+  );
+};
 
 type Props = {
   input: ModuleImages;
 };
 
 const ModuleImagesUI = ({ input }: Props): JSX.Element => {
-  const { items, gridSize, gridType } = input;
+  const { items, gridSize } = input;
 
   return (
-    <section className={clsx("module module--images mb-md-")}>
-      {gridType === "default" && (
-        <div className={clsx("grid gap-md", `md:grid-cols-${gridSize}`)}>
-          {items?.map((item, i) => (
-            <div className='item md:mb-md cursor-zoom-in' key={i}>
-              <Figure key={i} asset={item.image?.asset} />
-            </div>
-          ))}
-        </div>
-      )}
+    <section className={clsx("module module--images mb-md")}>
+      {/* {gridType === "default" && ( */}
+      <div
+        className={clsx(
+          "grid gap-md",
+          `md:grid-cols-${gridSize}`,
+          gridSize === 4 && "is-mosaic"
+        )}>
+        {items?.map((item, i) => (
+          <Item key={i} input={item} />
+        ))}
+      </div>
+      {/* )} */}
 
-      {gridType === "masonry" && (
+      {/* {gridType === "masonry" && (
         <Masonry
           breakpointCols={{
             default: 3,
@@ -42,7 +62,7 @@ const ModuleImagesUI = ({ input }: Props): JSX.Element => {
             </div>
           ))}
         </Masonry>
-      )}
+      )} */}
     </section>
   );
 };

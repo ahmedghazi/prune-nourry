@@ -8,6 +8,19 @@
     &:last-child {
       margin-bottom: 0;
     }
+    &.module--images {
+      .is-mosaic .item {
+        &:not(.is-active) img {
+          aspect-ratio: 5 /3 !important;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .item.is-active img {
+      }
+      img {
+      }
+    }
   }
 }
 
