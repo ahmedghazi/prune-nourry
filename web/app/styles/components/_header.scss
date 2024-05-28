@@ -33,6 +33,9 @@ header {
     }
   }
   nav {
+    .locale-switcher button {
+      line-height: 1;
+    }
     a {
       position: relative;
       display: block;

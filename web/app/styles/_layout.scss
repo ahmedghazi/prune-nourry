@@ -8,7 +8,7 @@ body {
   // overflow-y: auto;
   background-color: white;
   color: var(--color-primary);
-  // @include debugFiletY(77px);
+  @include debugFiletY(var(--header-height));
   // @include debugOutline(var(--space-md--mobile));
   transition: opacity 0.2s;
   &.is-loading {

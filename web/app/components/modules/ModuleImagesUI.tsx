@@ -1,16 +1,43 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import FigureComponent from "../ui/Figure";
 import { Figure, ModuleImages } from "@/app/types/schema";
 import Masonry from "react-masonry-css";
+import { publish, subscribe, unsubscribe } from "pubsub-js";
 
 type ItemProps = {
   input: Figure;
 };
 const Item = ({ input }: ItemProps) => {
   const [active, setActive] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const token = subscribe("IMAGES_EXPANDE", (e, d) => {
+      if (d !== input.image?.asset._id) {
+        setActive(false);
+      }
+    });
+
+    return () => {
+      unsubscribe(token);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (active) {
+      publish("IMAGES_EXPANDE", input.image?.asset._id);
+      if (ref.current) {
+        ref.current?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [active]);
+
   return (
     <div
+      ref={ref}
       className={clsx(
         "item md:mb-md- cursor-zoom-in",
         active && "col-span-4 is-active cursor-zoom-out"

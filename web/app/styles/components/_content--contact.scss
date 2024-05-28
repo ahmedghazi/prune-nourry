@@ -2,6 +2,11 @@
   input {
     border: none;
   }
+  @media all and (min-width: $md) {
+    .text-lg {
+      transform: translateY(-0.2em);
+    }
+  }
 }
 @media all and (max-width: $md) {
   .content-contact {

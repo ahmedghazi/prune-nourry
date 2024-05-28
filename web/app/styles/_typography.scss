@@ -64,7 +64,12 @@ h1 {
   margin-bottom: 1rem;
   text-transform: uppercase;
 }
-
+article h1 {
+  transform: translateY(-0.1em);
+}
+article time {
+  transform: translateY(-0.3em);
+}
 /* Links */
 a,
 a[aria-current="page"] {
