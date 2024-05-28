@@ -12,10 +12,10 @@ const ModuleExhibitionsUI = ({ input }: Props) => {
   const { items } = input;
 
   return (
-    <section className='module module--press'>
+    <section className='module module--exhibitions'>
       {items?.map((item, i) => (
         // <CardNews key={i} input={item} />
-        <div className='mb-md' key={i}>
+        <div className='mb-header-height' key={i}>
           <CardExhibition input={item} />
         </div>
       ))}

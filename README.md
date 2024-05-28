@@ -16,4 +16,4 @@ https://prune-nourry.vercel.app/
   #- home slider links
   #- alignements h1
   #- alignement fr en
-- projet mosaic 1 seule image expand
+  #- projet mosaic 1 seule image expand
