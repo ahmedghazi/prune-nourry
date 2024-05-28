@@ -26,6 +26,7 @@ import figure from './objects/figure'
 import artwork from './objects/artwork'
 import newsArticle from './objects/newsArticle'
 import exhibition from './objects/exhibition'
+import slideProject from './objects/slideProject'
 
 // import moduleImage from './objects/modules/imageUI'
 import moduleImages from './objects/modules/imagesUI'
@@ -79,6 +80,7 @@ export const schemaTypes = [
   newsArticle,
   newsInstagram,
   exhibition,
+  slideProject,
 
   // moduleImage,
   moduleImages,

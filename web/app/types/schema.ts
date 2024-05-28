@@ -86,7 +86,7 @@ export interface Home extends SanityDocument {
    *
    *
    */
-  slider?: Array<SanityKeyed<Figure>>;
+  slider?: Array<SanityKeyed<SlideProject>>;
 }
 
 /**
@@ -241,8 +241,6 @@ export interface PageModulaire extends SanityDocument {
    */
   modules?: Array<
     | SanityKeyed<ModuleImages>
-    | SanityKeyed<ModuleText>
-    | SanityKeyed<ModuleTexts>
     | SanityKeyed<ModuleArtworks>
     | SanityKeyed<ModulePress>
     | SanityKeyed<ModuleVideo>
@@ -330,8 +328,6 @@ export interface Project extends SanityDocument {
    */
   modules?: Array<
     | SanityKeyed<ModuleImages>
-    | SanityKeyed<ModuleText>
-    | SanityKeyed<ModuleTexts>
     | SanityKeyed<ModuleArtworks>
     | SanityKeyed<ModulePress>
     | SanityKeyed<ModuleVideo>
@@ -962,6 +958,23 @@ export type Exhibition = {
    *
    */
   slider?: Array<SanityKeyed<Figure>>;
+};
+
+export type SlideProject = {
+  _type: "slideProject";
+  /**
+   * image — `figure`
+   *
+   *
+   */
+  image?: Figure;
+
+  /**
+   * link — `reference`
+   *
+   *
+   */
+  link?: SanityReference<Project>;
 };
 
 export type ModuleImages = {

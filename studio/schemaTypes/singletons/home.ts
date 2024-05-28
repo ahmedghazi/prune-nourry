@@ -63,7 +63,7 @@ export default defineType({
       name: 'slider',
       title: 'Slider',
       type: 'array',
-      of: [{type: 'figure'}],
+      of: [{type: 'slideProject'}],
       group: 'editorial',
     }),
   ],

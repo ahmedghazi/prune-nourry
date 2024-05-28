@@ -1,14 +1,8 @@
-import ContentInfos from "@/app/components/ContentInfos";
 import ContentNews from "@/app/components/ContentNews";
 import website from "@/app/config/website";
-import { Infos, News } from "@/app/types/schema";
+import { News } from "@/app/types/schema";
 import { getClient } from "@/app/utils/sanity-client";
-import {
-  getInfos,
-  getNews,
-  infosQuery,
-  newsQuery,
-} from "@/app/utils/sanity-queries";
+import { getNews, newsQuery } from "@/app/utils/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React from "react";

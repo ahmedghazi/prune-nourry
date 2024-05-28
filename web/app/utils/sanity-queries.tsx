@@ -77,7 +77,14 @@ export const homeQuery = groq`*[_type == "home"][0]{
     slug
   },
    slider[]{
-    ${figure}
+    ...,
+    link->{
+      _type,
+      slug
+    },
+    images{
+      ${figure}
+    }
   }
 }`;
 export async function getHome(): Promise<Home> {
