@@ -1,7 +1,7 @@
 export default [
   {type: 'moduleImages'},
-  {type: 'moduleText'},
-  {type: 'moduleTexts'},
+  // {type: 'moduleText'},
+  // {type: 'moduleTexts'},
   {type: 'moduleArtworks'},
   {type: 'modulePress'},
   {type: 'moduleVideo'},

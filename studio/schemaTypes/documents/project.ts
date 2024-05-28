@@ -60,12 +60,14 @@ export default defineType({
       type: 'string',
       title: 'Soustitre',
       group: 'editorial',
+      hidden: true,
     }),
     defineField({
       name: 'year',
       type: 'string',
       title: 'Année',
       group: 'editorial',
+      hidden: true,
     }),
 
     defineField({

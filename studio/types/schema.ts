@@ -627,7 +627,9 @@ export type LinkInternal = {
    *
    *
    */
-  link?: SanityReference<Project | PageModulaire | Home | Infos | News>;
+  link?: SanityReference<
+    PageModulaire | Project | Home | Infos | News | Contact
+  >;
 };
 
 export type LinkModal = {
@@ -1064,13 +1066,6 @@ export type ModuleProjects = {
    *
    */
   title?: string;
-
-  /**
-   * Style — `string`
-   *
-   *
-   */
-  layout?: "mosaic" | "index";
 
   /**
    * items — `array`

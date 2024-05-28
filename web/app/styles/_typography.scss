@@ -113,6 +113,11 @@ p,
     text-underline-position: under;
   }
 }
+.text-lg .text {
+  a {
+    text-decoration: none;
+  }
+}
 
 .ellipsis {
   overflow: hidden;

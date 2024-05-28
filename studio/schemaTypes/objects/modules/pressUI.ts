@@ -3,7 +3,7 @@ import {defineField} from 'sanity'
 
 export default defineField({
   name: 'modulePress',
-  title: 'Press UI',
+  title: 'Press',
   type: 'object',
   icon: IoNewspaperOutline,
   fields: [

@@ -6,26 +6,26 @@ export default defineField({
   title: 'Projets',
   type: 'object',
   icon: ThListIcon,
-  initialValue: {
-    layout: 'mosaic',
-  },
+  // initialValue: {
+  //   layout: 'mosaic',
+  // },
   fields: [
     defineField({
       name: 'title',
       type: 'string',
     }),
-    defineField({
-      name: 'layout',
-      title: 'Style',
-      type: 'string',
-      options: {
-        list: [
-          {title: 'Mosaic', value: 'mosaic'},
-          {title: 'Index', value: 'index'},
-        ], // <-- predefined values
-        // layout: 'radio', // <-- defaults to 'dropdown'
-      },
-    }),
+    // defineField({
+    //   name: 'layout',
+    //   title: 'Style',
+    //   type: 'string',
+    //   options: {
+    //     list: [
+    //       {title: 'Mosaic', value: 'mosaic'},
+    //       {title: 'Index', value: 'index'},
+    //     ], // <-- predefined values
+    //     // layout: 'radio', // <-- defaults to 'dropdown'
+    //   },
+    // }),
     defineField({
       name: 'items',
       type: 'array',

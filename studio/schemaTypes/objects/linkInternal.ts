@@ -28,11 +28,12 @@ export default defineField({
       type: 'reference',
       weak: true,
       to: [
-        {type: 'project'},
         {type: 'pageModulaire'},
+        {type: 'project'},
         {type: 'home'},
         {type: 'infos'},
         {type: 'news'},
+        {type: 'contact'},
       ],
     }),
   ],
