@@ -51,6 +51,9 @@
     }
     .item {
       // margin-bottom: 0.5em;
+      .title {
+        transform: translateY(-0.1em);
+      }
       a:hover {
         text-decoration: none;
         .image {

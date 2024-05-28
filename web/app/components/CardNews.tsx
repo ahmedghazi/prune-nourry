@@ -13,7 +13,7 @@ const CardNews = ({ input }: Props) => {
     <article className='card--news mb-lg'>
       <div className='grid md:grid-cols-12 gap-sm md:gap-md'>
         <aside className='md:col-span-4 order-2 md:order-1'>
-          <div className='md:sticky md:top-header-height  '>
+          <div className='md:sticky- md:top-header-height-  '>
             <time dateTime={input.date} className='mb-05e block'>
               {_date(input.date)}
             </time>
