@@ -21,6 +21,9 @@ header {
     align-self: end;
   }
 
+  button svg {
+    min-height: 13px;
+  }
   button.cart-menu {
     line-height: 1;
   }
