@@ -17,9 +17,20 @@
           object-fit: cover;
         }
       }
-      .item.is-active img {
+      .controls {
+        position: absolute;
+        inset: 0;
+        display: flex;
       }
-      img {
+      button {
+        width: 50%;
+        height: 100%;
+        &.prev {
+          cursor: url("/icon-arrow-w.svg"), w-resize;
+        }
+        &.next {
+          cursor: url("/icon-arrow-e.svg"), w-resize;
+        }
       }
     }
     &.module--exhibitions {
