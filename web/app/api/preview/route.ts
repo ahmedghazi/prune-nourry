@@ -10,12 +10,16 @@ export async function GET(request: Request) {
   // const target = type === "project" ? `/project/${slug}` : `/${slug}`
   let target = "";
   switch (type) {
-    case "project":
-      target = `/project/${slug}`;
-      break;
     case "home":
       target = `/`;
       break;
+    case "project":
+      target = `/project/${slug}`;
+      break;
+    case "product":
+      target = `/product/${slug}`;
+      break;
+
     default:
       target = `/${slug}`;
       break;

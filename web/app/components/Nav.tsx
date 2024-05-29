@@ -39,7 +39,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
     const hasSubMenu = input.subMenu && input.subMenu.length > 0;
     if (!hasSubMenu) return;
 
-    e.preventDefault();
+    // e.preventDefault();
     if (ref && ref.current) ref.current.classList.toggle("is-active");
   };
 
@@ -51,6 +51,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
         onClick={_onClick}
         className={clsx(
           "",
+          _isCurrent(_linkResolver(input.link?.link)) && "is-current",
           !hasSubmenu && _isCurrent(_linkResolver(input.link?.link))
             ? "is-current"
             : ""

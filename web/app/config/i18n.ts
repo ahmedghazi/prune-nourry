@@ -18,6 +18,7 @@ const i18n = {
     back: "Retour",
     addToCart: "Ajout au panier",
     viewCart: "Aller au panier",
+    buyAt: "Acheter chez",
     searchResultFor: "Résultats pour",
   },
   en: {
@@ -37,6 +38,7 @@ const i18n = {
     back: "Back",
     addToCart: "Add to cart",
     viewCart: "View cart",
+    buyAt: "Buy at",
     searchResultFor: "Results for",
   },
 };

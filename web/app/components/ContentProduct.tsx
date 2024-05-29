@@ -69,7 +69,7 @@ const ContentProduct = ({ input }: Props) => {
                   href={input.externalProductLink.link}
                   target='_blank'
                   rel='noopener noreferrer'>
-                  {input.externalProductLink.label}
+                  {_localizeText("buyAt")} {input.externalProductLink.label}
                 </a>
               ) : (
                 <AddToCart input={input} />
