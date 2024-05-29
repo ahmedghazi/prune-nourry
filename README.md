@@ -25,7 +25,7 @@ https://prune-nourry.vercel.app/
   #- subscribe newsletter underline?
   #- about même grille que sur projet
   #- module artworks gridSize
-- search result (champs à gauche), résultat même grille que projet, vignette 300px max
+  #- search result (champs à gauche), résultat même grille que projet, vignette 300px max
   #- check ratio image slider sur exhibitions
   #- home au scroll ajouter mosaic projets, slider 1/3 prev, 1/3 click, 1/3 next
 

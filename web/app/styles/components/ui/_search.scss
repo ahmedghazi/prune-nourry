@@ -1,18 +1,32 @@
 .search-wrapper {
-  .input-wrapper {
+  .search-modal {
     position: fixed;
     left: 0;
-    padding-top: 0.5em;
+    top: 0;
+    z-index: -1;
+    padding: var(--header-height) var(--space-lg);
+    width: 100%;
+    height: calc(var(--vh) * 100);
+    background-color: white;
+    font-size: var(--text-lg);
     transform: translateY(-100%);
     opacity: 0;
     transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
     pointer-events: none;
-    background-color: white;
     &.is-active {
       transform: translateY(0%);
       opacity: 1;
       pointer-events: all;
     }
+  }
+  .input-wrapper {
+    // position: fixed;
+    // left: 0;
+    // padding-top: 0.5em;
+    font-size: var(--text-lg);
+
+    background-color: white;
+
     input {
       width: 100%;
       border-width: 2px;
@@ -20,9 +34,9 @@
     .btn--close {
       position: absolute;
       right: 0;
-      top: 26%;
-      width: 0.7em;
-      height: 0.7em;
+      // top: 26%;
+      width: 1em;
+      height: 1em;
       svg {
         width: 100%;
         height: 100%;
@@ -30,17 +44,17 @@
       }
     }
   }
-  .modal {
-    position: fixed;
-    inset: 0;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: white;
-    padding: var(--header-height) var(--space-lg);
-    overflow-y: auto;
+  .results {
+    // position: fixed;
+    // inset: 0;
+    // left: 0;
+    // top: 0;
+    // right: 0;
+    // bottom: 0;
+    // z-index: -1;
+    // background-color: white;
+    // padding: var(--header-height) var(--space-lg);
+    // overflow-y: auto;
 
     .btn--close {
       position: absolute;

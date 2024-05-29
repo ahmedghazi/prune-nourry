@@ -28,10 +28,10 @@ type SearchResultItemProps = {
 const SearchResultItem = ({ input }: SearchResultItemProps) => (
   <div className='item'>
     <Link href={_linkResolver(input)}>
-      <div className='grid md:grid-cols-2'>
-        <div className='title'>{_localizeField(input.title)}</div>
-        <div>
-          <div className='image'>
+      <div className='grid md:grid-cols-12'>
+        <div className='title col-span-4'>{_localizeField(input.title)}</div>
+        <div className='col-span-3'>
+          <div className='image '>
             {input.imageCover && (
               <Figure
                 asset={input.imageCover?.asset}
@@ -156,66 +156,74 @@ const Search = (props: Props) => {
         </div>
         <div className='sm-only'>{_localizeText("search")}</div>
       </button>
-      <form className='search' onSubmit={_handleSubmit}>
-        <div
-          className={clsx("input-wrapper", active && "is-active")}
-          ref={refInputWrapper}>
-          <input
-            type='search'
-            ref={refInput}
-            placeholder={_localizeText("search")}
-            name='term'
-            // onChange={changeHandler}
-            onInput={changeHandler}
-            value={term}
-          />
-          <input type='submit' hidden />
-          <button onClick={() => _reset()} className='btn--close'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              width='33.43'
-              height='33.42'
-              viewBox='0 0 33.43 33.42'>
-              <polygon
-                points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
-                fill='#222221'
+      {active && (
+        <div className={clsx("search-modal", active && "is-active")}>
+          <form className='search' onSubmit={_handleSubmit}>
+            <div className={clsx("input-wrapper")} ref={refInputWrapper}>
+              <input
+                type='search'
+                ref={refInput}
+                placeholder={_localizeText("search")}
+                name='term'
+                // onChange={changeHandler}
+                onInput={changeHandler}
+                value={term}
               />
-            </svg>
-          </button>
-        </div>
-        {/* <div className='py-md bg-red'>term: {term}</div> */}
-      </form>
-      {searchResult.length > 0 && (
-        <div className='modal'>
-          <div className='inner'>
-            <button className='btn--close' onClick={_reset}>
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='33.43'
-                height='33.42'
-                viewBox='0 0 33.43 33.42'>
-                <title>Fichier 4</title>
-                <g
-                  id='c7152e74-87fb-4817-b3ee-eaa51e10c83d'
-                  data-name='Calque 2'>
-                  <g
-                    id='b684b04e-e69c-4b1f-9f12-178946f473e9'
-                    data-name='Calque 1'>
-                    <polygon
-                      points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
-                      fill='#222221'
-                    />
-                  </g>
-                </g>
-              </svg>
-            </button>
-            <div className='body text-lg'>
-              {searchResult.map((item, i) => (
-                <SearchResultItem key={i} input={item} />
-              ))}
+              <input type='submit' hidden />
+              <button onClick={() => _reset()} className='btn--close'>
+                <svg
+                  xmlns='http://www.w3.org/2000/svg'
+                  width='33.43'
+                  height='33.42'
+                  viewBox='0 0 33.43 33.42'>
+                  <polygon
+                    points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
+                    fill='#222221'
+                  />
+                </svg>
+              </button>
             </div>
-            {/* <pre>{JSON?.stringify(searchResult, null, 2)}</pre> */}
-          </div>
+            {/* <div className='py-md bg-red'>term: {term}</div> */}
+          </form>
+          {searchResult.length > 0 && (
+            <div className='results'>
+              <div className='header py-md'>
+                <div className='label'>
+                  {`${_localizeText("searchResultFor")}: ${term}`}
+                </div>
+
+                {/* <button className='btn--close' onClick={_reset}>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='33.43'
+                    height='33.42'
+                    viewBox='0 0 33.43 33.42'>
+                    <title>Fichier 4</title>
+                    <g
+                      id='c7152e74-87fb-4817-b3ee-eaa51e10c83d'
+                      data-name='Calque 2'>
+                      <g
+                        id='b684b04e-e69c-4b1f-9f12-178946f473e9'
+                        data-name='Calque 1'>
+                        <polygon
+                          points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
+                          fill='#222221'
+                        />
+                      </g>
+                    </g>
+                  </svg>
+                </button> */}
+              </div>
+              <div className='inner'>
+                <div className='body text-lg'>
+                  {searchResult.map((item, i) => (
+                    <SearchResultItem key={i} input={item} />
+                  ))}
+                </div>
+                {/* <pre>{JSON?.stringify(searchResult, null, 2)}</pre> */}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
