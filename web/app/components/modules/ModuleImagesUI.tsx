@@ -49,12 +49,17 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
     }
   }, [active]);
 
+  const imageRatio =
+    input.image?.asset && input.image?.asset.metadata.dimensions.aspectRatio > 1
+      ? "is-landscape"
+      : "is-portrait";
   return (
     <div
       ref={ref}
       className={clsx(
         "item md:mb-md- cursor-zoom-in",
-        active && "col-span-4 is-active cursor-zoom-out"
+        active && "col-span-4 is-active cursor-zoom-out",
+        imageRatio
       )}
       onClick={() => setActive(!active)}>
       <FigureComponent asset={input.image?.asset} width={1000} />
@@ -76,6 +81,25 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
                 scope: scope,
               })
             }></button>
+          <button className='btn--close' onClick={() => setActive(false)}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='33.43'
+              height='33.42'
+              viewBox='0 0 33.43 33.42'>
+              <title>Fichier 4</title>
+              <g id='c7152e74-87fb-4817-b3ee-eaa51e10c83d' data-name='Calque 2'>
+                <g
+                  id='b684b04e-e69c-4b1f-9f12-178946f473e9'
+                  data-name='Calque 1'>
+                  <polygon
+                    points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
+                    fill='#222221'
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
         </div>
       )}
     </div>

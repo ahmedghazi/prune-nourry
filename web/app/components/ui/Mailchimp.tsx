@@ -99,7 +99,7 @@ const Mailchimp = (props: Props) => {
   return (
     <form onSubmit={handleSubmit} className={clsx("mailchimp")}>
       {!open && (
-        <button onClick={() => setOpen(true)} className='text-left '>
+        <button onClick={() => setOpen(true)} className='text-left'>
           {_localizeText("openNewsletter")}
         </button>
       )}

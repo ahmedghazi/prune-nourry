@@ -12,11 +12,13 @@ const CardArtwork = ({ input }: Props) => {
   return (
     <article className='card--artwork'>
       {input.image && input.image.image && (
-        <Figure
-          asset={input.image.image.asset}
-          width={600}
-          alt={_localizeField(input.title)}
-        />
+        <Link href={_linkResolver(input.link?.link)}>
+          <Figure
+            asset={input.image.image.asset}
+            width={600}
+            alt={_localizeField(input.title)}
+          />
+        </Link>
       )}
       <div className='header'>
         <h2>{_localizeField(input.title)}</h2>

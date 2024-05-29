@@ -118,9 +118,19 @@ p,
     text-underline-position: under;
   }
 }
-.text-lg .text {
+
+.text p,
+.text-lg {
+  button:hover {
+    text-decoration: underline;
+  }
   a {
     text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      // text-decoration-thickness: 2px;
+      text-underline-position: unset;
+    }
   }
 }
 

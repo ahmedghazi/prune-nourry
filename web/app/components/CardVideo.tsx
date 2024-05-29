@@ -2,6 +2,8 @@ import React from "react";
 import { Embed } from "../types/schema";
 import ReactPlayer from "react-player";
 import { _localizeField } from "../utils/utils";
+import website from "../config/website";
+import PlayerVideo from "./ui/PlayerVideo";
 
 type Props = {
   input: Embed;
@@ -9,25 +11,25 @@ type Props = {
 
 const CardVideo = ({ input }: Props) => {
   console.log(input.subTitle);
+  const config = {
+    youtube: {
+      playerVars: {
+        iv_load_policy: 3,
+        cc_load_policy: 0,
+        modestbranding: 1,
+        showinfo: 0,
+        rel: 0,
+        origin: website.url,
+      },
+    },
+    vimeo: {
+      // title: "false",
+    },
+  };
+
   return (
     <article className='card--video'>
-      <div className='media'>
-        {input.url && (
-          <ReactPlayer
-            url={input?.url}
-            light={
-              input.placeholder?.asset.url ? input.placeholder?.asset.url : true
-            }
-            playsinline={true}
-            width={"100%"}
-            height={"100%"}
-            style={{
-              aspectRatio: "5 / 3",
-              background: "black",
-            }}
-          />
-        )}
-      </div>
+      <div className='media'>{input.url && <PlayerVideo input={input} />}</div>
       <div className='header'>
         <h2>{_localizeField(input.title)}</h2>
         {input.subTitle && (

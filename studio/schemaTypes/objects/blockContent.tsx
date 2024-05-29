@@ -74,7 +74,7 @@ export default defineType({
         decorators: [
           {title: 'Text Gray', value: 'text-gray', icon: () => 'G', component: TextGray},
           // {title: 'Strong', value: 'strong'},
-          // {title: 'Emphasis', value: 'em'},
+          {title: 'Emphasis', value: 'em'},
           // {title: 'Underline', value: 'u', icon: () => 'u', component: Underline},
           // {title: 'Outline', value: 'outline', icon: () => 'o', component: Outline},
         ],

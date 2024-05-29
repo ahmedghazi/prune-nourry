@@ -9,12 +9,14 @@ import useShop from "./shop/ShopContext";
 import Qty from "./shop/Qty";
 import { ProductExtend } from "../types/extend";
 import AddToCart from "./shop/AddToCart";
+import { useRouter } from "next/navigation";
 
 type Props = {
   input: ProductExtend;
 };
 
 const ContentProduct = ({ input }: Props) => {
+  const router = useRouter();
   // const { cartItems, setCartItems } = useShop();
   // const [qty, setQty] = useState<number>(1);
 
@@ -60,28 +62,9 @@ const ContentProduct = ({ input }: Props) => {
               </div>
             )}
 
-            {/* <div className='mb-md'>
-              <div className='flex gap-sm'>
-                <label htmlFor='qty' className='capitalize '>
-                  {_localizeText("qty")}
-                </label>
-                <div>
-                  <button onClick={() => setQty(qty - 1 > 0 ? qty - 1 : 1)}>
-                    -
-                  </button>
-                  <input type='number' name='qty' id='' value={qty} readOnly />
-                  <button onClick={() => setQty(qty + 1)}>+</button>
-                </div>
-              </div>
-            </div> */}
             <div className='mb-md'>
               <AddToCart input={input} />
             </div>
-            {/* <div className='mb-md'>
-              <button onClick={() => _onClick()} className='btn'>
-                Add to cart
-              </button>
-            </div> */}
 
             {input.text && (
               <div className='mb-md'>
@@ -101,6 +84,26 @@ const ContentProduct = ({ input }: Props) => {
               <Figure asset={item.image?.asset} />
             </div>
           ))}
+
+          <button className='btn--close' onClick={() => router.back()}>
+            <svg
+              xmlns='http://www.w3.org/2000/svg'
+              width='33.43'
+              height='33.42'
+              viewBox='0 0 33.43 33.42'>
+              <title>Fichier 4</title>
+              <g id='c7152e74-87fb-4817-b3ee-eaa51e10c83d' data-name='Calque 2'>
+                <g
+                  id='b684b04e-e69c-4b1f-9f12-178946f473e9'
+                  data-name='Calque 1'>
+                  <polygon
+                    points='33.43 31.47 18.66 16.7 33.42 1.94 31.47 0 16.71 14.76 1.95 0 0 1.94 14.78 16.71 0.02 31.47 1.97 33.42 16.73 18.66 31.49 33.42 33.43 31.47'
+                    fill='#222221'
+                  />
+                </g>
+              </g>
+            </svg>
+          </button>
         </div>
       </div>
     </article>

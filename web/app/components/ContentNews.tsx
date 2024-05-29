@@ -20,7 +20,7 @@ const ContentNews = ({ input }: Props) => {
     <div className='content-news'>
       <div className='grid md:grid-cols-12 gap-md'>
         <div className='md:col-span-4'>
-          <div className='text-lg'>
+          <div className='text-lg text'>
             {settings.urlNewsletter && (
               <Mailchimp
                 // action='https://club.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'

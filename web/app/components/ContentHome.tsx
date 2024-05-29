@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "./ui/slick-slider/index";
 import { Home } from "../types/schema";
 import Figure from "./ui/Figure";
@@ -8,6 +8,7 @@ import { _linkResolver } from "../utils/utils";
 import Link from "next/link";
 import Masonry from "react-masonry-css";
 import ProjectCard from "./CardProject";
+import { useInView } from "react-intersection-observer";
 
 type Props = {
   input: Home;
@@ -16,6 +17,16 @@ type Props = {
 const ContentHome = ({ input }: Props) => {
   const router = useRouter();
   // console.log(input);
+  const { ref, inView, entry } = useInView({
+    /* Optional options */
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    // console.log(entry, inView);
+    document.body.classList.toggle("is-above-fold", inView);
+  }, [inView]);
+
   const breakpointColumnsObj = {
     default: 3,
     1100: 3,
@@ -43,7 +54,7 @@ const ContentHome = ({ input }: Props) => {
           ))}
         </Slider>
       </section>
-      <section className='project px-lg mb-lg'>
+      <section className='project px-lg mb-lg' ref={ref}>
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className='my-masonry-grid'

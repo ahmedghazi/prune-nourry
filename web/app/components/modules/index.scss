@@ -25,8 +25,13 @@
           // object-position: left;
         }
         &.is-active {
+          &.is-portrait img {
+            max-width: calc(50% - 0.875rem);
+            height: auto !important;
+          }
           img {
-            height: calc(
+            height: 100vh !important;
+            max-height: calc(
               var(--vh) * 100 - calc(var(--header-height) + var(--space-lg))
             ) !important;
             width: auto !important;
@@ -47,6 +52,15 @@
         &.next {
           cursor: url("/icon-arrow-e.svg"), w-resize;
         }
+        &.btn--close {
+          width: auto;
+          height: auto;
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 999;
+          padding: var(--space-md);
+        }
       }
     }
     &.module--exhibitions {
@@ -58,6 +72,8 @@
           var(--vh) * 100 - calc(var(--header-height) + var(--space-lg))
         ) !important;
         width: auto !important;
+        object-fit: contain;
+        object-position: left top;
       }
     }
   }

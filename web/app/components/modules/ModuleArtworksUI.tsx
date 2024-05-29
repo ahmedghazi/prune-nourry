@@ -8,9 +8,9 @@ type Props = {
 };
 
 const ModuleArtworksUI = ({ input }: Props) => {
-  const { items } = input;
+  const { items, gridSize } = input;
   const breakpointColumnsObj = {
-    default: 2,
+    default: gridSize,
     1100: 2,
     700: 2,
     500: 1,

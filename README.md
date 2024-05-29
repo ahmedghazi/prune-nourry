@@ -12,22 +12,22 @@ https://prune-nourry.vercel.app/
 
 - text italic
 - text ...
-- module images si expand ajouter fermer
-- module images expand portrait max 1/2 colonne
+  #- module images si expand ajouter fermer
+  #- module images expand portrait max 1/2 colonne
 - produit externe
-- home ajouter mosaic projets
-- pb video vimeos
+  #- home ajouter mosaic projets
+  #- pb video vimeos
 - module images avec liens dans chaque
-- module artworks pas de contraine ratio, portait ou paysage
-- module artworks toute la carte clickable
-- menu editions > créer module produits
-- page praduit ajouter croix back
-- subscribe newsletter underline?
-- about même grille que sur projet
-- module artworks gridSize
+  #- module artworks pas de contraine ratio, portait ou paysage
+  #- module artworks toute la carte clickable
+  #- menu editions > créer module produits
+  #- page praduit ajouter croix back
+  #- subscribe newsletter underline?
+  #- about même grille que sur projet
+  #- module artworks gridSize
 - search result (champs à gauche), résultat même grille que projet, vignette 300px max
-- check ratio image slider sur exhibitions
-- home au scroll ajouter mosaic projets, slider 1/3 prev, 1/3 click, 1/3 next
+  #- check ratio image slider sur exhibitions
+  #- home au scroll ajouter mosaic projets, slider 1/3 prev, 1/3 click, 1/3 next
 
 - connect mailchimp
   - (FAIT] review font sizes

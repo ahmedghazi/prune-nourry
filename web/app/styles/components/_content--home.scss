@@ -1,15 +1,20 @@
-html:has(body[data-template="is-home"]),
+// html:has(body[data-template="is-home"]),
+// body[data-template="is-home"] {
+//   // overflow: hidden;
+// }
 body[data-template="is-home"] {
-  // overflow: hidden;
-}
-body[data-template="is-home"] {
+  &.is-above-fold header nav {
+    visibility: visible;
+  }
   header nav {
-    opacity: 0;
+    visibility: hidden;
   }
 }
+
 body[data-template="is-home"] main {
   padding: 0;
 }
+
 .content-home {
   cursor: pointer;
   .slide img {
