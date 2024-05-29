@@ -70,8 +70,9 @@ export default defineType({
     // }),
     defineField({
       name: 'imageCover',
-      title: 'Image',
-      type: 'figure',
+      type: 'image',
+      title: 'Image clef',
+      // description: 'Visible on liste pages, project cards (largeur 1400px)',
       group: 'editorial',
     }),
     defineField({

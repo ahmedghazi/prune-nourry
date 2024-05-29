@@ -124,11 +124,16 @@ export interface Infos extends SanityDocument {
   text?: LocaleBlockContent;
 
   /**
-   * Image — `figure`
+   * Image clef — `image`
    *
    *
    */
-  imageCover?: Figure;
+  imageCover?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
 
   /**
    * List — `array`

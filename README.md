@@ -11,13 +11,13 @@ https://prune-nourry.vercel.app/
 ## to do
 
 - text italic
-- text ...
   #- module images si expand ajouter fermer
   #- module images expand portrait max 1/2 colonne
-- produit externe
+  #- produit externe
   #- home ajouter mosaic projets
   #- pb video vimeos
-- module images avec liens dans chaque
+
+- module images avec liens dans chaque ??
   #- module artworks pas de contraine ratio, portait ou paysage
   #- module artworks toute la carte clickable
   #- menu editions > créer module produits
@@ -27,7 +27,7 @@ https://prune-nourry.vercel.app/
   #- module artworks gridSize
   #- search result (champs à gauche), résultat même grille que projet, vignette 300px max
   #- check ratio image slider sur exhibitions
-  #- home au scroll ajouter mosaic projets, slider 1/3 prev, 1/3 click, 1/3 next
+  #- home slider 1/3 prev, 1/3 click, 1/3 next
 
 - connect mailchimp
   - (FAIT] review font sizes
