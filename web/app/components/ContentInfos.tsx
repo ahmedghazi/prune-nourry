@@ -5,6 +5,7 @@ import { _localizeField } from "../utils/utils";
 import { PortableText } from "@portabletext/react";
 import components from "../utils/portableTextComponents";
 import Figure from "./ui/Figure";
+import website from "../config/website";
 
 type Props = {
   input: Infos;
@@ -28,9 +29,9 @@ const ContentInfos = ({ input }: Props) => {
             {input.imageCover && input.imageCover && (
               <div className='mb-md'>
                 <Figure
-                  asset={input.imageCover?.image?.asset}
+                  asset={input.imageCover?.asset}
                   width={1000}
-                  alt={"infos"}
+                  alt={website.title}
                 />
               </div>
             )}
