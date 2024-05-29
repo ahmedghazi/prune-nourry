@@ -490,6 +490,13 @@ export interface Product extends SanityDocument {
   images?: Array<SanityKeyed<Figure>>;
 
   /**
+   * External link — `linkExternal`
+   *
+   * si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url
+   */
+  externalProductLink?: LinkExternal;
+
+  /**
    * Prix — `number`
    *
    * Prix par défaut si pas de variants

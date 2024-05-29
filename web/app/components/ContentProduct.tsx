@@ -63,7 +63,17 @@ const ContentProduct = ({ input }: Props) => {
             )}
 
             <div className='mb-md'>
-              <AddToCart input={input} />
+              {input.externalProductLink ? (
+                <a
+                  className='td-u'
+                  href={input.externalProductLink.link}
+                  target='_blank'
+                  rel='noopener noreferrer'>
+                  {input.externalProductLink.label}
+                </a>
+              ) : (
+                <AddToCart input={input} />
+              )}
             </div>
 
             {input.text && (

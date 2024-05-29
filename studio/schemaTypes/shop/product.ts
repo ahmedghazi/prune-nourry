@@ -109,6 +109,15 @@ export default defineType({
     }),
 
     defineField({
+      name: 'externalProductLink',
+      title: 'External link',
+      type: 'linkExternal',
+      description:
+        'si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url',
+      group: 'shop',
+    }),
+
+    defineField({
       name: 'price',
       title: 'Prix',
       type: 'number',
