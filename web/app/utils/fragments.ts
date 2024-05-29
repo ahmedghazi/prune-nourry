@@ -53,6 +53,17 @@ export const blockContent = `
 	}
 `;
 
+export const projetCard = `
+	_id,
+  _type,
+  slug,
+  imageCover{
+    ${figure}
+  },
+  title,
+
+`;
+
 export const productCard = `
 	_id,
   _type,

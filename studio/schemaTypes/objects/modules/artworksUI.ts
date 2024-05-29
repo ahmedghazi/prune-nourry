@@ -22,5 +22,11 @@ export default defineField({
         },
       ],
     }),
+    defineField({
+      name: 'gridSize',
+      type: 'number',
+      description: 'Number of columns',
+      initialValue: 2,
+    }),
   ],
 })

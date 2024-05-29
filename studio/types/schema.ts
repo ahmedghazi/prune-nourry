@@ -78,6 +78,13 @@ export interface Home extends SanityDocument {
    *
    */
   slider?: Array<SanityKeyed<SlideProject>>;
+
+  /**
+   * projects — `array`
+   *
+   *
+   */
+  projects?: Array<SanityKeyedReference<Project>>;
 }
 
 /**
@@ -1185,6 +1192,13 @@ export type ModuleArtworks = {
    *
    */
   items?: Array<SanityKeyed<Artwork>>;
+
+  /**
+   * gridSize — `number`
+   *
+   * Number of columns
+   */
+  gridSize?: number;
 };
 
 export type ModuleExhibitions = {

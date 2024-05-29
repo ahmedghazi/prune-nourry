@@ -1,6 +1,6 @@
 html:has(body[data-template="is-home"]),
 body[data-template="is-home"] {
-  overflow: hidden;
+  // overflow: hidden;
 }
 body[data-template="is-home"] {
   header nav {
@@ -17,7 +17,8 @@ body[data-template="is-home"] main {
     object-fit: cover;
   }
   .slick-arrow {
-    display: none !important;
+    // display: none !important;
+    width: 33vw;
   }
 
   .caption {

@@ -43,7 +43,7 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
       publish("IMAGES_EXPAND", input.image?.asset._id);
       if (ref.current) {
         ref.current?.scrollIntoView({
-          behavior: "smooth",
+          // behavior: "smooth",
         });
       }
     }

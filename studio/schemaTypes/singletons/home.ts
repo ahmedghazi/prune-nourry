@@ -66,6 +66,17 @@ export default defineType({
       of: [{type: 'slideProject'}],
       group: 'editorial',
     }),
+    defineField({
+      name: 'projects',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'project'}],
+        },
+      ],
+      group: 'editorial',
+    }),
   ],
   preview: {
     prepare() {

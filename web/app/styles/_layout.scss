@@ -8,7 +8,7 @@ body {
   // overflow-y: auto;
   background-color: white;
   color: var(--color-primary);
-  // @include debugFiletY(var(--header-height));
+  // @include debugFiletY(67.2px);
   // @include debugOutline(var(--space-md--mobile));
   transition: opacity 0.2s;
   &.is-loading {
@@ -19,8 +19,7 @@ body {
   // background-size: 1300px;
   // background-repeat: no-repeat;
 }
-#page {
-}
+
 main {
   min-height: var(--app-height, 100vh);
   position: relative;

@@ -10,6 +10,25 @@ https://prune-nourry.vercel.app/
 
 ## to do
 
+- text italic
+- text ...
+- module images si expand ajouter fermer
+- module images expand portrait max 1/2 colonne
+- produit externe
+- home ajouter mosaic projets
+- pb video vimeos
+- module images avec liens dans chaque
+- module artworks pas de contraine ratio, portait ou paysage
+- module artworks toute la carte clickable
+- menu editions > créer module produits
+- page praduit ajouter croix back
+- subscribe newsletter underline?
+- about même grille que sur projet
+- module artworks gridSize
+- search result (champs à gauche), résultat même grille que projet, vignette 300px max
+- check ratio image slider sur exhibitions
+- home au scroll ajouter mosaic projets, slider 1/3 prev, 1/3 click, 1/3 next
+
 - connect mailchimp
   - (FAIT] review font sizes
   - (FAIT] image expand
@@ -17,11 +36,8 @@ https://prune-nourry.vercel.app/
   - (FAIT] alignements h1
   - (FAIT] alignement fr en
   - (FAIT] projet mosaic 1 seule image expand
-
-On peu ensuite passer d’image en image
-à l’aide des flèches sur la grande image, ou cliquer sur une autre image de la mosaïque qui prend alors sa place en grand.
-
-- la demande est un peu tech au vu de la construction de ces modules
+  - (FAIT] On peu ensuite passer d’image en image
+    à l’aide des flèches sur la grande image, ou cliquer sur une autre image de la mosaïque qui prend alors sa place en grand.
 
 ARTWORKS
 

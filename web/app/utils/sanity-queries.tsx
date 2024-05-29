@@ -23,6 +23,7 @@ import {
   moduleSlider,
   moduleVideo,
   moduleVideos,
+  projetCard,
   seo,
 } from "./fragments";
 import { cache } from "react";
@@ -85,6 +86,9 @@ export const homeQuery = groq`*[_type == "home"][0]{
     images{
       ${figure}
     }
+  },
+  projects[]->{
+    ${projetCard}
   }
 }`;
 export async function getHome(): Promise<Home> {
