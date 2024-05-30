@@ -2,18 +2,33 @@ import React from "react";
 import { ModuleVideo, ModuleVideos } from "@/app/types/schema";
 import ReactPlayer from "react-player/lazy";
 import CardVideo from "../CardVideo";
+import Masonry from "react-masonry-css";
 
 type Props = {
   input: ModuleVideos;
 };
 const ModuleVideoUI = ({ input }: Props) => {
   const { items } = input;
+  const breakpointColumnsObj = {
+    default: 2,
+    1100: 2,
+    700: 2,
+    500: 1,
+  };
+
   return (
     <section className='module module--videos mb-md'>
-      <div className='grid md:grid-cols-2 gap-y-sm  md:gap-md'>
-        {items?.map((item, i) => (
-          <CardVideo key={i} input={item} />
-        ))}
+      <div className='grid- md:grid-cols-2 gap-y-sm  md:gap-md'>
+        <Masonry
+          breakpointCols={breakpointColumnsObj}
+          className='my-masonry-grid'
+          columnClassName='my-masonry-grid_column'>
+          {items?.map((item, i) => (
+            <div className='mb-md' key={i}>
+              <CardVideo input={item} />
+            </div>
+          ))}
+        </Masonry>
       </div>
     </section>
   );
