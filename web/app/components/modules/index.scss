@@ -14,12 +14,17 @@
           &.is-active {
             &.is-portrait img {
               max-width: calc(50% - 0.875rem);
+              max-height: calc(
+                var(--vh) * 100 - calc(var(--header-height) + var(--space-lg))
+              );
             }
           }
         }
       }
-      .is-mosaic .item {
+      .item {
         scroll-margin-top: var(--header-height);
+      }
+      .is-mosaic .item {
         &:not(.is-active) img {
           aspect-ratio: 5 / 3 !important;
           height: 100%;
