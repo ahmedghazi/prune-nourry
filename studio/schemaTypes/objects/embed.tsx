@@ -73,6 +73,11 @@ export default {
       type: 'url',
       description: 'url publique du media ex: https://www.youtube.com/watch?v=exTZ9vB6ZeE',
     },
+    {
+      name: 'aspectRatio',
+      type: 'string',
+      description: 'Ratio de la video. Examples de format: 5 / 3 ou 16 / 9 ou 4 / 3',
+    },
   ],
   components: {
     preview: EmbedPreview, // Add custom preview component

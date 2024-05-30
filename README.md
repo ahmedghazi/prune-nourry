@@ -10,7 +10,12 @@ https://prune-nourry.vercel.app/
 
 ## to do
 
+#- post insta taille image portrait
+#- pb expand si pas mosaic
+
+- ratio video
 - text italic
+
   #- module images si expand ajouter fermer
   #- module images expand portrait max 1/2 colonne
   #- produit externe

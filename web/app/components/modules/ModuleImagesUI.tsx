@@ -11,12 +11,21 @@ type ItemProps = {
   index: number;
   prevIndex: number;
   nextIndex: number;
+  canExpand: boolean;
 };
-const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
-  console.log(input);
+const Item = ({
+  input,
+  index,
+  scope,
+  prevIndex,
+  nextIndex,
+  canExpand,
+}: ItemProps) => {
+  // console.log(input);
   const [active, setActive] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   // console.log({ index, prevIndex, nextIndex });
+  console.log(canExpand);
   useEffect(() => {
     const tokenA = subscribe("IMAGES_EXPAND", (e, d) => {
       console.log(d);
@@ -40,7 +49,7 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
   }, []);
 
   useEffect(() => {
-    if (active) {
+    if (active && canExpand) {
       publish("IMAGES_EXPAND", input.image?.asset._id);
       if (ref.current) {
         ref.current?.scrollIntoView({
@@ -58,7 +67,8 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
     <div
       ref={ref}
       className={clsx(
-        "item md:mb-md- cursor-zoom-in",
+        "item ",
+        canExpand && "cursor-zoom-in",
         active && "col-span-4 is-active cursor-zoom-out",
         imageRatio
       )}
@@ -126,6 +136,7 @@ const ModuleImagesUI = ({ input }: Props): JSX.Element => {
           <Item
             key={item._key}
             input={item}
+            canExpand={gridSize ? gridSize > 2 : false}
             index={i}
             scope={scope}
             prevIndex={i > 0 ? i - 1 : items.length - 1}
