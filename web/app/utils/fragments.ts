@@ -9,6 +9,10 @@ export const figure = `
 	...,
 	image{
 		asset->
+	},
+	link->{
+		_type,
+		slug
 	}
 `;
 

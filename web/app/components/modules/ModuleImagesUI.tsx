@@ -13,6 +13,7 @@ type ItemProps = {
   nextIndex: number;
 };
 const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
+  console.log(input);
   const [active, setActive] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   // console.log({ index, prevIndex, nextIndex });
@@ -25,7 +26,7 @@ const Item = ({ input, index, scope, prevIndex, nextIndex }: ItemProps) => {
     });
 
     const tokenB = subscribe("IMAGES_CHANGE", (e, d) => {
-      console.log(index, scope, d.index);
+      // console.log(index, scope, d.index);
       if (d.scope !== scope) return;
       if (index === d.index) {
         setActive(true);

@@ -41,5 +41,20 @@ export default defineField({
       title: 'Caption',
       type: 'string',
     }),
+    defineField({
+      name: 'link',
+      title: 'Link',
+      description: 'optional',
+      type: 'reference',
+      weak: true,
+      to: [
+        {type: 'pageModulaire'},
+        {type: 'project'},
+        {type: 'home'},
+        {type: 'infos'},
+        {type: 'news'},
+        {type: 'contact'},
+      ],
+    }),
   ],
 })

@@ -848,6 +848,15 @@ export type Figure = {
    *
    */
   caption?: string;
+
+  /**
+   * Link — `reference`
+   *
+   * optional
+   */
+  link?: SanityReference<
+    PageModulaire | Project | Home | Infos | News | Contact
+  >;
 };
 
 export type Artwork = {
