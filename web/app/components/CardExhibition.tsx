@@ -17,10 +17,6 @@ const CardExhibition = ({ input }: Props) => {
     threshold: 0,
   });
 
-  // useEffect(() => {
-
-  // }, [inView]);
-
   return (
     <article className='content-exhibition' ref={ref}>
       <div className='grid md:grid-cols-12 gap-md'>
