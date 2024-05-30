@@ -8,6 +8,7 @@ type Props = {
 };
 
 const PlayerVideo = ({ input }: Props) => {
+  const { url, placeholder, aspectRatio } = input;
   const config = {
     youtube: {
       playerVars: {
@@ -27,17 +28,15 @@ const PlayerVideo = ({ input }: Props) => {
   return (
     <div className='player-video'>
       <ReactPlayer
-        url={input?.url}
+        url={url}
         config={config}
-        light={
-          input.placeholder?.asset.url ? input.placeholder?.asset.url : true
-        }
+        light={placeholder?.asset.url ? placeholder?.asset.url : true}
         playsinline={true}
         controls={true}
         width={"100%"}
         height={"100%"}
         style={{
-          aspectRatio: "5 / 3",
+          aspectRatio: aspectRatio || "5 / 3",
           background: "black",
         }}
       />
