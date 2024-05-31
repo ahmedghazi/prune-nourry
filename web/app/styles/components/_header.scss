@@ -124,9 +124,13 @@ body[data-template="is-product"] header {
       display: none;
       font-size: var(--text-lg--mobile);
       z-index: 1;
+      overflow-y: auto;
       &.is-active {
         display: block;
       }
+      // & > ul{
+
+      // }
       ul {
         height: 100%;
         // background-color: red;
