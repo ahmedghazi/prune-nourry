@@ -11,10 +11,13 @@ https://prune-nourry.vercel.app/
 ## to do
 
 - connect mailchimp
-- dans projet liens artworks
-- icon play 3x grand
-- media légendes (crédits)
+  #- dans projet liens artworks
+  #- icon play 3x grand
+  #- media légendes (crédits)
 - text italic, gras
+  #- mobile click sur current page fermer le burger
+  #- mobile cacher le sous menu
+  #- module images en mode lada
 
 #- post insta taille image portrait
 #- pb expand si pas mosaic

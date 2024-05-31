@@ -30,16 +30,16 @@ const portableTextComponents: PortableTextComponents = {
     //   console.log(value)
     //   return <img src={urlFor(value.asset)} alt="some image" />
     // },
-    textIcon: ({ value }) => {
-      return (
-        <Image
-          src={urlFor(value.icon.asset, 60)}
-          alt='icon'
-          width={60}
-          height={60}
-        />
-      );
-    },
+    // textIcon: ({ value }) => {
+    //   return (
+    //     <Image
+    //       src={urlFor(value.icon.asset, 60)}
+    //       alt='icon'
+    //       width={60}
+    //       height={60}
+    //     />
+    //   );
+    // },
   },
 
   marks: {
@@ -66,6 +66,8 @@ const portableTextComponents: PortableTextComponents = {
     "text-gray": ({ children, value }) => (
       <span className='text-gray'>{children}</span>
     ),
+    em: ({ children, value }) => <em>{children}</em>,
+    strong: ({ children, value }) => <strong>{children}</strong>,
   },
 };
 

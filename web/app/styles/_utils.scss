@@ -130,3 +130,11 @@ ul.list-with-comma {
   // background: grey;
   margin-bottom: calc(var(--space-md));
 }
+
+.react-player__play-icon {
+  border-width: 30px 0px 30px 50px !important;
+  // border-top: 30px solid transparent !important;
+  // border-bottom: 30px solid transparent !important;
+
+  // border-left: 30px solid white !important;
+}

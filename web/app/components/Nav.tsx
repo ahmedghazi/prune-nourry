@@ -13,7 +13,7 @@ import clsx from "clsx";
 import Search from "./ui/Search";
 import LocalesSwitcher from "./ui/LocaleSwitcher";
 import CartMenu from "./shop/CartMenu";
-import { subscribe, unsubscribe } from "pubsub-js";
+import { publish, subscribe, unsubscribe } from "pubsub-js";
 
 const SubMenuItem = ({ input }: LinkInternal | LinkExternal | any) => {
   const pathname = usePathname();
@@ -36,6 +36,12 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
   const _isCurrent = (path: string) => path === pathname;
 
   const _onClick = (e: React.MouseEvent<HTMLElement>) => {
+    if (window.innerWidth < 1080) {
+      if (_isCurrent(_linkResolver(input.link?.link))) {
+        publish("BURGER.CLOSE");
+      }
+    }
+
     const hasSubMenu = input.subMenu && input.subMenu.length > 0;
     if (!hasSubMenu) return;
 

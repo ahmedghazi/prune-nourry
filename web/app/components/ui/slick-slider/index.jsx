@@ -20,6 +20,7 @@ const Slider = ({ children, settingsOverride }) => {
   useEffect(() => {
     // console.log(sliderRef)
     const token = PubSub.subscribe("SLIDER_INDEX", (e, d) => {
+      console.log(d);
       sliderRef.current.slickGoTo(d);
     });
 

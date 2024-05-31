@@ -60,11 +60,11 @@ export default defineType({
         //   value: 'text-lg',
         //   component: TextL,
         // },
-        {
-          title: 'Texte indenté',
-          value: 'text-index',
-          component: TextIndent,
-        },
+        // {
+        //   title: 'Texte indenté',
+        //   value: 'text-index',
+        //   component: TextIndent,
+        // },
       ],
       lists: [{title: 'Bullet', value: 'bullet'}],
       // Marks let you mark up inline text in the block editor.
@@ -73,7 +73,7 @@ export default defineType({
         // preference or highlighting by editors.
         decorators: [
           {title: 'Text Gray', value: 'text-gray', icon: () => 'G', component: TextGray},
-          // {title: 'Strong', value: 'strong'},
+          {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           // {title: 'Underline', value: 'u', icon: () => 'u', component: Underline},
           // {title: 'Outline', value: 'outline', icon: () => 'o', component: Outline},

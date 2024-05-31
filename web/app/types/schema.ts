@@ -334,6 +334,13 @@ export interface Project extends SanityDocument {
   text?: LocaleBlockContent;
 
   /**
+   * link — `linkInternal`
+   *
+   *
+   */
+  link?: LinkInternal;
+
+  /**
    * Modules — `array`
    *
    * Zone de contenu Modulaire (images, textes, embed)

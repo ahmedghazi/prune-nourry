@@ -136,6 +136,13 @@ export const projectQuery = groq`
   text{
     ${blockContent}
   },
+  link{
+    ...,
+    link->{
+      _type,
+      slug
+    }
+  },
   modules[]{
     ...,
     ${moduleImages},

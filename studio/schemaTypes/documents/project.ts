@@ -92,6 +92,12 @@ export default defineType({
     }),
 
     defineField({
+      name: 'link',
+      type: 'linkInternal',
+      group: 'editorial',
+    }),
+
+    defineField({
       name: 'modules',
       title: 'Modules',
       description: 'Zone de contenu Modulaire (images, textes, embed)',

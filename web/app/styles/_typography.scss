@@ -4,6 +4,24 @@
     url("./fonts/MNKYKlaus-Medium.woff2") format("woff2");
   font-display: swap;
 }
+@font-face {
+  font-family: "MNKYKlaus-MediumItalic";
+  src: url("./fonts/MNKYKlaus-MediumItalic.woff") format("woff"),
+    url("./fonts/MNKYKlaus-MediumItalic.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "MNKYKlaus-Bold";
+  src: url("./fonts/MNKYKlaus-Bold.woff") format("woff"),
+    url("./fonts/MNKYKlaus-Bold.woff2") format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: "MNKYKlaus-BoldItalic";
+  src: url("./fonts/MNKYKlaus-BoldItalic.woff") format("woff"),
+    url("./fonts/MNKYKlaus-BoldItalic.woff2") format("woff2");
+  font-display: swap;
+}
 
 //ABCDiatype-Regular
 body {
@@ -25,6 +43,17 @@ body {
 .serif {
   font-family: var(--font-secondary);
   letter-spacing: 0.02em;
+}
+em {
+  font-family: var(--font-primary-i);
+}
+strong,
+.strong {
+  font-family: var(--font-primary-b);
+}
+strong em,
+em strong {
+  font-family: var(--font-primary-bi);
 }
 
 html {

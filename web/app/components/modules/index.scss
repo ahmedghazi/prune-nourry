@@ -1,7 +1,7 @@
 .media .modules {
   section {
     width: 100%;
-    // margin-bottom: var(--space-xl);
+    margin-bottom: var(--header-height);
     &:empty {
       display: none;
     }
@@ -24,10 +24,11 @@
           }
         }
       }
-      .item {
+      .slider {
         scroll-margin-top: var(--header-height);
       }
-      .is-mosaic .item {
+      .item {
+        // scroll-margin-top: var(--header-height);
         &:not(.is-active) img.is-portrait,
         &:not(.is-active) img.is-landscape {
           aspect-ratio: 5 / 3 !important;
@@ -36,14 +37,24 @@
           object-fit: cover;
           // object-position: left;
         }
-        &.is-active {
-          &.is-portrait img {
-            max-width: calc(50% - 0.875rem);
-            width: calc(50% - 0.875rem) !important;
-            height: auto !important;
-          }
-        }
       }
+      // .is-mosaic .item {
+      //   &:not(.is-active) img.is-portrait,
+      //   &:not(.is-active) img.is-landscape {
+      //     aspect-ratio: 5 / 3 !important;
+      //     width: 100% !important;
+      //     height: 100% !important;
+      //     object-fit: cover;
+      //     // object-position: left;
+      //   }
+      //   &.is-active {
+      //     &.is-portrait img {
+      //       max-width: calc(50% - 0.875rem);
+      //       width: calc(50% - 0.875rem) !important;
+      //       height: auto !important;
+      //     }
+      //   }
+      // }
       .controls {
         position: absolute;
         inset: 0;

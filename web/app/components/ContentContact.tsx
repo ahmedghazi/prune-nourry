@@ -30,7 +30,7 @@ const ContentContact = ({ input }: Props) => {
             },
             {
               name: "NAME",
-              placeholder: _localizeText("firstName"),
+              placeholder: _localizeText("lastName"),
               type: "text",
               required: true,
             },
