@@ -118,8 +118,15 @@ body[data-template="is-product"] header {
         // background-color: red;
         justify-content: flex-start;
         gap: 0.4em;
+
         li {
           // background-color: red;
+          a {
+            text-underline-position: initial !important;
+          }
+        }
+        li:has(.is-current) .menu-item > a {
+          text-underline-position: initial;
         }
         li:last-child {
           flex: 2;
@@ -137,6 +144,7 @@ body[data-template="is-product"] header {
           position: initial;
           gap: 0.4em;
           padding-top: 0.4em;
+          padding-bottom: 0;
         }
       }
     }

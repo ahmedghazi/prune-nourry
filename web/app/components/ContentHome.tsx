@@ -54,7 +54,7 @@ const ContentHome = ({ input }: Props) => {
           ))}
         </Slider>
       </section>
-      <section className='project px-lg mb-lg' ref={ref}>
+      <section className='project px-md--mobile md:px-lg mb-lg' ref={ref}>
         <Masonry
           breakpointCols={breakpointColumnsObj}
           className='my-masonry-grid'

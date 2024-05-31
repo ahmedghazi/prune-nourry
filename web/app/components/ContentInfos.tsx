@@ -18,6 +18,17 @@ const ContentInfos = ({ input }: Props) => {
         <div className='md:grid md:grid-cols-12 gap-md'>
           <div className='md:col-span-4 mb-md'>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
+
+            {input.imageCover && input.imageCover && (
+              <div className='mb-md sm-only'>
+                <Figure
+                  asset={input.imageCover?.asset}
+                  width={1000}
+                  alt={website.title}
+                />
+              </div>
+            )}
+
             <div className='text'>
               <PortableText
                 value={_localizeField(input.text)}
@@ -27,7 +38,7 @@ const ContentInfos = ({ input }: Props) => {
           </div>
           <div className='md:col-span-8'>
             {input.imageCover && input.imageCover && (
-              <div className='mb-md'>
+              <div className='mb-md hidden-sm'>
                 <Figure
                   asset={input.imageCover?.asset}
                   width={1000}

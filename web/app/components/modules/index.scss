@@ -92,13 +92,21 @@
 
 @media all and (max-width: 1080px) {
   .modules {
-    .module--slider {
-      .slick-slide,
-      .slide,
-      img {
-        max-width: calc(100vw - calc(var(--space-md--mobile) * 2));
-        width: calc(100vw - calc(var(--space-md--mobile) * 2));
+    section {
+      &.module--slider {
+        .slick-slide,
+        .slide,
         img {
+          max-width: calc(100vw - calc(var(--space-md--mobile) * 2));
+          width: calc(100vw - calc(var(--space-md--mobile) * 2));
+          img {
+          }
+        }
+      }
+      &.module--exhibitions {
+        img {
+          height: auto !important;
+          width: 100% !important;
         }
       }
     }

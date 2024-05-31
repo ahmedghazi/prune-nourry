@@ -92,6 +92,7 @@ const Search = (props: Props) => {
   }, [pathname]);
 
   useEffect(() => {
+    document.body.classList.toggle("is-search-modal", active);
     if (!refInput.current) return;
     refInput.current.focus();
   }, [active]);

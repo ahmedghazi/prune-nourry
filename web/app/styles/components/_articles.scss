@@ -1,5 +1,12 @@
 article {
   &.content-exhibition {
-    min-height: calc(var(--vh) * 100 - var(--header-height) + var(--space-lg));
+    @media all and (min-width: 1080px) {
+      min-height: calc(
+        var(--vh) * 100 - var(--header-height) + var(--space-lg)
+      );
+    }
   }
+}
+
+@media all and (max-width: 1080px) {
 }

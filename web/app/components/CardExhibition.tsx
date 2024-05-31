@@ -19,10 +19,10 @@ const CardExhibition = ({ input }: Props) => {
 
   return (
     <article className='content-exhibition' ref={ref}>
-      <div className='grid md:grid-cols-12 gap-md'>
+      <div className='md:grid md:grid-cols-12 gap-md'>
         <aside className='md:col-span-4'>
           <h1 className='mb-md'>{_localizeField(input.title)}</h1>
-          <div className='text md:md'>
+          <div className='text mb-md'>
             <PortableText
               value={_localizeField(input.text)}
               components={portableTextComponents}
