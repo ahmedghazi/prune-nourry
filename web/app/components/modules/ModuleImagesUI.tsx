@@ -25,10 +25,10 @@ const Item = ({
   const [active, setActive] = useState<boolean>(false);
   const ref = useRef<HTMLDivElement>(null);
   // console.log({ index, prevIndex, nextIndex });
-  console.log(canExpand);
+  // console.log({ canExpand });
   useEffect(() => {
     const tokenA = subscribe("IMAGES_EXPAND", (e, d) => {
-      console.log(d);
+      // console.log(d);
       if (d !== input.image?.asset._id) {
         setActive(false);
       }
@@ -49,7 +49,9 @@ const Item = ({
   }, []);
 
   useEffect(() => {
+    // console.log({ active, canExpand });
     if (active && canExpand) {
+      console.log("caaaaaan");
       publish("IMAGES_EXPAND", input.image?.asset._id);
       if (ref.current) {
         ref.current?.scrollIntoView({
@@ -59,22 +61,18 @@ const Item = ({
     }
   }, [active]);
 
-  const imageRatio =
-    input.image?.asset && input.image?.asset.metadata.dimensions.aspectRatio > 1
-      ? "is-landscape"
-      : "is-portrait";
   return (
     <div
       ref={ref}
       className={clsx(
         "item ",
         canExpand && "cursor-zoom-in",
-        active && "col-span-4 is-active cursor-zoom-out",
-        imageRatio
+        canExpand && active && "col-span-4 is-active cursor-zoom-out"
+        // imageRatio
       )}
       onClick={() => setActive(!active)}>
       <FigureComponent asset={input.image?.asset} width={1000} />
-      {active && (
+      {active && canExpand && (
         <div className='controls'>
           <button
             className='prev'
