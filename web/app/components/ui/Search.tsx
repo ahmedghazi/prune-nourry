@@ -29,7 +29,7 @@ const SearchResultItem = ({ input }: SearchResultItemProps) => (
   <div className='item'>
     <Link href={_linkResolver(input)}>
       <div className='grid md:grid-cols-12'>
-        <div className='title col-span-4'>{_localizeField(input.title)}</div>
+        <div className='title col-span-6'>{_localizeField(input.title)}</div>
         <div className='col-span-3'>
           <div className='image '>
             {input.imageCover && (
@@ -188,7 +188,7 @@ const Search = (props: Props) => {
           </form>
           {searchResult.length > 0 && (
             <div className='results'>
-              <div className='header py-md'>
+              <div className='header py-md text-md'>
                 <div className='label'>
                   {`${_localizeText("searchResultFor")}: ${term}`}
                 </div>
