@@ -1,9 +1,26 @@
 article {
+  // background-color: red;
   &.content-exhibition {
     @media all and (min-width: 1080px) {
       min-height: calc(
         var(--vh) * 100 - var(--header-height) + var(--space-lg)
       );
+    }
+  }
+  .media img {
+    &.is-portrait {
+      max-height: calc(
+        var(--vh) * 100 - (var(--header-height) + var(--space-lg))
+      );
+      height: calc(
+        var(--vh) * 100 - (var(--header-height) + var(--space-lg))
+      ) !important;
+      width: auto !important;
+    }
+    &.is-landscape {
+      max-height: unset !important;
+      height: unset !important;
+      width: 100% !important;
     }
   }
 }

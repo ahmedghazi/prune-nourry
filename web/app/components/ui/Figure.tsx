@@ -11,6 +11,10 @@ type Props = {
 };
 
 const Figure = ({ asset, width = 1000, alt = website.title }: Props) => {
+  const imageRatio =
+    asset && asset.metadata && asset.metadata.dimensions.aspectRatio > 1
+      ? "is-landscape"
+      : "is-portrait";
   return (
     <figure>
       <Image
@@ -28,6 +32,7 @@ const Figure = ({ asset, width = 1000, alt = website.title }: Props) => {
         blurDataURL={asset?.metadata?.lqip}
         // placeholder='blur'
         placeholder={asset?.metadata?.lqip}
+        className={imageRatio}
       />
     </figure>
   );
