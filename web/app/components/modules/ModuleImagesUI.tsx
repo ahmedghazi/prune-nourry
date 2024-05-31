@@ -51,7 +51,7 @@ const Item = ({
   useEffect(() => {
     // console.log({ active, canExpand });
     if (active && canExpand) {
-      console.log("caaaaaan");
+      // console.log("caaaaaan");
       publish("IMAGES_EXPAND", input.image?.asset._id);
       if (ref.current) {
         ref.current?.scrollIntoView({

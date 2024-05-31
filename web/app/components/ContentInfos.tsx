@@ -15,8 +15,8 @@ const ContentInfos = ({ input }: Props) => {
   return (
     <div className='content-infos'>
       <article>
-        <div className='md:grid md:grid-cols-12 gap-md'>
-          <div className='md:col-span-4 mb-md'>
+        <div className='md:grid md:grid-cols-12 gap-lg'>
+          <div className='md:col-span-6 mb-md'>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
 
             {input.imageCover && input.imageCover && (
@@ -36,7 +36,7 @@ const ContentInfos = ({ input }: Props) => {
               />
             </div>
           </div>
-          <div className='md:col-span-8'>
+          <div className='md:col-span-6'>
             {input.imageCover && input.imageCover && (
               <div className='mb-md hidden-sm'>
                 <Figure

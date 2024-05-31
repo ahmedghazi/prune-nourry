@@ -10,17 +10,22 @@ https://prune-nourry.vercel.app/
 
 ## to do
 
+- connect mailchimp
+- dans projet liens artworks
+- icon play 3x grand
+- media légendes (crédits)
+- text italic, gras
+
 #- post insta taille image portrait
 #- pb expand si pas mosaic
 
-- ratio video
-- text italic
+#- ratio video
 
-  #- module images si expand ajouter fermer
-  #- module images expand portrait max 1/2 colonne
-  #- produit externe
-  #- home ajouter mosaic projets
-  #- pb video vimeos
+#- module images si expand ajouter fermer
+#- module images expand portrait max 1/2 colonne
+#- produit externe
+#- home ajouter mosaic projets
+#- pb video vimeos
 
 - module images avec liens dans chaque ??
   #- module artworks pas de contraine ratio, portait ou paysage
@@ -34,7 +39,6 @@ https://prune-nourry.vercel.app/
   #- check ratio image slider sur exhibitions
   #- home slider 1/3 prev, 1/3 click, 1/3 next
 
-- connect mailchimp
   - (FAIT] review font sizes
   - (FAIT] image expand
   - (FAIT] home slider links

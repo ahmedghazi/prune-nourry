@@ -27,3 +27,9 @@ article {
 
 @media all and (max-width: 1080px) {
 }
+
+.content-infos {
+  .md\:col-span-6:first-child p {
+    font-size: 1.2em;
+  }
+}
