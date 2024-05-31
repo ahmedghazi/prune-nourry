@@ -2,14 +2,6 @@
 // body[data-template="is-home"] {
 //   // overflow: hidden;
 // }
-body[data-template="is-home"] {
-  &.is-above-fold header nav {
-    visibility: visible;
-  }
-  header nav {
-    visibility: hidden;
-  }
-}
 
 body[data-template="is-home"] main {
   padding: 0;

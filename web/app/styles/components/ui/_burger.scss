@@ -3,7 +3,7 @@
   right: var(--space-md--mobile);
   top: var(--space-md--mobile);
   z-index: 999;
-
+  // right: 10em;
   &::after {
     content: "";
     position: absolute;
@@ -24,7 +24,8 @@
     }
   }
   .burger {
-    transform: translateY(10px);
-    @include burger(25px, 3px, 4px);
+    transform: translateY(11.5px);
+    // @include burger(25px, 3px, 4px);
+    @include burger(25px, 3px, 5px);
   }
 }

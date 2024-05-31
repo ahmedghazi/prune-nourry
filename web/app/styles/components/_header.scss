@@ -87,6 +87,17 @@ header {
   }
 }
 
+body[data-template="is-home"] {
+  @media all and (min-width: $md) {
+    &.is-above-fold header nav {
+      visibility: visible;
+    }
+    header nav {
+      visibility: hidden;
+    }
+  }
+}
+
 body[data-template="is-product"] header {
   li.has-sub-menu .menu-item > a {
     // display: block;
@@ -102,6 +113,9 @@ body[data-template="is-product"] header {
 @media all and (max-width: $md) {
   header {
     padding: var(--space-md--mobile);
+    .site-name {
+      transform: none;
+    }
     nav {
       position: fixed;
       inset: 0;
