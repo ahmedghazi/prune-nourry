@@ -64,8 +64,9 @@ const Mailchimp = (props: Props) => {
       })
       .join("&");
     const path = `${action}&EMAIL=${encodeURIComponent(email)}`;
-    const url = path.replace("/post?", "/post-json?");
-    console.log(values);
+    const url = path.replace("/post?", "/post-json?") + values;
+    // console.log(values);
+    console.log(url);
     // const email = state["EMAIL"]
     sendData(url);
     // validateEmail(email) ? sendData(url) : setStatus("empty");
@@ -79,8 +80,8 @@ const Mailchimp = (props: Props) => {
   const sendData = (url: string) => {
     setStatus("sending");
     jsonp(url, { param: "c" }, (err: any, data: any) => {
-      // console.log(err);
-      // console.log(data);
+      console.log(err);
+      console.log(data);
       if (data.msg.includes("already subscribed")) {
         setStatus("duplicate");
       } else if (err) {

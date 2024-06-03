@@ -28,12 +28,24 @@ const ContentNews = ({ input }: Props) => {
                 fields={[
                   {
                     name: "EMAIL",
-                    placeholder: "Email",
+                    placeholder: _localizeText("email"),
                     type: "email",
                     required: true,
                   },
                   {
-                    name: "NAME",
+                    name: "MMERGE1",
+                    placeholder: _localizeText("n°"),
+                    type: "text",
+                    required: true,
+                  },
+                  {
+                    name: "MMERGE3",
+                    placeholder: _localizeText("firstName"),
+                    type: "text",
+                    required: true,
+                  },
+                  {
+                    name: "MMERGE2",
                     placeholder: _localizeText("lastName"),
                     type: "text",
                     required: true,

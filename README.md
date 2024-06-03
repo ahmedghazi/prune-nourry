@@ -14,7 +14,7 @@ https://prune-nourry.vercel.app/
   #- dans projet liens artworks
   #- icon play 3x grand
   #- media légendes (crédits)
-- text italic, gras
+  #- text italic, gras
   #- mobile click sur current page fermer le burger
   #- mobile cacher le sous menu
   #- module images en mode lada

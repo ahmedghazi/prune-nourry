@@ -1,15 +1,19 @@
 .mailchimp {
+  input {
+    width: 100%;
+    text-align: left;
+  }
   // background-color: red;
-  .flex {
-    gap: 0.4em;
-  }
-  .flex-2 {
-    flex: 2;
-  }
-  .input-wrapper {
-    // line-height: 1;
-    transform: translateY(-0.4em);
-  }
+  // .flex {
+  //   gap: 0.4em;
+  // }
+  // .flex-2 {
+  //   flex: 2;
+  // }
+  // .input-wrapper {
+  //   // line-height: 1;
+  //   transform: translateY(-0.4em);
+  // }
   .title,
   button {
   }
