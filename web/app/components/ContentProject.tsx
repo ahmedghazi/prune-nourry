@@ -14,7 +14,7 @@ type Props = {
 };
 
 const ContentProject = ({ input }: Props) => {
-  console.log(input.link);
+  console.log(input);
   return (
     <article className='content--project'>
       <div className='md:grid md:grid-cols-12 gap-lg'>

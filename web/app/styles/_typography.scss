@@ -289,7 +289,7 @@ sub {
   top: 0.5ex;
 }
 
-@media all and (max-width: $sm) {
+@media all and (max-width: $md) {
   .text-lg,
   h1 {
     font-size: var(--text-lg--mobile);

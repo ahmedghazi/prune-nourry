@@ -202,6 +202,9 @@ _type == 'moduleExhibitions' => {
 	...,
 	items[]{
 		...,
+		text{
+			${blockContent}
+		},
 		slider[]{
 			${figure}
 		},

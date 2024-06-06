@@ -27,6 +27,7 @@ const PlayerVideo = ({ input }: Props) => {
 
   return (
     <div className='player-video'>
+      {/* <pre>{JSON.stringify(placeholder, null, 2)}</pre> */}
       <ReactPlayer
         url={url}
         config={config}

@@ -149,6 +149,7 @@ export const projectQuery = groq`
     ${moduleProducts},
     ${moduleProjects},
     ${moduleSlider},
+    ${moduleVideo}
   },
 
 }
