@@ -50,6 +50,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
   };
 
   const hasSubmenu = input.subMenu && input.subMenu.length > 0;
+  console.log(input);
   return (
     <div className='menu-item'>
       <Link
@@ -64,7 +65,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
         )}>
         <div className='label'>{_localizeField(input.link?.label)}</div>
       </Link>
-      {input.subMenu && (
+      {hasSubmenu && (
         <ul
           ref={ref}
           className={clsx(

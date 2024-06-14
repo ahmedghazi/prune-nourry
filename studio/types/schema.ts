@@ -905,7 +905,7 @@ export type NewsArticle = {
   image?: Figure;
 
   /**
-   * date — `date`
+   * date — `string`
    *
    *
    */

@@ -1,8 +1,8 @@
 import React from "react";
 import { Embed } from "../types/schema";
-import ReactPlayer from "react-player";
+// import ReactPlayer from "react-player";
 import { _localizeField } from "../utils/utils";
-import website from "../config/website";
+// import website from "../config/website";
 import PlayerVideo from "./ui/PlayerVideo";
 
 type Props = {
@@ -10,22 +10,22 @@ type Props = {
 };
 
 const CardVideo = ({ input }: Props) => {
-  console.log(input.subTitle);
-  const config = {
-    youtube: {
-      playerVars: {
-        iv_load_policy: 3,
-        cc_load_policy: 0,
-        modestbranding: 1,
-        showinfo: 0,
-        rel: 0,
-        origin: website.url,
-      },
-    },
-    vimeo: {
-      // title: "false",
-    },
-  };
+  // console.log(input.subTitle);
+  // const config = {
+  //   youtube: {
+  //     playerVars: {
+  //       iv_load_policy: 3,
+  //       cc_load_policy: 0,
+  //       modestbranding: 1,
+  //       showinfo: 0,
+  //       rel: 0,
+  //       origin: website.url,
+  //     },
+  //   },
+  //   vimeo: {
+  //     // title: "false",
+  //   },
+  // };
 
   return (
     <article className='card--video'>

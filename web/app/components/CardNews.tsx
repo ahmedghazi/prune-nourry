@@ -15,7 +15,8 @@ const CardNews = ({ input }: Props) => {
         <aside className='md:col-span-4 order-2 md:order-1'>
           <div className='md:sticky- md:top-header-height-  '>
             <time dateTime={input.date} className='mb-05e block'>
-              {_date(input.date)}
+              {/* {_date(input.date)} */}
+              {input.date}
             </time>
             <h2 className='text-lg mb-sm'>{_localizeField(input.title)}</h2>
             <a
