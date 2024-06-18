@@ -50,7 +50,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
   };
 
   const hasSubmenu = input.subMenu && input.subMenu.length > 0;
-  console.log(input);
+  // console.log(input);
   return (
     <div className='menu-item'>
       <Link

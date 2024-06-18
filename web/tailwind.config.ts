@@ -30,7 +30,6 @@ const config: Config = {
       black: "black",
       white: "white",
       red: "var(--color-red)",
-
       gray: "var(--color-gray)",
     },
     fontSize: {

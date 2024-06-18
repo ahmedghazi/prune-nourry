@@ -44,7 +44,7 @@ const portableTextComponents: PortableTextComponents = {
 
   marks: {
     linkInternal: ({ children, value }) => {
-      console.log(value);
+      // console.log(value);
       return <Link href={_linkResolver(value.reference)}>{children}</Link>;
     },
     linkExternal: ({ children, value }) => {

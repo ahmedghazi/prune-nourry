@@ -19,7 +19,7 @@ export async function POST(
 
   const body = await req.json(); // res now contains body
   const { cartItems } = body;
-  console.log(req.headers.get("referer"));
+  // console.log(req.headers.get("referer"));
 
   const transformItems = cartItems.map((item: ProductExtend) => {
     const unit_amount: number = item.price || 0;
@@ -28,7 +28,7 @@ export async function POST(
         currency: "eur",
         product_data: {
           name: item.title?.en,
-          description: item.blurb?.en || "",
+          description: item.blurb?.en || item.title?.en || "",
           images: [item.imageCover?.asset.url],
         },
         unit_amount: unit_amount * 100,

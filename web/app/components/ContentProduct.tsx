@@ -61,6 +61,7 @@ const ContentProduct = ({ input }: Props) => {
                 {_localizeField(input.blurb)}
               </div>
             )}
+            {!input.blurb && <p className='text-red border-2'>Blurb needed</p>}
 
             <div className='mb-md'>
               {input.externalProductLink ? (
