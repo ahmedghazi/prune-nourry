@@ -56,9 +56,12 @@ const AddToCart = ({ input }: Props) => {
       </div>
 
       <div className='flex gap-md'>
-        <button onClick={() => _onClick()} className='btn'>
-          {_localizeText("addToCart")}
-        </button>
+        {input.quantity > 0 && (
+          <button onClick={() => _onClick()} className='btn'>
+            {_localizeText("addToCart")}
+          </button>
+        )}
+        {input.quantity === 0 && <div>Out of stock</div>}
         {productIsInCart && (
           <Link href='/cart' className='td-u'>
             {viewCartLabel}

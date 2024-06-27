@@ -42,7 +42,8 @@ const CardProduct = ({ input }: Props) => {
           <div className='type'>{_localizeField(input.tag?.title)}</div>
           <h2>{_localizeField(input.title)}</h2>
           <div className='price'>{input.price}€</div>
-          {/* <button onClick={_onClick}>Add to cart</button> */}
+          {input.quantity && input.quantity === 1 && <div>Low stock</div>}
+          {input.quantity && input.quantity < 1 && <div>Out of stock</div>}
         </div>
       </Link>
     </div>

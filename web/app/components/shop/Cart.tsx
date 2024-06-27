@@ -39,22 +39,20 @@ const CartSuccess = (props: CartSuccessProps) => {
       {checkoutSession && (
         <div className='status'>{checkoutSession.payment_status}</div>
       )}
-      {cartItems &&
-        checkoutSession &&
-        checkoutSession.payment_status === "paid" && (
-          <div>
-            <h2 className='mb-md text-lg'>Thx for your order</h2>
+      {cartItems && checkoutSession && (
+        <div>
+          <h2 className='mb-md text-lg'>Thx for your order</h2>
 
-            <div className='body'>
-              <div className='items'>
-                {cartItems &&
-                  cartItems.map((item: ProductExtend, i: number) => (
-                    <CartItem key={i} input={item} />
-                  ))}
-              </div>
+          <div className='body'>
+            <div className='items'>
+              {cartItems &&
+                cartItems.map((item: ProductExtend, i: number) => (
+                  <CartItem key={i} input={item} />
+                ))}
             </div>
           </div>
-        )}
+        </div>
+      )}
 
       {checkoutSession && checkoutSession.payment_status === "paid" && (
         <div className='footer'>
@@ -128,9 +126,9 @@ const Cart = (props: Props) => {
   const { cartItems, setCartItems } = useShop();
   const [open, setOpen] = useState<boolean>(false);
   const router = useRouter();
-  // const searchParams = useSearchParams();
-  // const success = searchParams.get("success");
-  // const canceled = searchParams.get("canceled");
+  const searchParams = useSearchParams();
+  const success = searchParams.get("success");
+  const canceled = searchParams.get("canceled");
 
   useEffect(() => {
     const tokenOpen = subscribe("CART_OPEN", () => {
@@ -145,7 +143,7 @@ const Cart = (props: Props) => {
   const createCheckoutseesion = async () => {
     try {
       // const body = { cartItems: cartItems };
-      const response = await fetch("/api/checkout_sessions", {
+      const response = await fetch("/api/stripe/checkout", {
         method: "POST",
         body: JSON.stringify({ cartItems: cartItems }),
       });
@@ -171,28 +169,33 @@ const Cart = (props: Props) => {
     }
   };
   // console.log(router.back());
-  // const isPostCheckout = success || canceled;
-  const isPostCheckout = false;
+  const isPostCheckout = success || canceled;
+  // const isPostCheckout = false;
+  console.log(success, canceled);
   return (
     <div className={clsx("cart pb-md")}>
       <div className='header flex justify-between md:absolute left-0'>
-        <button onClick={() => router.back()}>{`< ${_localizeText(
-          "back"
-        )}`}</button>
+        {!isPostCheckout && (
+          <button onClick={() => router.back()}>{`< ${_localizeText(
+            "back"
+          )}`}</button>
+        )}
         {/* <div className='label'>Cart</div> */}
       </div>
       <div className='row'>
         <div className='col-md-6 col-md-offset-4'>
-          {/* {isPostCheckout && (
+          {isPostCheckout && (
             <div className='post-checkout'>
               {success && (
                 <div className='msg'>
                   <CartSuccess />
                 </div>
               )}
-              {canceled && <div className='msg'>canceled</div>}
+              {canceled && (
+                <div className='msg'>This ordder was canceled :(</div>
+              )}
             </div>
-          )} */}
+          )}
           {!isPostCheckout && (
             <div className='result'>
               {cartItems.length > 0 && (

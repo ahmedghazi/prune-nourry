@@ -78,6 +78,7 @@ export const productCard = `
   },
   title,
 	price,
+	quantity,
 	tag->
 `;
 
