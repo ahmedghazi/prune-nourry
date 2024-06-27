@@ -27,15 +27,13 @@ export async function POST(req: NextRequest) {
     const body = await req.text();
     // const buf = await buffer(req);
     console.log(body);
-    const signature = headers().get("stripe-signature") as string;
+    // const signature = headers().get("stripe-signature") as string;
+    const sig = req.headers.get("stripe-signature")! as string;
     const webhookSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET!;
 
+    let event: Stripe.Event;
     // console.log(signature);
-    const event: Stripe.Event = stripe.webhooks.constructEvent(
-      body,
-      signature,
-      webhookSecret
-    );
+    event = stripe.webhooks.constructEvent(body, sig!, webhookSecret!);
     // console.log(event);
     // Handle the checkout.session.completed event
     if (event.type === "checkout.session.completed") {
