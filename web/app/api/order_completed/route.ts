@@ -18,6 +18,7 @@ const updateDatabase = async (session: any, lineItems: any) => {
   });
 
   _session.line_items.data.forEach(async (lineItem: any) => {
+    // Access product metadata via lineItem.price.product.metadata
     console.log(lineItem);
     console.log(lineItem.price.product.metadata);
     if (!lineItem.price.product.metadata.id) return;
@@ -49,7 +50,6 @@ const updateDatabase = async (session: any, lineItems: any) => {
     const json = await result.json();
     console.log(json);
     // TO DO send email
-    // Access product metadata via lineItem.price.product.metadata
   });
 
   // throw new Error(`
