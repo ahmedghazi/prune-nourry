@@ -34,7 +34,7 @@ const ContentNews = ({ input }: Props) => {
                   },
                   {
                     name: "MMERGE1",
-                    placeholder: _localizeText("n°"),
+                    placeholder: _localizeText("country"),
                     type: "text",
                     required: true,
                   },

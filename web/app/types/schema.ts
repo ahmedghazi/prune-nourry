@@ -334,6 +334,13 @@ export interface Project extends SanityDocument {
   text?: LocaleBlockContent;
 
   /**
+   * Crédits — `localeBlockContent`
+   *
+   *
+   */
+  credits?: LocaleBlockContent;
+
+  /**
    * link — `linkInternal`
    *
    *
@@ -530,6 +537,13 @@ export interface Product extends SanityDocument {
    *
    */
   priceCrossed?: number;
+
+  /**
+   * Quantity — `number`
+   *
+   *
+   */
+  quantity?: number;
 
   /**
    * Weight — `number`

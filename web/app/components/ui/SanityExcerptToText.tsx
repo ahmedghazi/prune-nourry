@@ -2,15 +2,20 @@ import { LocaleBlockContent } from "@/app/types/schema";
 import portableTextComponents from "@/app/utils/portableTextComponents";
 import { _localizeField } from "@/app/utils/utils";
 import { PortableText } from "next-sanity";
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 type Props = {
   excerpt: LocaleBlockContent;
   text: LocaleBlockContent;
+  onChange?: Function;
 };
 
-const SanityExcerptToText = ({ excerpt, text }: Props) => {
+const SanityExcerptToText = ({ excerpt, text, onChange }: Props) => {
   const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (onChange) onChange(!active);
+  }, [active]);
 
   return (
     <div className='excerpt-to-text'>
@@ -25,6 +30,9 @@ const SanityExcerptToText = ({ excerpt, text }: Props) => {
       {active && (
         <div className='text'>
           <PortableText value={text} components={portableTextComponents} />
+          <button onClick={() => setActive(false)} className='td-u'>
+            Less info
+          </button>
         </div>
       )}
     </div>

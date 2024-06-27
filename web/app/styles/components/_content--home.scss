@@ -16,6 +16,8 @@ body[data-template="is-home"] main {
   .slick-arrow {
     // display: none !important;
     width: 33vw;
+    max-height: calc(var(--vh) * 100 - var(--space-lg) * 2);
+    // background-color: red;
   }
 
   .caption {

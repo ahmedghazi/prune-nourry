@@ -6,6 +6,7 @@ header {
   padding-bottom: toRem(63);
   z-index: 50;
   transition: transform 0.2s var(--cubic), opacity 0.2s var(--cubic);
+  background-color: white;
   // @include debugSquare(var(--space-lg));
   &.is-down {
     transform: translateY(-100%);
@@ -14,7 +15,8 @@ header {
 
   line-height: 1;
   .site-name {
-    transform: translateY(0.2rem);
+    transform: translateY(0.13rem);
+    // transform: translateY(0.4rem);
     // font-size: var(--text-lg);
     // line-height: 1;
   }
@@ -92,8 +94,11 @@ body[data-template="is-home"] {
     &.is-above-fold header nav {
       visibility: visible;
     }
-    header nav {
-      visibility: hidden;
+    header {
+      background-color: transparent;
+      nav {
+        visibility: hidden;
+      }
     }
   }
 }

@@ -30,7 +30,7 @@ const ContentInfos = ({ input }: Props) => {
               </div>
             )}
 
-            <div className='text'>
+            <div className='text md:pr-md'>
               <PortableText
                 value={_localizeField(input.text)}
                 components={components}

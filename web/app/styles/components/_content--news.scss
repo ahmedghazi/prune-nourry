@@ -1,15 +1,20 @@
 .content-news {
-  form .inner {
-    font-size: var(--text-md);
-    margin-bottom: var(--space-md);
+  // form .inner {
+  //   font-size: var(--text-md);
+  //   margin-bottom: var(--space-md);
+  //   input {
+  //     margin-bottom: toRem(18);
+  //     &::placeholder {
+  //       color: var(--color-gray);
+  //     }
+  //   }
+  //   button {
+  //     color: var(--color-gray);
+  //   }
+  // }
+  .mailchimp {
     input {
-      margin-bottom: toRem(18);
-      &::placeholder {
-        color: var(--color-gray);
-      }
-    }
-    button {
-      color: var(--color-gray);
+      border: none;
     }
   }
   .modal {

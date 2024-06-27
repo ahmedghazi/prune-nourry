@@ -21,36 +21,38 @@ const ContentContact = ({ input }: Props) => {
     <div className='content-contact'>
       <div className='text-lg md:w-8/12'>
         {settings.urlNewsletter && (
-          <Mailchimp
-            // action='https://club.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'
-            action={settings.urlNewsletter}
-            fields={[
-              {
-                name: "EMAIL",
-                placeholder: _localizeText("email"),
-                type: "email",
-                required: true,
-              },
-              {
-                name: "MMERGE1",
-                placeholder: _localizeText("n°"),
-                type: "number",
-                required: true,
-              },
-              {
-                name: "MMERGE3",
-                placeholder: _localizeText("firstName"),
-                type: "text",
-                required: true,
-              },
-              {
-                name: "MMERGE2",
-                placeholder: _localizeText("lastName"),
-                type: "text",
-                required: true,
-              },
-            ]}
-          />
+          <div className='text-lg text'>
+            <Mailchimp
+              // action='https://club.us11.list-manage.com/subscribe/post?u=7ec729474c5f3671662bdeda0&id=5530cd0b9b&f_id=00fdafe0f0&tags=123'
+              action={settings.urlNewsletter}
+              fields={[
+                {
+                  name: "EMAIL",
+                  placeholder: _localizeText("email"),
+                  type: "email",
+                  required: true,
+                },
+                {
+                  name: "MMERGE1",
+                  placeholder: _localizeText("country"),
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "MMERGE3",
+                  placeholder: _localizeText("firstName"),
+                  type: "text",
+                  required: true,
+                },
+                {
+                  name: "MMERGE2",
+                  placeholder: _localizeText("lastName"),
+                  type: "text",
+                  required: true,
+                },
+              ]}
+            />
+          </div>
         )}
 
         {input.text && (

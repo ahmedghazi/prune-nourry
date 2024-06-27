@@ -132,6 +132,13 @@ export default defineType({
       group: 'shop',
     }),
     defineField({
+      name: 'quantity',
+      title: 'Quantity',
+      type: 'number',
+      description: '',
+      group: 'shop',
+    }),
+    defineField({
       name: 'weight',
       title: 'Weight',
       type: 'number',

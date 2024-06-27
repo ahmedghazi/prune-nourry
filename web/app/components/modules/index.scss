@@ -1,7 +1,8 @@
 .media .modules {
   section {
     width: 100%;
-    margin-bottom: var(--header-height);
+    // margin-bottom: var(--header-height);
+    background-color: red;
     &:empty {
       display: none;
     }
@@ -11,14 +12,6 @@
     &.module--images {
       .grid:not(.is-mosaic) {
         .item {
-          // &.is-active {
-          //   img.is-portrait {
-          //     max-width: calc(50% - 0.875rem);
-          //     max-height: calc(
-          //       var(--vh) * 100 - calc(var(--header-height) + var(--space-lg))
-          //     );
-          //   }
-          // }
           img.is-portrait {
             height: auto !important;
           }
@@ -38,23 +31,7 @@
           // object-position: left;
         }
       }
-      // .is-mosaic .item {
-      //   &:not(.is-active) img.is-portrait,
-      //   &:not(.is-active) img.is-landscape {
-      //     aspect-ratio: 5 / 3 !important;
-      //     width: 100% !important;
-      //     height: 100% !important;
-      //     object-fit: cover;
-      //     // object-position: left;
-      //   }
-      //   &.is-active {
-      //     &.is-portrait img {
-      //       max-width: calc(50% - 0.875rem);
-      //       width: calc(50% - 0.875rem) !important;
-      //       height: auto !important;
-      //     }
-      //   }
-      // }
+
       .controls {
         position: absolute;
         inset: 0;
@@ -93,6 +70,12 @@
         object-position: left top;
       }
     }
+  }
+}
+
+.module--videos {
+  .my-masonry-grid_column > div {
+    margin-bottom: 1em;
   }
 }
 

@@ -18,18 +18,16 @@ const ModuleVideoUI = ({ input }: Props) => {
 
   return (
     <section className='module module--videos mb-md'>
-      <div className='grid- md:grid-cols-2 gap-y-sm  md:gap-md'>
-        <Masonry
-          breakpointCols={breakpointColumnsObj}
-          className='my-masonry-grid'
-          columnClassName='my-masonry-grid_column'>
-          {items?.map((item, i) => (
-            <div className='mb-md' key={i}>
-              <CardVideo input={item} />
-            </div>
-          ))}
-        </Masonry>
-      </div>
+      <Masonry
+        breakpointCols={breakpointColumnsObj}
+        className='my-masonry-grid'
+        columnClassName='my-masonry-grid_column'>
+        {items?.map((item, i) => (
+          <div className='mb-md-' key={i}>
+            <CardVideo input={item} />
+          </div>
+        ))}
+      </Masonry>
     </section>
   );
 };

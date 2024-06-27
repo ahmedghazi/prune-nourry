@@ -1,6 +1,7 @@
 import { ProductExtend } from "@/app/types/extend";
 import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
+import { headers } from "next/headers";
 import Stripe from "stripe";
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -17,8 +18,8 @@ export async function POST(
     });
   }
 
-  const body = await req.json(); // res now contains body
-  const { cartItems } = body;
+  const payload = await req.json(); // res now contains payload
+  const { cartItems } = payload;
   // console.log(req.headers.get("referer"));
 
   const transformItems = cartItems.map((item: ProductExtend) => {
@@ -30,11 +31,20 @@ export async function POST(
           name: item.title?.en,
           description: item.blurb?.en || item.title?.en || "",
           images: [item.imageCover?.asset.url],
+          metadata: {
+            slug: item.slug?.current,
+            id: item._id,
+          },
         },
         unit_amount: unit_amount * 100,
       },
       // amount: item.price || 0,
       // price: item.price,
+      adjustable_quantity: {
+        enabled: true,
+        minimum: 1,
+        maximum: 10,
+      },
       quantity: item.quantity,
     };
   });
@@ -53,10 +63,11 @@ export async function POST(
         ],
 
         mode: "payment",
-        success_url: `${req.headers.get("referer")}/?success=true`,
-        cancel_url: `${req.headers.get("referer")}/?canceled=true`,
+        success_url: `${headers().get("referer")}/?success=true`,
+        cancel_url: `${headers().get("referer")}/?canceled=true`,
+        expires_at: Math.floor(Date.now() / 1000) + 3600 * 2,
       });
-    console.log("session", checkoutSession.url);
+    // console.log("session", checkoutSession.url);
     // res.redirect(303, session.url);
     return NextResponse.json({
       result: checkoutSession,

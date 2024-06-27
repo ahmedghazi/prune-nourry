@@ -90,6 +90,12 @@ export default defineType({
       type: 'localeBlockContent',
       group: 'editorial',
     }),
+    defineField({
+      name: 'credits',
+      title: 'Crédits',
+      type: 'localeBlockContent',
+      group: 'editorial',
+    }),
 
     defineField({
       name: 'link',

@@ -29,6 +29,7 @@
 .card--artwork {
   .header {
     padding-bottom: 0;
+    line-height: 1.1;
   }
   a {
     text-decoration: underline;
@@ -55,10 +56,14 @@
   }
 }
 
-.card--video .header {
-  padding-top: 1em;
-  padding-bottom: 0;
-  h2 {
-    margin-bottom: 0.4em;
+.card--video {
+  // margin-bottom: 1em;
+  .header {
+    padding-top: 0.75em;
+    padding-bottom: 0;
+    // background-color: red;
+    h2 {
+      margin-bottom: 0.4em;
+    }
   }
 }
