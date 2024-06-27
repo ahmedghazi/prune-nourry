@@ -9,22 +9,18 @@ import Stripe from "stripe";
 // });
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const endpointSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET;
+const webhookSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET;
 
-export async function POST(
-  // export default async function handler(
-  req: NextRequest,
-  res: NextApiResponse
-) {
+export async function POST(req: NextRequest) {
   try {
     const body = await req.text();
-
+    console.log(body);
     const signature = headers().get("stripe-signature");
     // console.log(signature);
-    const event = stripe.webhooks.constructEvent(
-      body,
+    const event: Stripe.Event = stripe.webhooks.constructEvent(
+      Buffer.from(req.toString()),
       signature,
-      endpointSecret
+      webhookSecret
     );
     // console.log(event);
     // Handle the checkout.session.completed event
