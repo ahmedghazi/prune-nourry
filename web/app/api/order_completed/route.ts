@@ -9,8 +9,7 @@ import Stripe from "stripe";
 // });
 
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const endpointSecret =
-  "whsec_2ba6762416d0bd96bb9f0680b3dfaa9c93086a25a9545ade095c2604aee82e31";
+const endpointSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET;
 
 const updateDatabase = async (session: any, lineItems: any) => {
   let _session = await stripe.checkout.sessions.retrieve(session.id, {
@@ -66,13 +65,13 @@ export async function POST(
     const body = await req.text();
 
     const signature = headers().get("stripe-signature");
-
+    console.log(signature);
     const event = stripe.webhooks.constructEvent(
       body,
       signature,
       endpointSecret
     );
-    console.log(event);
+    // console.log(event);
     // Handle the checkout.session.completed event
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
