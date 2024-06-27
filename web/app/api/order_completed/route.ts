@@ -32,7 +32,10 @@ export async function POST(
       const session = event.data.object;
       stripe.checkout.sessions.listLineItems(
         session.id,
-        { limit: 100 },
+        {
+          expand: ["data.price.product"],
+          limit: 100,
+        },
         async function (err: any, lineItems: any) {
           // Fulfill the purchase...
           console.log(lineItems);
@@ -72,16 +75,14 @@ export async function POST(
 }
 
 const _updateDatabase = async (session: any, lineItems: any) => {
-  let _session = await stripe.checkout.sessions.retrieve(session.id, {
-    expand: ["line_items.data.price.product"],
-  });
+  // let _session = await stripe.checkout.sessions.retrieve(session.id, {
+  //   expand: ["line_items.data.price.product"],
+  // });
 
   // let response: Array<any> = [];
-
-  const promises = _session.line_items.data.map(async (lineItem: any) => {
-    // Access product metadata via lineItem.price.product.metadata
+  // console.log(lineItems.data);
+  const promises = lineItems.data.map(async (lineItem: any) => {
     // console.log(lineItem);
-    // console.log(lineItem.price.product.metadata);
     if (!lineItem.price.product.metadata.id) return;
 
     const mutations = {
@@ -109,46 +110,13 @@ const _updateDatabase = async (session: any, lineItems: any) => {
     );
 
     const json = await result.json();
-    console.log(json);
+    // console.log(json);
     return json;
-    // response.push(json);
   });
+
   const response = await Promise.all(promises);
-  // _session.line_items.data.forEach(async (lineItem: any) => {
-  //   // Access product metadata via lineItem.price.product.metadata
-  //   // console.log(lineItem);
-  //   // console.log(lineItem.price.product.metadata);
-  //   if (!lineItem.price.product.metadata.id) return;
 
-  //   const mutations = {
-  //     mutations: [
-  //       {
-  //         patch: {
-  //           id: lineItem.price.product.metadata.id,
-  //           dec: {
-  //             quantity: lineItem.quantity,
-  //           },
-  //         },
-  //       },
-  //     ],
-  //   };
-  //   const result = await fetch(
-  //     `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
-  //     {
-  //       headers: {
-  //         "content-type": "application/json",
-  //         Authorization: `Bearer ${process.env.SANITY_API_READ_TOKEN}`,
-  //       },
-  //       body: JSON.stringify(mutations),
-  //       method: "POST",
-  //     }
-  //   );
-
-  //   const json = await result.json();
-  //   console.log(json);
-  //   response.push(json);
-  // });
-  console.log(response);
+  // console.log(response);
 
   return response;
 };
