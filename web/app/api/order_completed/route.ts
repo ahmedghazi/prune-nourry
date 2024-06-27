@@ -3,19 +3,33 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
 import Stripe from "stripe";
+import { buffer } from "micro";
 // import Cors from "micro-cors";
 // const cors = Cors({
 //   allowMethods: ["POST", "HEAD"],
 // });
 
+// const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+//   apiVersion: "2024-04-10",
+//   typescript: true,
+// });
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const webhookSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET;
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.text();
+    // const buf = await buffer(req);
     console.log(body);
-    const signature = headers().get("stripe-signature");
+    const signature = headers().get("stripe-signature") as string;
+    const webhookSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET!;
+
     // console.log(signature);
     const event: Stripe.Event = stripe.webhooks.constructEvent(
       body,
