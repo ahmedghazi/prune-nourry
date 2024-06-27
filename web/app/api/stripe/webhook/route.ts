@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     case "checkout.session.completed":
       const checkoutSessionCompleted: any = event.data.object;
       console.log(checkoutSessionCompleted);
-      _handleEventCompleted(checkoutSessionCompleted.id);
+      const result = await _handleEventCompleted(checkoutSessionCompleted.id);
       // const response1 = await db
       //   .insert(OrderTable)
       //   .values({
@@ -51,36 +51,80 @@ export async function POST(request: NextRequest) {
   });
 }
 
-const _handleEventCompleted = (session_id: string) => {
-  stripe.checkout.sessions.listLineItems(
-    session_id,
-    {
-      expand: ["data.price.product"],
-      limit: 100,
-    },
-    async function (err: any, lineItems: any) {
-      // Fulfill the purchase...
-      console.log(lineItems);
-      try {
-        const updated = await _updateDatabase(lineItems);
-        console.log("-- updated");
-        console.log(updated);
-        // TO DO send email
-      } catch (err) {
-        console.log(err.message);
-        // return res.status(400).send(`Fulfillment Error: ${err.message}`);
-        const error_response = {
-          status: "error",
-          message: err.message,
-          raw: err,
-        };
-        return new Response(JSON.stringify(error_response), {
-          status: 500,
-          headers: { "Content-Type": "application/json" },
-        });
+const _handleEventCompleted = async (session_id: string) => {
+  const lineItems = await stripe.checkout.sessions.listLineItems(session_id, {
+    expand: ["data.price.product"],
+    limit: 100,
+  });
+  console.log(lineItems);
+  const promises = lineItems.data.map(async (lineItem: any) => {
+    // console.log(lineItem);
+    if (!lineItem.price.product.metadata.id) return;
+
+    const mutations = {
+      mutations: [
+        {
+          patch: {
+            id: lineItem.price.product.metadata.id,
+            dec: {
+              quantity: lineItem.quantity,
+            },
+          },
+        },
+      ],
+    };
+    const result = await fetch(
+      `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+      {
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${process.env.SANITY_API_READ_TOKEN}`,
+        },
+        body: JSON.stringify(mutations),
+        method: "POST",
       }
-    }
-  );
+    );
+
+    const json = await result.json();
+    // console.log(json);
+    return json;
+  });
+
+  const response = await Promise.all(promises);
+
+  // console.log(response);
+
+  return response;
+
+  // stripe.checkout.sessions.listLineItems(
+  //   session_id,
+  //   {
+  //     expand: ["data.price.product"],
+  //     limit: 100,
+  //   },
+  //   async (err, lineItems) => {
+  //     // Fulfill the purchase...
+  //     console.log(lineItems);
+  //     try {
+  //       const updated = await _updateDatabase(lineItems);
+  //       console.log("-- updated");
+  //       console.log(updated);
+  //       // TO DO send email
+  //     } catch (err) {
+  //       console.log(err.message);
+  //       // return res.status(400).send(`Fulfillment Error: ${err.message}`);
+  //       const error_response = {
+  //         status: "error",
+  //         message: err.message,
+  //         raw: err,
+  //       };
+  //       return new Response(JSON.stringify(error_response), {
+  //         status: 500,
+  //         headers: { "Content-Type": "application/json" },
+  //       });
+  //     }
+  //   }
+  // );
 };
 
 const _updateDatabase = async (lineItems: any) => {
