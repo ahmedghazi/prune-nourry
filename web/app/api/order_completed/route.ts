@@ -50,10 +50,6 @@ const updateDatabase = async (session: any, lineItems: any) => {
     console.log(json);
     // TO DO send email
   });
-
-  // throw new Error(`
-  //   Given the Checkout Session ${session.id}, load your internal order from the database here.
-  //   Then you can reconcile your order's quantities with the final line item quantity purchased. You can use \`checkout_session.metadata\` and \`price.metadata\` to store and later reference your internal order and item ids.`);
 };
 
 export async function POST(
