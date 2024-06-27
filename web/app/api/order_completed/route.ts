@@ -73,19 +73,6 @@ export async function POST(
       endpointSecret
     );
 
-    // if (event.type === "checkout.session.completed") {
-    //   if (!event.data.object.customer_details.email) {
-    //     throw new Error(`missing user email, ${event.id}`);
-    //   }
-
-    //   // if (!event.data.object.metadata.itinerary_id) {
-    //   //   throw new Error(`missing itinerary_id on metadata, ${event.id}`);
-    //   // }
-    //   console.log(event.data.object.metadata);
-    //   // updateDatabase(event.data.object.metadata.itinerary_id);
-    //   // sendEmail(event.data.object.customer_details.email);
-    // }
-
     // Handle the checkout.session.completed event
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
