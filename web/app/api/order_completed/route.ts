@@ -72,7 +72,7 @@ export async function POST(
       signature,
       endpointSecret
     );
-
+    console.log(event);
     // Handle the checkout.session.completed event
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
@@ -81,6 +81,7 @@ export async function POST(
         { limit: 100 },
         function (err: any, lineItems: any) {
           // Fulfill the purchase...
+          console.log(lineItems);
           try {
             updateDatabase(session, lineItems);
           } catch (err) {
@@ -104,7 +105,7 @@ export async function POST(
     console.error(error);
     return NextResponse.json(
       {
-        message: "something went wrong",
+        message: error.message,
         ok: false,
       },
       { status: 500 }
