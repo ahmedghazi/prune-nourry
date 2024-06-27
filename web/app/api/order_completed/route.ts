@@ -11,15 +11,77 @@ import Stripe from "stripe";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const endpointSecret = process.env.STRIPE_WEBHOOK_CHECKOUT_COMPLETED_SECRET;
 
-const updateDatabase = async (session: any, lineItems: any) => {
+export async function POST(
+  // export default async function handler(
+  req: NextRequest,
+  res: NextApiResponse
+) {
+  try {
+    const body = await req.text();
+
+    const signature = headers().get("stripe-signature");
+    // console.log(signature);
+    const event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      endpointSecret
+    );
+    // console.log(event);
+    // Handle the checkout.session.completed event
+    if (event.type === "checkout.session.completed") {
+      const session = event.data.object;
+      stripe.checkout.sessions.listLineItems(
+        session.id,
+        { limit: 100 },
+        async function (err: any, lineItems: any) {
+          // Fulfill the purchase...
+          console.log(lineItems);
+          try {
+            const updated = await _updateDatabase(session, lineItems);
+            console.log("-- updated");
+            console.log(updated);
+            // TO DO send email
+          } catch (err) {
+            console.log(err.message);
+            // return res.status(400).send(`Fulfillment Error: ${err.message}`);
+            const error_response = {
+              status: "error",
+              message: err.message,
+              raw: err,
+            };
+            return new NextResponse(JSON.stringify(error_response), {
+              status: 500,
+              headers: { "Content-Type": "application/json" },
+            });
+          }
+        }
+      );
+    }
+
+    return NextResponse.json({ result: event, ok: true });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json(
+      {
+        message: error.message,
+        ok: false,
+      },
+      { status: 500 }
+    );
+  }
+}
+
+const _updateDatabase = async (session: any, lineItems: any) => {
   let _session = await stripe.checkout.sessions.retrieve(session.id, {
     expand: ["line_items.data.price.product"],
   });
 
-  _session.line_items.data.forEach(async (lineItem: any) => {
+  // let response: Array<any> = [];
+
+  const promises = _session.line_items.data.map(async (lineItem: any) => {
     // Access product metadata via lineItem.price.product.metadata
-    console.log(lineItem);
-    console.log(lineItem.price.product.metadata);
+    // console.log(lineItem);
+    // console.log(lineItem.price.product.metadata);
     if (!lineItem.price.product.metadata.id) return;
 
     const mutations = {
@@ -48,65 +110,48 @@ const updateDatabase = async (session: any, lineItems: any) => {
 
     const json = await result.json();
     console.log(json);
-    // TO DO send email
+    return json;
+    // response.push(json);
   });
+  const response = await Promise.all(promises);
+  // _session.line_items.data.forEach(async (lineItem: any) => {
+  //   // Access product metadata via lineItem.price.product.metadata
+  //   // console.log(lineItem);
+  //   // console.log(lineItem.price.product.metadata);
+  //   if (!lineItem.price.product.metadata.id) return;
+
+  //   const mutations = {
+  //     mutations: [
+  //       {
+  //         patch: {
+  //           id: lineItem.price.product.metadata.id,
+  //           dec: {
+  //             quantity: lineItem.quantity,
+  //           },
+  //         },
+  //       },
+  //     ],
+  //   };
+  //   const result = await fetch(
+  //     `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${process.env.NEXT_PUBLIC_SANITY_DATASET}`,
+  //     {
+  //       headers: {
+  //         "content-type": "application/json",
+  //         Authorization: `Bearer ${process.env.SANITY_API_READ_TOKEN}`,
+  //       },
+  //       body: JSON.stringify(mutations),
+  //       method: "POST",
+  //     }
+  //   );
+
+  //   const json = await result.json();
+  //   console.log(json);
+  //   response.push(json);
+  // });
+  console.log(response);
+
+  return response;
 };
-
-export async function POST(
-  // export default async function handler(
-  req: NextRequest,
-  res: NextApiResponse
-) {
-  try {
-    const body = await req.text();
-
-    const signature = headers().get("stripe-signature");
-    console.log(signature);
-    const event = stripe.webhooks.constructEvent(
-      body,
-      signature,
-      endpointSecret
-    );
-    // console.log(event);
-    // Handle the checkout.session.completed event
-    if (event.type === "checkout.session.completed") {
-      const session = event.data.object;
-      stripe.checkout.sessions.listLineItems(
-        session.id,
-        { limit: 100 },
-        function (err: any, lineItems: any) {
-          // Fulfill the purchase...
-          console.log(lineItems);
-          try {
-            updateDatabase(session, lineItems);
-          } catch (err) {
-            // return res.status(400).send(`Fulfillment Error: ${err.message}`);
-            const error_response = {
-              status: "error",
-              message: err.message,
-              raw: err,
-            };
-            return new NextResponse(JSON.stringify(error_response), {
-              status: 500,
-              headers: { "Content-Type": "application/json" },
-            });
-          }
-        }
-      );
-    }
-
-    return NextResponse.json({ result: event, ok: true });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json(
-      {
-        message: error.message,
-        ok: false,
-      },
-      { status: 500 }
-    );
-  }
-}
 
 // const _sendEmail = (data, zoneName, cb) => {
 //   const { first_name, email, last_name } = data
