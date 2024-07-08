@@ -17,7 +17,7 @@ const CardNews = ({ input }: Props) => {
         rel='noopener noreferrer'
         className='td-u'>
         <div className='flex flex-wrap md:flex-nowrap  sm-3-lines'>
-          <span className='date'>
+          <span className='date tabular-nums'>
             <time dateTime={input.date} className=''>
               {input.date}
             </time>
