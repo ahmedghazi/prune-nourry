@@ -82,9 +82,16 @@
   .image {
     position: absolute;
     left: 50%;
+    top: 50%;
     opacity: 0;
     transition: opacity 0.1s;
     pointer-events: none;
+    transform: translateX(-50%);
+  }
+  @media all and (min-width: $md) {
+    span {
+      white-space: nowrap;
+    }
   }
   @media all and (max-width: $md) {
     .sm-3-lines {
