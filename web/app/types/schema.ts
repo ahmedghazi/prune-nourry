@@ -366,6 +366,76 @@ export interface Project extends SanityDocument {
 }
 
 /**
+ * Artwork
+ *
+ *
+ */
+export interface Artwork extends SanityDocument {
+  _type: "artwork";
+
+  /**
+   * seo — `seo`
+   *
+   *
+   */
+  seo?: Seo;
+
+  /**
+   * Titre — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * Slug — `slug`
+   *
+   * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
+   */
+  slug?: { _type: "slug"; current: string };
+
+  /**
+   * Descrition — `string`
+   *
+   *
+   */
+  description?: string;
+
+  /**
+   * Image clef — `image`
+   *
+   * Visible on liste pages, project cards (largeur 1400px)
+   */
+  imageCover?: {
+    _type: "image";
+    asset: SanityReference<SanityImageAsset>;
+    crop?: SanityImageCrop;
+    hotspot?: SanityImageHotspot;
+  };
+
+  /**
+   * Images — `array`
+   *
+   *
+   */
+  images?: Array<SanityKeyed<Figure>>;
+
+  /**
+   * Texte — `localeBlockContent`
+   *
+   *
+   */
+  text?: LocaleBlockContent;
+
+  /**
+   * link — `linkInternal`
+   *
+   * Internal
+   */
+  link?: LinkInternal;
+}
+
+/**
  * Tag
  *
  *
@@ -887,37 +957,6 @@ export type Figure = {
   >;
 };
 
-export type Artwork = {
-  _type: "artwork";
-  /**
-   * Image — `figure`
-   *
-   *
-   */
-  image?: Figure;
-
-  /**
-   * title — `localeString`
-   *
-   *
-   */
-  title?: LocaleString;
-
-  /**
-   * description — `localeText`
-   *
-   *
-   */
-  description?: LocaleText;
-
-  /**
-   * link — `linkInternal`
-   *
-   *
-   */
-  link?: LinkInternal;
-};
-
 export type NewsArticle = {
   _type: "newsArticle";
   /**
@@ -1245,18 +1284,18 @@ export type ModuleArtworks = {
   title?: string;
 
   /**
-   * items — `array`
-   *
-   *
-   */
-  items?: Array<SanityKeyed<Artwork>>;
-
-  /**
    * gridSize — `number`
    *
    * Number of columns
    */
   gridSize?: number;
+
+  /**
+   * items — `array`
+   *
+   *
+   */
+  items?: Array<SanityKeyedReference<Artwork>>;
 };
 
 export type ModuleExhibitions = {
@@ -1347,6 +1386,7 @@ export type Documents =
   | Settings
   | PageModulaire
   | Project
+  | Artwork
   | Tag
   | News
   | Contact

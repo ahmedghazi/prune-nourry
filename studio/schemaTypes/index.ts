@@ -1,6 +1,7 @@
 import home from './singletons/home'
 import pageModulaire from './documents/pageModulaire'
 import project from './documents/project'
+import artwork from './documents/artwork'
 import tag from './documents/tag'
 import infos from './singletons/infos'
 import news from './singletons/news'
@@ -23,7 +24,7 @@ import keyValGroup from './objects/keyValGroup'
 import video from './objects/video'
 import interTitre from './objects/interTitre'
 import figure from './objects/figure'
-import artwork from './objects/artwork'
+// import artwork from './objects/artwork'
 import newsArticle from './objects/newsArticle'
 import exhibition from './objects/exhibition'
 import slideProject from './objects/slideProject'
@@ -55,6 +56,7 @@ export const schemaTypes = [
   settings,
   pageModulaire,
   project,
+  artwork,
   tag,
   news,
   contact,
@@ -76,7 +78,7 @@ export const schemaTypes = [
   video,
   interTitre,
   figure,
-  artwork,
+  // artwork,
   newsArticle,
   newsInstagram,
   exhibition,

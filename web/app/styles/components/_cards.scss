@@ -67,3 +67,20 @@
     }
   }
 }
+
+.card--news {
+  position: relative;
+  &:hover {
+    z-index: 999;
+    .image {
+      opacity: 1;
+    }
+  }
+  .image {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+    transition: opacity 0.1s;
+    pointer-events: none;
+  }
+}

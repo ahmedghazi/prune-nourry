@@ -23,9 +23,7 @@ const ModuleArtworksUI = ({ input }: Props) => {
         className='my-masonry-grid'
         columnClassName='my-masonry-grid_column'>
         {items?.map((item, i) => (
-          <div className='mb-md-' key={i}>
-            <CardArtwork input={item} />
-          </div>
+          <CardArtwork input={item} key={i} />
         ))}
       </Masonry>
     </section>

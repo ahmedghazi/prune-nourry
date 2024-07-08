@@ -1,19 +1,28 @@
 import React from "react";
 import locales from "../config/i18n";
 import UseLocaleContext from "../context/LocaleContext";
-import { Home, Infos, PageModulaire, Project, Tag } from "../types/schema";
+import {
+  Artwork,
+  Home,
+  Infos,
+  PageModulaire,
+  Project,
+  Tag,
+} from "../types/schema";
 
 export const _linkResolver = (
-  node: Infos | PageModulaire | Home | Project | Tag | any
+  node: Infos | PageModulaire | Home | Project | Artwork | Tag | any
 ) => {
   // console.log(node);
-  // console.log(node._type);
   if (!node || !node._type || node._type === "home") return "/";
+  console.log(node._type);
   switch (node._type) {
     case "project":
       return `/project/${node.slug?.current}`;
     case "product":
       return `/product/${node.slug?.current}`;
+    case "artwork":
+      return `/artwork/${node.slug?.current}`;
 
     default:
       return `/${node.slug?.current}`;

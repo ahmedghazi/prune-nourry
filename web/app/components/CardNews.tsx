@@ -10,12 +10,34 @@ type Props = {
 const CardNews = ({ input }: Props) => {
   // console.log(input);
   return (
-    <article className='card--news mb-lg'>
-      <div className='grid md:grid-cols-12 gap-sm md:gap-md'>
+    <article className='card--news mb-sm text-lg'>
+      <a
+        href={input.link?.link}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='td-u'>
+        <div className='flex'>
+          <div className='date'>
+            <time dateTime={input.date} className=''>
+              {input.date}
+            </time>
+          </div>
+          <h2 className=' mb-sm- ellipsis'>{_localizeField(input.title)}</h2>
+          <div className='image hidden-sm'>
+            {input.image && input.image.image && (
+              <Figure
+                asset={input.image.image.asset}
+                width={600}
+                alt={_localizeField(input.title)}
+              />
+            )}
+          </div>
+        </div>
+      </a>
+      {/* <div className='grid md:grid-cols-12 gap-sm md:gap-md'>
         <aside className='md:col-span-4 order-2 md:order-1'>
           <div className='md:sticky- md:top-header-height-  '>
             <time dateTime={input.date} className='mb-05e block'>
-              {/* {_date(input.date)} */}
               {input.date}
             </time>
             <h2 className='text-lg mb-sm'>{_localizeField(input.title)}</h2>
@@ -43,7 +65,7 @@ const CardNews = ({ input }: Props) => {
             )}
           </a>
         </div>
-      </div>
+      </div> */}
     </article>
   );
 };

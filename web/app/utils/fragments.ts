@@ -82,6 +82,17 @@ export const productCard = `
 	tag->
 `;
 
+export const artworkCard = `
+	_id,
+	_type,
+	slug,
+	imageCover{
+    ${figure}
+  },
+	title,
+	description
+`;
+
 export const moduleText = `
 	_type == 'moduleText' => {
 		...,
@@ -141,6 +152,16 @@ export const moduleProjects = `
 	}
 `;
 
+export const moduleArtworks = `
+_type == 'moduleArtworks' => {
+	...,
+	items[]-> {
+		...
+		${artworkCard}
+	}
+}
+`;
+
 export const moduleVideo = `
 _type == 'moduleVideo' => {
 	...,
@@ -163,24 +184,6 @@ _type == 'moduleVideos' => {
 			...,
 			asset->
 		}
-	}
-}
-`;
-export const moduleArtworks = `
-_type == 'moduleArtworks' => {
-	...,
-	items[]{
-		...,
-		image{
-			${figure}
-		},
-		link{
-			...,
-			link->{
-				_type,
-				slug
-			}
-		},
 	}
 }
 `;

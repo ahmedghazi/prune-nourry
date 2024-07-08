@@ -9,12 +9,13 @@ type Props = {
 };
 
 const CardArtwork = ({ input }: Props) => {
+  console.log(input);
   return (
     <article className='card--artwork'>
-      {input.image && input.image.image && (
-        <Link href={_linkResolver(input.link?.link)}>
+      {input.imageCover && (
+        <Link href={_linkResolver(input)}>
           <Figure
-            asset={input.image.image.asset}
+            asset={input.imageCover.asset}
             width={600}
             alt={_localizeField(input.title)}
           />
@@ -22,7 +23,7 @@ const CardArtwork = ({ input }: Props) => {
       )}
       <div className='header'>
         <h2>{_localizeField(input.title)}</h2>
-        {input.description && <div>{_localizeField(input.description)}</div>}
+        {input.description && <div className=''>{input.description}</div>}
         <Link href={_linkResolver(input.link?.link)}>
           {_localizeField(input.link?.label)}
         </Link>

@@ -13,20 +13,30 @@ export default defineField({
       type: 'string',
       description: 'Module title',
     }),
-    defineField({
-      name: 'items',
-      type: 'array',
-      of: [
-        {
-          type: 'artwork',
-        },
-      ],
-    }),
+    // defineField({
+    //   name: 'items',
+    //   type: 'array',
+    //   of: [
+    //     {
+    //       type: 'artwork',
+    //     },
+    //   ],
+    // }),
     defineField({
       name: 'gridSize',
       type: 'number',
       description: 'Number of columns',
       initialValue: 2,
+    }),
+    defineField({
+      name: 'items',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'artwork'}],
+        },
+      ],
     }),
   ],
 })

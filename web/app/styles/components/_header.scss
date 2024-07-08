@@ -110,8 +110,23 @@ body[data-template="is-product"] header {
     text-decoration-thickness: 2px;
     text-underline-position: under;
   }
-  ul.sub-menu {
-    // display: flex;
+}
+
+body[data-template="is-project"] header {
+  li.menu-projects .menu-item > a {
+    // display: block;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
+  }
+}
+
+body[data-template="is-artwork"] header {
+  li.menu-artworks .menu-item > a {
+    // display: block;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-position: under;
   }
 }
 

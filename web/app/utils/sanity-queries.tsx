@@ -1,6 +1,7 @@
 import { groq } from "next-sanity";
 import { client } from "./sanity-client";
 import {
+  Artwork,
   Contact,
   Home,
   Infos,
@@ -156,6 +157,29 @@ export const projectQuery = groq`
 `;
 export async function getProject(slug: string): Promise<Project> {
   return cachedClient(projectQuery, { slug: slug });
+}
+
+/********************************************************************************************
+ * Product
+ */
+export const artworkQuery = groq`
+  *[_type == "artwork" && slug.current == $slug][0]{
+    ...,
+    seo{
+      ${seo}
+    },
+
+    imageCover{
+      ${figure}
+    },
+    images[]{
+      ${figure}
+    },
+    tag->{title}
+  }
+`;
+export async function getArtwork(slug: string): Promise<Artwork> {
+  return cachedClient(artworkQuery, { slug: slug });
 }
 
 /********************************************************************************************

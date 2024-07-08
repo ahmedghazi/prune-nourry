@@ -23,6 +23,7 @@ const hiddenDocTypes = (listItem: ListItemBuilder) => {
     'tag',
     'project',
     'product',
+    'artwork',
     'settings',
     'infos',
     'news',
@@ -95,6 +96,9 @@ export const structure = (S) =>
       //       ]),
       //     ),
       //   ),
+
+      S.listItem().title('Artworks').schemaType('artwork').child(S.documentTypeList('artwork')),
+      S.divider(),
 
       S.listItem().title('Projets').schemaType('project').child(S.documentTypeList('project')),
       S.divider(),
