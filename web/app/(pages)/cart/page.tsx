@@ -1,6 +1,7 @@
 import Cart from "@/app/components/shop/Cart";
 import { Metadata } from "next";
 import React from "react";
+import { Suspense } from "react";
 
 type PageProps = {
   params: {
@@ -23,7 +24,9 @@ export async function generateMetadata({
 const Page = ({ params }: PageProps) => {
   return (
     <div className='template template--cart' data-template='cart'>
-      <Cart />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Cart />
+      </Suspense>
     </div>
   );
 };
