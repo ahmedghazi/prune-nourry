@@ -83,4 +83,13 @@
     transition: opacity 0.1s;
     pointer-events: none;
   }
+  @media all and (max-width: $md) {
+    h2 {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
 }

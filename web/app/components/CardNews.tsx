@@ -16,13 +16,13 @@ const CardNews = ({ input }: Props) => {
         target='_blank'
         rel='noopener noreferrer'
         className='td-u'>
-        <div className='flex'>
+        <div className='flex flex-wrap md:flex-nowrap'>
           <div className='date'>
             <time dateTime={input.date} className=''>
-              {input.date}
+              {input.date} eee
             </time>
           </div>
-          <h2 className=' mb-sm- ellipsis'>{_localizeField(input.title)}</h2>
+          <h2 className=' mb-sm- md:ellipsis'>{_localizeField(input.title)}</h2>
           <div className='image hidden-sm'>
             {input.image && input.image.image && (
               <Figure
