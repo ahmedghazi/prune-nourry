@@ -76,6 +76,9 @@
       opacity: 1;
     }
   }
+  .sep {
+    padding: 0 0.2em;
+  }
   .image {
     position: absolute;
     left: 50%;
@@ -84,10 +87,10 @@
     pointer-events: none;
   }
   @media all and (max-width: $md) {
-    h2 {
+    .sm-3-lines {
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 2;
+      -webkit-line-clamp: 3;
       overflow: hidden;
       text-overflow: ellipsis;
     }
