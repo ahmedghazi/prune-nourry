@@ -47,6 +47,9 @@ const ContentArtwork = ({ input }: Props) => {
           {input.images?.map((item, i) => (
             <div className='mb-md' key={i}>
               <Figure asset={item.image?.asset} />
+              {item.caption && (
+                <div className='caption py-02e '>{item.caption}</div>
+              )}
             </div>
           ))}
 

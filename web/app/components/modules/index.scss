@@ -19,6 +19,14 @@
       }
       .slider {
         scroll-margin-top: var(--header-height);
+        z-index: 0;
+      }
+      .btn--close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        // z-index: 1;
+        padding: var(--space-md);
       }
       .item {
         // scroll-margin-top: var(--header-height);

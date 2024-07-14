@@ -15,7 +15,7 @@ export const _linkResolver = (
 ) => {
   // console.log(node);
   if (!node || !node._type || node._type === "home") return "/";
-  console.log(node._type);
+  // console.log(node._type);
   switch (node._type) {
     case "project":
       return `/project/${node.slug?.current}`;
