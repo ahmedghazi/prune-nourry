@@ -33,7 +33,14 @@ const CardExhibition = ({ input }: Props) => {
           {input.slider?.length === 1 && (
             <div className='slide'>
               {input.slider[0].image && (
-                <Figure asset={input.slider[0].image.asset} />
+                <>
+                  <Figure asset={input.slider[0].image.asset} />
+                  {input.slider[0].caption && (
+                    <div className='caption py-02e '>
+                      {input.slider[0].caption}
+                    </div>
+                  )}
+                </>
               )}
             </div>
           )}
@@ -41,7 +48,15 @@ const CardExhibition = ({ input }: Props) => {
             <Slider settingsOverride={{ autoplay: true }}>
               {input.slider?.map((item, i) => (
                 <div className='slide' key={i}>
-                  {item.image && <Figure asset={item.image.asset} />}
+                  {item.image &&
+                    <>
+                    <Figure asset={item.image.asset} />}
+                    {item.caption && (
+                    <div className='caption py-02e '>
+                      {item.caption}
+                    </div>
+                  )}
+                    </>
                 </div>
               ))}
             </Slider>
