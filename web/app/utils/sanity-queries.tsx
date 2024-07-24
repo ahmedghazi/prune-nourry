@@ -60,6 +60,16 @@ export async function getSettings(): Promise<Settings> {
           }
         }
       },
+      navSecondary[]{
+        ...,
+        _type == 'linkExternal' => {
+          ...
+        },
+        _type == 'linkInternal' => {
+          ...,
+          link->
+        }
+      },
 
     }`
   );

@@ -10,9 +10,7 @@ https://prune-nourry.vercel.app/
 
 ## to do
 
-- # project excerpt = sticky
-- creer une typologie artwork, look produit
-- - à deviser
-
-- # mailchimp remplacer phone par pays
-- # interlignage entre le form et le reste du text
+- #page text
+- #nav footer
+- bugs mobile
+- #button checkout en gros et en noir + trad

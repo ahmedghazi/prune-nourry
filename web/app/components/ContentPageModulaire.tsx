@@ -15,6 +15,7 @@ import {
 } from "../types/schema";
 import Modules from "./modules";
 import { _localizeField } from "../utils/utils";
+import clsx from "clsx";
 
 type Props = {
   title: LocaleString;
@@ -29,16 +30,20 @@ type Props = {
         | SanityKeyed<ModuleProjects>
         | SanityKeyed<ModuleProducts>
         | SanityKeyed<ModuleExhibitions>
+        | SanityKeyed<ModuleText>
       >
     | any;
 };
 
 const ContentPageModulaire = ({ title, input }: Props) => {
+  const isPageText =
+    input.filter((el: any) => el._type === "moduleText").length > 0;
   return (
     <div className='content--page-modulaire'>
-      <div className='sm-only'>
+      <div className={clsx("sm-only", isPageText && "!block")}>
         <h1 className='mb-md'>{_localizeField(title) || "title"}</h1>
       </div>
+      {/* {JSON.stringify(isPageText)} */}
       <Modules input={input} />
     </div>
   );

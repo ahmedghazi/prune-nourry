@@ -1,6 +1,6 @@
 export default [
   {type: 'moduleImages'},
-  // {type: 'moduleText'},
+  {type: 'moduleText'},
   // {type: 'moduleTexts'},
   {type: 'moduleArtworks'},
   {type: 'modulePress'},

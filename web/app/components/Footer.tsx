@@ -1,9 +1,34 @@
+"use client";
 import React from "react";
+import { Settings } from "../types/schema";
+import { _linkResolver, _localizeField } from "../utils/utils";
+import Link from "next/link";
 
-type Props = {};
+type Props = {
+  settings: Settings;
+};
 
-const Footer = (props: Props) => {
-  return <footer>Footer</footer>;
+const Footer = ({ settings }: Props) => {
+  return (
+    <footer>
+      {/* <pre>{JSON.stringify(settings, null, 2)}</pre> */}
+      <div className='flex justify-between'>
+        <div className='g'>© Prune Noury {new Date().getFullYear()}</div>
+        <nav className='footer-nav'>
+          <ul className='flex gap-sm'>
+            {settings.navSecondary &&
+              settings.navSecondary?.map((item, i) => (
+                <li key={i}>
+                  <Link href={_linkResolver(item.link)}>
+                    {_localizeField(item.label)}
+                  </Link>
+                </li>
+              ))}
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

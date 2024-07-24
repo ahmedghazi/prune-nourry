@@ -33,6 +33,13 @@
 
   .footer {
     color: var(--color-gray);
+    button {
+      text-align: right;
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      padding: 0.5em 0;
+    }
   }
   .label,
   label {

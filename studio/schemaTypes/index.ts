@@ -43,6 +43,7 @@ import moduleProducts from './objects/modules/productsUI'
 import moduleArtworks from './objects/modules/artworksUI'
 import moduleExhibitions from './objects/modules/exhibitionsUI'
 import modulePress from './objects/modules/pressUI'
+// import moduleText from './objects/modules/textUI'
 
 import product from './shop/product'
 import productVariants from './shop/productVariants'
@@ -98,6 +99,7 @@ export const schemaTypes = [
   moduleArtworks,
   moduleExhibitions,
   modulePress,
+  // moduleText,
 
   product,
   productVariants,

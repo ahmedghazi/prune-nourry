@@ -244,6 +244,7 @@ export interface PageModulaire extends SanityDocument {
    */
   modules?: Array<
     | SanityKeyed<ModuleImages>
+    | SanityKeyed<ModuleText>
     | SanityKeyed<ModuleArtworks>
     | SanityKeyed<ModulePress>
     | SanityKeyed<ModuleVideo>
@@ -345,6 +346,7 @@ export interface Project extends SanityDocument {
    */
   modules?: Array<
     | SanityKeyed<ModuleImages>
+    | SanityKeyed<ModuleText>
     | SanityKeyed<ModuleArtworks>
     | SanityKeyed<ModulePress>
     | SanityKeyed<ModuleVideo>
@@ -1116,27 +1118,6 @@ export type ModuleText = {
    *
    */
   text?: LocaleBlockContent;
-
-  /**
-   * width — `number`
-   *
-   * Size in a 12 column grid (1/12, 2/12, ..... 12/12). cf flexboxgrid.com
-   */
-  width?: number;
-
-  /**
-   * Offset — `number`
-   *
-   * Indent in a 12 column grid (1/12, 2/12, ..... 12/12). cf flexboxgrid.com
-   */
-  offset?: number;
-
-  /**
-   * columns — `number`
-   *
-   * 1 columns text, 2, default 1
-   */
-  columns?: number;
 };
 
 export type ModuleTexts = {

@@ -23,6 +23,7 @@ const i18n = {
     viewCart: "Aller au panier",
     buyAt: "Acheter chez",
     searchResultFor: "Résultats pour",
+    pay: "Payer",
   },
   en: {
     default: false,
@@ -46,6 +47,7 @@ const i18n = {
     viewCart: "View cart",
     buyAt: "Buy at",
     searchResultFor: "Results for",
+    pay: "Pay",
   },
 };
 

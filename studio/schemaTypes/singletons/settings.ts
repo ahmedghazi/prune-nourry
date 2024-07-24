@@ -21,6 +21,10 @@ export default defineType({
       name: 'header',
       title: 'Header',
     },
+    // {
+    //   name: 'footer',
+    //   title: 'Footer',
+    // },
     {
       name: 'footer',
       title: 'Footer',
@@ -89,7 +93,7 @@ export default defineType({
           type: 'linkExternal',
         },
       ],
-      hidden: true,
+      // hidden: true,
       group: 'footer',
     }),
 

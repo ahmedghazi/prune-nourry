@@ -219,8 +219,10 @@ const Cart = (props: Props) => {
                           <div className='price'>{totalPrice(cartItems)}€</div>
                         )}
                       </div>
-                      <button className='btn' onClick={createCheckoutseesion}>
-                        Checkout
+                      <button
+                        className='btn text-black text-lg text-right block'
+                        onClick={createCheckoutseesion}>
+                        {_localizeText("pay")}
                       </button>
                     </div>
                   </div>
