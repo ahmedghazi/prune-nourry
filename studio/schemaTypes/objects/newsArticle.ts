@@ -9,12 +9,11 @@ export default defineField({
 
   fields: [
     defineField({
-      name: 'image',
-      type: 'figure',
-      title: 'Image',
+      name: 'date',
+      type: 'string',
     }),
     defineField({
-      name: 'date',
+      name: 'mediaTitle',
       type: 'string',
     }),
     defineField({
@@ -22,6 +21,12 @@ export default defineField({
       type: 'localeString',
       description: '',
     }),
+    defineField({
+      name: 'image',
+      type: 'figure',
+      title: 'Image',
+    }),
+
     defineField({
       name: 'link',
       type: 'linkExternal',

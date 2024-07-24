@@ -951,13 +951,6 @@ export type Figure = {
 export type NewsArticle = {
   _type: "newsArticle";
   /**
-   * Image — `figure`
-   *
-   *
-   */
-  image?: Figure;
-
-  /**
    * date — `string`
    *
    *
@@ -965,11 +958,25 @@ export type NewsArticle = {
   date?: string;
 
   /**
+   * mediaTitle — `string`
+   *
+   *
+   */
+  mediaTitle?: string;
+
+  /**
    * title — `localeString`
    *
    *
    */
   title?: LocaleString;
+
+  /**
+   * Image — `figure`
+   *
+   *
+   */
+  image?: Figure;
 
   /**
    * link — `linkExternal`

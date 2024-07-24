@@ -87,3 +87,28 @@ export const _date = (d: string | any) => {
     // hour: "numeric",
   });
 };
+export const _datePress = (d: string | any) => {
+  const { locale } = UseLocaleContext();
+  const dateLocale = locale === "fr" ? "fr-fr" : "en-us";
+
+  const date: Date = new Date(d);
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  return `${year}.${month < 10 ? `0${month}` : month}`;
+  // const dateFormated = date.toLocaleDateString(dateLocale, {
+  //   // weekday: "narrow",
+  //   year: "numeric",
+  //   // month: "2-digit",
+  //   month: "2-digit",
+  //   // day: "2-digit",
+  //   // hour: "numeric",
+  // });
+  // return date.toLocaleDateString(dateLocale, {
+  //   // weekday: "narrow",
+  //   year: "numeric",
+  //   // month: "2-digit",
+  //   month: "2-digit",
+  //   // day: "2-digit",
+  //   // hour: "numeric",
+  // });
+};

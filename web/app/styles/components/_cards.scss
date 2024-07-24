@@ -88,18 +88,36 @@
     pointer-events: none;
     transform: translateX(-50%);
   }
+  .sm-3-lines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   @media all and (min-width: $md) {
     span {
       white-space: nowrap;
     }
+    h2 {
+      max-width: 56vw;
+    }
   }
   @media all and (max-width: $md) {
-    .sm-3-lines {
+    h2 {
       display: -webkit-box;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 2;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+    // .sm-3-lines {
+    //   display: -webkit-box;
+    //   -webkit-box-orient: vertical;
+    //   -webkit-line-clamp: 3;
+    //   overflow: hidden;
+    //   text-overflow: ellipsis;
+    // }
   }
 }

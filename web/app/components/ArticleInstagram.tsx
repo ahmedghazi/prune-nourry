@@ -31,7 +31,7 @@ const ArticleInstagram = ({ input }: Props) => {
           )}
         </aside>
         <div className='media md:col-span-8'>
-          <Slider settingsOverride={{ autoplay: true }}>
+          <Slider settingsOverride={{ autoplay: false }}>
             {input.images?.map((item, i) => (
               <div className='slide' key={i}>
                 {item.image && <Figure asset={item.image.asset} />}

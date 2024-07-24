@@ -12,7 +12,7 @@ const ModuleSliderUI = ({ input }: Props) => {
   const { images } = input;
   return (
     <section className={clsx("module module--slider mb-md")}>
-      <Slider settingsOverride={{ autoplay: true }}>
+      <Slider settingsOverride={{ autoplay: false }}>
         {images?.map((item, i) => (
           <div className='slide' key={i}>
             <Figure asset={item.asset} />
