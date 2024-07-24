@@ -19,6 +19,9 @@ export async function GET(request: Request) {
     case "product":
       target = `/product/${slug}`;
       break;
+    case "artwork":
+      target = `/artwork/${slug}`;
+      break;
 
     default:
       target = `/${slug}`;

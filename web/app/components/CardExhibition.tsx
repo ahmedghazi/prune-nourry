@@ -45,26 +45,47 @@ const CardExhibition = ({ input }: Props) => {
             </div>
           )}
           {input.slider && input.slider.length > 1 && inView && (
+            <Slider settingsOverride={{ autoplay: false }}>
+              {input.slider?.map((item, i) => (
+                <div className='slide' key={i}>
+                  {item.image && (
+                    <>
+                      <Figure asset={item.image.asset} />
+                      {item.caption && (
+                        <div className='caption py-02e '>{item.caption}</div>
+                      )}
+                    </>
+                  )}
+                </div>
+              ))}
+            </Slider>
+          )}
+          {/* {input.slider && input.slider.length > 1 && inView && (
             <Slider settingsOverride={{ autoplay: true }}>
               {input.slider?.map((item, i) => (
                 <div className='slide' key={i}>
                   {item.image &&
                     <>
-                    <Figure asset={item.image.asset} />}
-                    {item.caption && (
-                    <div className='caption py-02e '>
-                      {item.caption}
-                    </div>
-                  )}
+                      <Figure asset={item.image.asset} />
+
                     </>
+                  }
                 </div>
+                  )}
               ))}
             </Slider>
-          )}
+          )} */}
         </div>
       </div>
     </article>
   );
 };
+/*
+{item.caption && (
+                      <div className='caption py-02e '>
+                        {item.caption}
+                      </div>
+                      )}
+*/
 
 export default CardExhibition;

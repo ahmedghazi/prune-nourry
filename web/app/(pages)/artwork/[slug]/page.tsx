@@ -50,12 +50,11 @@ const PageProduct: ({ params }: PageProps) => Promise<JSX.Element> = async ({
     data = await getArtwork(params.slug);
   }
   // console.log(productQuery);
-  if (!data) return <div>please edit page</div>;
+  if (!data) return <div>please edit page {params.slug} or refresh</div>;
 
   return (
     <div className='template template--artwork' data-template='artwork'>
       <ContentArtwork input={data} />
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
     </div>
   );
 };
