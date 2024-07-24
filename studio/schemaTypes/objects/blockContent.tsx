@@ -72,7 +72,8 @@ export default defineType({
         // Decorators usually describe a single property – e.g. a typographic
         // preference or highlighting by editors.
         decorators: [
-          {title: 'Text Gray', value: 'text-gray', icon: () => 'G', component: TextGray},
+          // {title: 'Text Gray', value: 'text-gray', icon: () => 'G', component: TextGray},
+          {title: 'Text Gray', value: 'text-gray', icon: () => 'G'},
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           // {title: 'Underline', value: 'u', icon: () => 'u', component: Underline},
