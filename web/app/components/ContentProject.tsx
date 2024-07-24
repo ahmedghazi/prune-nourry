@@ -22,7 +22,10 @@ const ContentProject = ({ input }: Props) => {
       <div className='md:grid md:grid-cols-12 gap-lg'>
         <div className='body md:col-span-4 mb-md'>
           <div
-            className={clsx("inner ", sticky && "md:sticky top-header-height")}>
+            className={clsx(
+              "inner ",
+              sticky && "md:sticky md:top-header-height"
+            )}>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
 
             {input.excerpt && input.text ? (

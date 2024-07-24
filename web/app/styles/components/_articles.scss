@@ -26,6 +26,16 @@ article {
 }
 
 @media all and (max-width: 1080px) {
+  article {
+    .media .slider img {
+      &.is-portrait {
+        // max-height: unset;
+        // height: auto !important;
+        object-fit: contain;
+        object-position: top;
+      }
+    }
+  }
 }
 
 .content-infos {

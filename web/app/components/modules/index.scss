@@ -88,8 +88,13 @@
 }
 
 @media all and (max-width: 1080px) {
-  .modules {
+  .media .modules {
     section {
+      &.module--images {
+        .item:not(.is-active) img.is-portrait {
+          aspect-ratio: unset !important;
+        }
+      }
       &.module--slider {
         .slick-slide,
         .slide,
