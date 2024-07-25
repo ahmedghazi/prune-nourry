@@ -10,4 +10,11 @@
     line-height: 1em;
     appearance: none;
   }
+
+  @media all and (max-width: $md) {
+    input,
+    button {
+      font-size: var(--text-lg--mobile);
+    }
+  }
 }

@@ -9,7 +9,7 @@ type Props = {
 };
 
 const CardArtwork = ({ input }: Props) => {
-  console.log(input);
+  // console.log(input);
   return (
     <article className='card--artwork'>
       <Link href={_linkResolver(input)}>

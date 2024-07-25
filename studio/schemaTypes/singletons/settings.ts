@@ -116,6 +116,12 @@ export default defineType({
       type: 'blockContent',
       group: 'misc',
     }),
+    defineField({
+      name: 'messageCookies',
+      title: 'Message Cookies',
+      type: 'localeBlockContent',
+      group: 'misc',
+    }),
 
     defineField({
       name: 'customCss',

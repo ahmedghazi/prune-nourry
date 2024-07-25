@@ -31,13 +31,23 @@ const ArticleInstagram = ({ input }: Props) => {
           )}
         </aside>
         <div className='media md:col-span-8'>
-          <Slider settingsOverride={{ autoplay: false }}>
-            {input.images?.map((item, i) => (
-              <div className='slide' key={i}>
-                {item.image && <Figure asset={item.image.asset} />}
-              </div>
-            ))}
-          </Slider>
+          {input.images && input.images?.length === 1 && (
+            <div className='slide'>
+              {input.images[0].image && (
+                <Figure asset={input.images[0].image.asset} />
+              )}
+            </div>
+          )}
+
+          {input.images && input.images?.length > 1 && (
+            <Slider settingsOverride={{ autoplay: false }}>
+              {input.images?.map((item, i) => (
+                <div className='slide' key={i}>
+                  {item.image && <Figure asset={item.image.asset} />}
+                </div>
+              ))}
+            </Slider>
+          )}
         </div>
       </div>
     </article>

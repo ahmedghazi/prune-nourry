@@ -13,6 +13,7 @@
     "@sanity/image-url": "^1.0.2",
     "@stripe/stripe-js": "^3.4.0",
     "clsx": "^2.1.1",
+    "cookies-next": "^4.2.1",
     "framer-motion": "^11.1.9",
     "jsonp": "^0.2.1",
     "micro": "^10.0.1",

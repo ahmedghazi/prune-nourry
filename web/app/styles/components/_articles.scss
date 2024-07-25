@@ -27,6 +27,7 @@ article {
 
 @media all and (max-width: 1080px) {
   article {
+    .media img,
     .media .slider img {
       &.is-portrait {
         // max-height: unset;

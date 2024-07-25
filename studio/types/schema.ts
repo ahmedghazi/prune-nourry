@@ -194,6 +194,13 @@ export interface Settings extends SanityDocument {
   message404?: BlockContent;
 
   /**
+   * Message Cookies — `localeBlockContent`
+   *
+   *
+   */
+  messageCookies?: LocaleBlockContent;
+
+  /**
    * customCss — `text`
    *
    *

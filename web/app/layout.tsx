@@ -10,6 +10,7 @@ import CartAside from "./components/shop/CartSide";
 import ImageExpand from "./components/ui/ImageExpand";
 import PageTransition from "./components/ui/PageTransition";
 import Footer from "./components/Footer";
+import CookieWrapper from "./components/ui/CookieWrapper";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -40,6 +41,7 @@ export default async function RootLayout({
 
                 {/* <ImageExpand selector={".module--images img"} /> */}
                 <Footer settings={settings} />
+                <CookieWrapper />
               </PageContextProvider>
             </ShopWrapper>
           </LocaleContextProvider>

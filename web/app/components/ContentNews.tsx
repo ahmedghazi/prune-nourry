@@ -78,7 +78,7 @@ const ContentNews = ({ input }: Props) => {
         </div>
       </div>
       {post && (
-        <div className='modal'>
+        <div className='modal bg-white z-10'>
           <div className='inner'>
             <ArticleInstagram input={post} />
             <button className='btn--close' onClick={() => setPost(null)}>

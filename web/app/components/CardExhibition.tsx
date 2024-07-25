@@ -45,7 +45,8 @@ const CardExhibition = ({ input }: Props) => {
             </div>
           )}
           {input.slider && input.slider.length > 1 && inView && (
-            <Slider settingsOverride={{ autoplay: false }}>
+            <Slider
+              settingsOverride={{ autoplay: false, adaptiveHeight: true }}>
               {input.slider?.map((item, i) => (
                 <div className='slide' key={i}>
                   {item.image && (
@@ -60,21 +61,6 @@ const CardExhibition = ({ input }: Props) => {
               ))}
             </Slider>
           )}
-          {/* {input.slider && input.slider.length > 1 && inView && (
-            <Slider settingsOverride={{ autoplay: true }}>
-              {input.slider?.map((item, i) => (
-                <div className='slide' key={i}>
-                  {item.image &&
-                    <>
-                      <Figure asset={item.image.asset} />
-
-                    </>
-                  }
-                </div>
-                  )}
-              ))}
-            </Slider>
-          )} */}
         </div>
       </div>
     </article>
