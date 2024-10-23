@@ -4,7 +4,7 @@ import { hasCookie, setCookie } from "cookies-next";
 import { BlockContent, LocaleBlockContent } from "@/app/types/schema";
 import { PortableText } from "@portabletext/react";
 import components from "@/app/utils/portableTextComponents";
-import { _localizeField } from "@/app/utils/utils";
+import { _localizeField, _localizeText } from "@/app/utils/utils";
 
 type Props = {
   message: LocaleBlockContent;
@@ -42,7 +42,7 @@ const CookieConsent = ({ message }: Props) => {
         <button
           className=' py-2 px-8  underline uppercase'
           onClick={() => acceptCookie()}>
-          Accept
+          {_localizeText("accept")}
         </button>
       </div>
     </div>

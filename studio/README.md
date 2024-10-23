@@ -1,85 +1,51 @@
-# Sanity Studio for Shopify Projects
-
-<img width="1072" alt="Sanity Studio with Shopify products" src="https://github.com/sanity-io/learn/assets/9684022/13aed6ff-a028-4c3f-bc4b-15bf9ba4c6ff">
-
-## About
-
-This Sanity Studio is configured for headless Shopify projects that use the official [Sanity Connect app][sanity-shopify], allowing you to extend Shopify products and collections with your own rich editorial content.
-
-It contains examples of customizing your [structure][docs-structure], [document actions][docs-document-actions] and [input components][docs-input-components].
-
-This studio can be used with any front end, or anywhere else you want your e-commerce content to go.
-
-## Features
-
-This studio comes configured with Shopify-friendly content schema types and a whole host of customizations to make managing Shopify data in your Sanity studio easier.
-
-It also comes with several convenient layout modules which can be re-used across various pages.
-
-**[View studio features][studio-features]**
-
-## Assumptions
-
-No two custom storefronts are the same, and we've taken a few strong opinions on how we've approached this studio.
-
-- Synced Shopify data for `collection`, `product` and `productVariant` documents are stored in a read-only object, `store`
-- Shopify is the source of truth for both product titles, slugs (handles) and thumbnail images
-- Shopify is the source of truth for collections
-- Sanity is used as an additional presentational layer to add custom metadata to both Shopify collections and products
-  - For products: this includes a portable text field with support for editorial modules
-  - For collections: this includes a customizable array of editorial modules
-- Some images (such as product and cart line item thumbnails) are served by Shopify's CDN whilst other images (such as those served in editorial modules) are handled by Sanity's Image API
-- We only concern ourselves with incoming data from Shopify _collections_, _products_ and _product variants_
-
-We believe these rules work well for simpler use cases, and keeping product titles, images and slugs handled by Shopify helps keep content consistent as you navigate from your product views to the cart and ultimately checkout. Managing collections in Shopify gives you the flexibility to take full advantage of manual and automated collections.
-
-You may have differing opinions on how content best be modeled to fit your particular needs – this is normal and encouraged! Fortunately, Sanity was built with this flexibility in mind, and we've written [a guide on structured content patterns of e-commerce][structured-content-patterns] which may help inform how to tackle this challenge.
-
-## Setup
-
-If you're reading this on GitHub, chances are you haven't initialized the studio locally yet. To do so, run the following shell command:
-
-```sh
-# run a one-off initializing script:
-npx @sanity/cli init --template shopify
-```
-
-Make sure to run the tagged release! (`@sanity/cli`)
-
-## Local Development
-
-### Starting development server
-
-```sh
-npm run dev
-```
-
-### Deploying the studio
-
-```sh
-npm run deploy
-```
-
-### Upgrading Sanity Studio
-
-```sh
-npm run upgrade
-```
-
-If you have the [Sanity CLI][docs-cli] installed, you can also run this with `sanity start|deploy|upgrade`. It comes with additional useful functionality.
-
-## License
-
-This repository is published under the [MIT](license) license.
-
-[docs-cli]: https://www.sanity.io/docs/cli
-[docs-custom-input-components]: https://www.sanity.io/docs/custom-input-components
-[docs-structure]: https://www.sanity.io/docs/structure-builder
-[docs-document-actions]: https://www.sanity.io/docs/document-actions
-[docs-input-components]: https://www.sanity.io/docs/custom-input-widgets
-[docs-string-input]: https://www.sanity.io/docs/string-type
-[hydrogen-demo]: https://github.com/sanity-io/hydrogen-sanity-demo
-[license]: https://github.com/sanity-io/sanity/blob/next/LICENSE
-[sanity-shopify]: https://apps.shopify.com/sanity-connect
-[structured-content-patterns]: https://www.sanity.io/guides/structured-content-patterns-for-e-commerce
-[studio-features]: docs/features.md
+{
+"name": "prune-noury-backoffice",
+"private": true,
+"version": "1.0.0",
+"main": "package.json",
+"license": "UNLICENSED",
+"scripts": {
+"dev": "sanity dev",
+"start": "sanity start",
+"build": "sanity build",
+"deploy": "sanity deploy",
+"deploy-graphql": "sanity graphql deploy",
+"d": "yarn run deploy-graphql && yarn run deploy && yarn run codegen && code types/schema.ts && code ../web/app/types/schema.ts",
+"codegen": "npx sanity-codegen"
+},
+"keywords": [
+"sanity"
+],
+"dependencies": {
+"@sanity/asset-utils": "^1.3.0",
+"@sanity/color-input": "^3.0.2",
+"@sanity/icons": "^2.11.0",
+"@sanity/ui": "^2.0.0",
+"@sanity/vision": "^3.42.0",
+"lodash.get": "^4.4.2",
+"pluralize-esm": "^9.0.2",
+"react": "^18.2.0",
+"react-dom": "^18.2.0",
+"react-icons": "^5.2.1",
+"react-player": "^2.16.0",
+"sanity": "^3.42.0",
+"sanity-codegen": "^0.9.8",
+"sanity-plugin-hotspot-array": "^1.0.1",
+"sanity-plugin-media": "^2.0.5",
+"slug": "^8.2.2",
+"styled-components": "^6.1.8"
+},
+"devDependencies": {
+"@sanity/eslint-config-studio": "^4.0.0",
+"@types/react": "^18.0.25",
+"eslint": "^8.6.0",
+"prettier": "^3.0.2",
+"typescript": "^5.1.6"
+},
+"prettier": {
+"semi": false,
+"printWidth": 100,
+"bracketSpacing": false,
+"singleQuote": true
+}
+}

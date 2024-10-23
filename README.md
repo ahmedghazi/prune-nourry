@@ -10,7 +10,5 @@ https://prune-nourry.vercel.app/
 
 ## to do
 
-- #page text
-- #nav footer
-- bugs mobile
-- #button checkout en gros et en noir + trad
+- mobile caption en 12
+- desktop forcer le scroll top au chargement de page

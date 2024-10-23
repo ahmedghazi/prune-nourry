@@ -12,27 +12,27 @@ import {FiExternalLink} from 'react-icons/fi'
  *    type: 'blockContent'
  *  }
  */
-const TextL = (props: any): JSX.Element => (
-  <p style={{fontSize: '2rem', marginTop: 0}}> {props.children} </p>
-)
+// const TextL = (props: any): JSX.Element => (
+//   <p style={{fontSize: '2rem', marginTop: 0}}> {props.children} </p>
+// )
 // const TextIndent = (props: any): JSX.Element => (
 //   <div className="indent">
 //     <p style={{paddingLeft: '1rem', marginTop: 0}}> {props.children} </p>
 //   </div>
 // )
-const TextIndent = (props: any): JSX.Element => (
-  <span style={{paddingLeft: '1rem', marginTop: 0, display: 'inline-block'}}>{props.children}</span>
-)
-const Underline = (props: any): JSX.Element => (
-  <span style={{textDecoration: 'underline'}}> {props.children} </span>
-)
-const Outline = (props: any): JSX.Element => (
-  <span style={{border: '1px solid ', borderRadius: '100%'}}> {props.children} </span>
-)
+// const TextIndent = (props: any): JSX.Element => (
+//   <span style={{paddingLeft: '1rem', marginTop: 0, display: 'inline-block'}}>{props.children}</span>
+// )
+// const Underline = (props: any): JSX.Element => (
+//   <span style={{textDecoration: 'underline'}}> {props.children} </span>
+// )
+// const Outline = (props: any): JSX.Element => (
+//   <span style={{border: '1px solid ', borderRadius: '100%'}}> {props.children} </span>
+// )
 
-const TextGray = (props: any): JSX.Element => (
-  <span style={{color: 'rgb(175, 176, 176)'}}> {props.children} </span>
-)
+// const TextGray = (props: any): JSX.Element => (
+//   <span style={{color: 'rgb(175, 176, 176)'}}> {props.children} </span>
+// )
 // const TextXL = (props: any): JSX.Element => (
 //   <p style={{fontSize: '3rem', marginTop: 0}}> {props.children} </p>
 // )
@@ -73,7 +73,7 @@ export default defineType({
         // preference or highlighting by editors.
         decorators: [
           // {title: 'Text Gray', value: 'text-gray', icon: () => 'G', component: TextGray},
-          {title: 'Text Gray', value: 'text-gray', icon: () => 'G'},
+          {title: 'Text Gray', value: 'text-gray', icon: () => 'Gray'},
           {title: 'Strong', value: 'strong'},
           {title: 'Emphasis', value: 'em'},
           // {title: 'Underline', value: 'u', icon: () => 'u', component: Underline},

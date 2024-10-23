@@ -25,7 +25,7 @@ export default defineField({
   preview: {
     select: {
       media: 'image.image',
-      // title: 'title.en',
+      title: 'image.caption',
     },
     // prepare(selection) {
     //   const {title, image} = selection

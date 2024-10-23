@@ -192,7 +192,7 @@ const Cart = (props: Props) => {
                 </div>
               )}
               {canceled && (
-                <div className='msg'>This ordder was canceled :(</div>
+                <div className='msg'>This order was canceled :(</div>
               )}
             </div>
           )}
@@ -220,7 +220,7 @@ const Cart = (props: Props) => {
                         )}
                       </div>
                       <button
-                        className='btn text-black text-lg text-right block'
+                        className='btn text-black text-lg text-right block hover:underline'
                         onClick={createCheckoutseesion}>
                         {_localizeText("pay")}
                       </button>

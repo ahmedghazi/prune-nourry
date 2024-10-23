@@ -12,7 +12,7 @@ type Props = {
 
 const CardProduct = ({ input }: Props) => {
   const { cartItems, setCartItems } = useShop();
-
+  console.log(input);
   const _onClick = () => {
     //ajout ou update le produit dans le panier
     if (cartItems.findIndex((el) => el._id === input._id) === -1) {
@@ -27,7 +27,8 @@ const CardProduct = ({ input }: Props) => {
       });
     }
   };
-
+  const isLowStock = input.quantity === 1;
+  const isOutOfStock = !input.quantity || input.quantity < 1;
   return (
     <div className='card--product'>
       <Link href={_linkResolver(input)}>
@@ -41,9 +42,9 @@ const CardProduct = ({ input }: Props) => {
         <div className='header'>
           <div className='type'>{_localizeField(input.tag?.title)}</div>
           <h2>{_localizeField(input.title)}</h2>
-          <div className='price'>{input.price}€</div>
-          {input.quantity && input.quantity === 1 && <div>Low stock</div>}
-          {input.quantity && input.quantity < 1 && <div>Out of stock</div>}
+          {input.price && <div className='price'>{input.price}€</div>}
+          {isLowStock && <div>Low stock</div>}
+          {isOutOfStock && <div>Out of stock</div>}
         </div>
       </Link>
     </div>

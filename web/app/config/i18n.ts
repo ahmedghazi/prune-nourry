@@ -24,6 +24,7 @@ const i18n = {
     buyAt: "Acheter chez",
     searchResultFor: "Résultats pour",
     pay: "Payer",
+    accept: "Accepter",
   },
   en: {
     default: false,
@@ -48,6 +49,7 @@ const i18n = {
     buyAt: "Buy at",
     searchResultFor: "Results for",
     pay: "Pay",
+    accept: "Accept",
   },
 };
 
