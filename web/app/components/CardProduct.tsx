@@ -43,8 +43,8 @@ const CardProduct = ({ input }: Props) => {
           <div className='type'>{_localizeField(input.tag?.title)}</div>
           <h2>{_localizeField(input.title)}</h2>
           {input.price && <div className='price'>{input.price}€</div>}
-          {isLowStock && <div>Low stock</div>}
-          {isOutOfStock && <div>Out of stock</div>}
+          {/* {isLowStock && <div>Low stock</div>} */}
+          {isOutOfStock && <div>Sold Out</div>}
         </div>
       </Link>
     </div>

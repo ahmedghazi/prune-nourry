@@ -24,7 +24,7 @@ const SanityExcerptToText = ({ excerpt, text, onChange }: Props) => {
           className='excerpt cursor-pointer text'
           onClick={() => setActive(true)}>
           <PortableText value={excerpt} components={portableTextComponents} />
-          <button className='td-u'>More info</button>
+          <button className='td-u'>More Information</button>
         </div>
       )}
       {active && (

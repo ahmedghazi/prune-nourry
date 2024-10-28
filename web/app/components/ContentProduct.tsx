@@ -41,6 +41,8 @@ const ContentProduct = ({ input }: Props) => {
   // }, [qty]);
 
   // console.log(input);
+  const isLowStock = input.quantity === 1;
+  const isOutOfStock = !input.quantity || input.quantity < 1;
 
   return (
     <article className='content--product'>
@@ -63,6 +65,8 @@ const ContentProduct = ({ input }: Props) => {
             )}
             {!input.blurb && <p className='text-red border-2'>Blurb needed</p>}
 
+            {/* {isLowStock && <div className='mb-md'>Low stock</div>} */}
+            {isOutOfStock && <div className='mb-md'>Sold Out</div>}
             <div className='mb-md'>
               {input.externalProductLink ? (
                 <a
@@ -70,7 +74,10 @@ const ContentProduct = ({ input }: Props) => {
                   href={input.externalProductLink.link}
                   target='_blank'
                   rel='noopener noreferrer'>
-                  {_localizeText("buyAt")} {input.externalProductLink.label}
+                  {
+                    //_localizeText("buyAt")
+                  }
+                  {input.externalProductLink.label}
                 </a>
               ) : (
                 <AddToCart input={input} />
