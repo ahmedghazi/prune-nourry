@@ -12,7 +12,7 @@ type Props = {
 
 const CardProduct = ({ input }: Props) => {
   const { cartItems, setCartItems } = useShop();
-  console.log(input);
+  // console.log(input.quantity);
   const _onClick = () => {
     //ajout ou update le produit dans le panier
     if (cartItems.findIndex((el) => el._id === input._id) === -1) {
@@ -44,7 +44,8 @@ const CardProduct = ({ input }: Props) => {
           <h2>{_localizeField(input.title)}</h2>
           {input.price && <div className='price'>{input.price}€</div>}
           {/* {isLowStock && <div>Low stock</div>} */}
-          {isOutOfStock && <div>Sold Out</div>}
+          {/* {isOutOfStock && <div>Sold Out</div>} */}
+          {`${input.quantity}`}
         </div>
       </Link>
     </div>

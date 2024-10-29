@@ -44,7 +44,7 @@ const PageProduct: ({ params }: PageProps) => Promise<JSX.Element> = async ({
   }
   // console.log(productQuery);
   if (!data) return <div>please edit page</div>;
-  data.quantity = 1;
+  // data.quantity = 1;
   return (
     <div className='template template--product' data-template='product'>
       <ContentProduct input={data} />

@@ -43,7 +43,7 @@ const ContentProduct = ({ input }: Props) => {
   // console.log(input);
   const isLowStock = input.quantity === 1;
   const isOutOfStock = !input.quantity || input.quantity < 1;
-
+  // console.log(input);
   return (
     <article className='content--product'>
       <div className='grid md:grid-cols-12 gap-md'>
@@ -64,8 +64,8 @@ const ContentProduct = ({ input }: Props) => {
               </div>
             )}
             {!input.blurb && <p className='text-red border-2'>Blurb needed</p>}
-
             {/* {isLowStock && <div className='mb-md'>Low stock</div>} */}
+            {/* quantity: {input.quantity} */}
             {isOutOfStock && <div className='mb-md'>Sold Out</div>}
             <div className='mb-md'>
               {input.externalProductLink ? (
@@ -83,7 +83,6 @@ const ContentProduct = ({ input }: Props) => {
                 <AddToCart input={input} />
               )}
             </div>
-
             {input.text && (
               <div className='mb-md'>
                 <div className='text '>

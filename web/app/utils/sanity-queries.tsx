@@ -185,7 +185,17 @@ export const artworkQuery = groq`
     images[]{
       ${figure}
     },
-    tag->{title}
+    text{
+      ${blockContent}
+    },
+    tag->{title},
+    link{
+      ...,
+      link->{
+        _type,
+        slug
+      }
+    },
   }
 `;
 export async function getArtwork(slug: string): Promise<Artwork> {
