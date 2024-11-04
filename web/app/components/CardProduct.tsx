@@ -45,7 +45,7 @@ const CardProduct = ({ input }: Props) => {
           {input.price && <div className='price'>{input.price}€</div>}
           {/* {isLowStock && <div>Low stock</div>} */}
           {/* {isOutOfStock && <div>Sold Out</div>} */}
-          {`${input.quantity}`}
+          {/* {`${input.quantity}`} */}
         </div>
       </Link>
     </div>
