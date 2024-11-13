@@ -68,7 +68,6 @@ export async function POST(
         expires_at: Math.floor(Date.now() / 1000) + 3600 * 2,
       });
 
-    // res.redirect(303, session.url);
     return NextResponse.json({
       result: checkoutSession,
       cartItems: cartItems,
