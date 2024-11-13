@@ -67,7 +67,7 @@ export async function POST(
         cancel_url: `${headers().get("referer")}/?canceled=true`,
         expires_at: Math.floor(Date.now() / 1000) + 3600 * 2,
       });
-    // console.log("session", checkoutSession.url);
+
     // res.redirect(303, session.url);
     return NextResponse.json({
       result: checkoutSession,
