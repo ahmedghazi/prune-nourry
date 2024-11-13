@@ -54,12 +54,12 @@ export async function POST(
       await stripe.checkout.sessions.create({
         line_items: transformItems,
         shipping_options: [
-          {
-            shipping_rate: "shr_1PKzXrJIJCqsla6x9PXiRu1U",
-          },
-          {
-            shipping_rate: "shr_1PKzUdJIJCqsla6x23rAGSAC",
-          },
+          // {
+          //   shipping_rate: "shr_1PKzXrJIJCqsla6x9PXiRu1U",
+          // },
+          // {
+          //   shipping_rate: "shr_1PKzUdJIJCqsla6x23rAGSAC",
+          // },
         ],
 
         mode: "payment",

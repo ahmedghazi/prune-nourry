@@ -113,7 +113,7 @@ export default defineType({
       title: 'External link',
       type: 'linkExternal',
       description:
-        'si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url',
+        'Produit externe (non vendu par Prune). Si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url',
       group: 'shop',
     }),
 
