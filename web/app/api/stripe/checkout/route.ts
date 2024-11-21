@@ -52,6 +52,9 @@ export async function POST(
     // Create Checkout Sessions from body params.
     const checkoutSession: Stripe.Checkout.Session =
       await stripe.checkout.sessions.create({
+        automatic_tax: {
+          enabled: true,
+        },
         line_items: transformItems,
         shipping_options: [
           {
