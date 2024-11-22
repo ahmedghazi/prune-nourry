@@ -35,11 +35,7 @@ export default async function RootLayout({
             <ShopWrapper>
               <PageContextProvider settings={settings}>
                 <Header settings={settings} />
-                {/* <PageTransition> */}
                 <main className='md:px-lg md:pb-lg'>{children}</main>
-                {/* </PageTransition> */}
-
-                {/* <ImageExpand selector={".module--images img"} /> */}
                 <Footer settings={settings} />
                 <CookieWrapper />
               </PageContextProvider>
