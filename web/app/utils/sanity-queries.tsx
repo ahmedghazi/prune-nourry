@@ -70,7 +70,9 @@ export async function getSettings(): Promise<Settings> {
           link->
         }
       },
-
+      messageCookies{
+        ${blockContent}
+      }
     }`
   );
 }

@@ -34,6 +34,7 @@ const CookieConsent = ({ message }: Props) => {
           {/* This website uses cookies to improve user experience. By using our
           website you consent to all cookies in accordance with our Cookie
           Policy. */}
+
           <PortableText
             value={_localizeField(message)}
             components={components}

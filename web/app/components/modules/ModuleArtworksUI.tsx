@@ -10,14 +10,15 @@ type Props = {
 const ModuleArtworksUI = ({ input }: Props) => {
   const { items, gridSize } = input;
   const breakpointColumnsObj = {
-    default: gridSize,
+    default: Math.abs(gridSize || 3),
     1100: 2,
     700: 2,
     500: 1,
   };
-
+  // console.log(gridSize);
   return (
     <section className='module module--artworks'>
+      {/* <pre>{JSON.stringify(items, null, 2)}</pre> */}
       <Masonry
         breakpointCols={breakpointColumnsObj}
         className='my-masonry-grid'
