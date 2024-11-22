@@ -20,7 +20,7 @@ const ContentProduct = ({ input }: Props) => {
 
   const isLowStock = input.quantity === 1;
   const isOutOfStock = !input.quantity || input.quantity < 1;
-  // console.log(input);
+
   return (
     <article className='content--product'>
       <div className='grid md:grid-cols-12 gap-md'>
