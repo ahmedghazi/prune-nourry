@@ -44,19 +44,21 @@ const ContentProduct = ({ input }: Props) => {
             {/* {isLowStock && <div className='mb-md'>Low stock</div>} */}
             {/* quantity: {input.quantity} */}
             {isOutOfStock && <div className='mb-md'>Sold Out</div>}
-            <div className='mb-md'>
-              {input.externalProductLink ? (
-                <a
-                  className='td-u'
-                  href={input.externalProductLink.link}
-                  target='_blank'
-                  rel='noopener noreferrer'>
-                  {input.externalProductLink.label}
-                </a>
-              ) : (
-                <AddToCart input={input} />
-              )}
-            </div>
+            {!isOutOfStock && (
+              <div className='mb-md'>
+                {input.externalProductLink ? (
+                  <a
+                    className='td-u'
+                    href={input.externalProductLink.link}
+                    target='_blank'
+                    rel='noopener noreferrer'>
+                    {input.externalProductLink.label}
+                  </a>
+                ) : (
+                  <AddToCart input={input} />
+                )}
+              </div>
+            )}
             {input.text && (
               <div className='mb-md'>
                 <div className='text '>
