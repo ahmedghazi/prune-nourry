@@ -108,7 +108,7 @@ const CartItem = ({ input, _delete }: CartItemProps) => (
               <Qty input={input} />
               <div className='flex justify-between '>
                 <div className='label'>{_localizeText("price")}:</div>
-                <div className='value'>{input.price * input.quantity}€</div>
+                <div className='value'>{input.price * input.quantity}€ HT</div>
               </div>
             </div>
           )}
@@ -216,7 +216,7 @@ const Cart = (props: Props) => {
                       <div className='total flex justify-between'>
                         <div className='label'>{_localizeText("subTotal")}</div>
                         {cartItems && (
-                          <div className='price'>{totalPrice(cartItems)}€</div>
+                          <div className='price'>{totalPrice(cartItems)}€ </div>
                         )}
                       </div>
                       <button

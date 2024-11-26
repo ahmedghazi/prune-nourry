@@ -42,7 +42,7 @@ const AddToCart = ({ input }: Props) => {
 
   return (
     <div className='add-to-cart'>
-      <div className='price mb-md'>{input.price}€</div>
+      <div className='price mb-md'>{input.price}€ HT</div>
 
       <div className='flex gap-sm mb-md'>
         <label htmlFor='qty' className='capitalize '>
