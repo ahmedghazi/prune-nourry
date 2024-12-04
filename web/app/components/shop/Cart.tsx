@@ -36,9 +36,9 @@ const CartSuccess = (props: CartSuccessProps) => {
   console.log(checkoutSession);
   return (
     <div className='cart-success'>
-      {checkoutSession && (
+      {/* {checkoutSession && (
         <div className='status'>{checkoutSession.payment_status}</div>
-      )}
+      )} */}
       {cartItems && checkoutSession && (
         <div>
           <h2 className='mb-md text-lg'>Thx for your order</h2>
