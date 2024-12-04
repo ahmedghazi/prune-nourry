@@ -9,6 +9,7 @@ import {
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React from "react";
+import { notFound } from "next/navigation";
 
 export const revalidate = 3600; // revalidate every hour
 export const dynamic = "force-dynamic";
@@ -46,7 +47,7 @@ const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
     data = (await getPageModulaire(params.slug)) as PageModulaire;
   }
 
-  if (!data) return <div>please edit page</div>;
+  if (!data) return notFound();
   return (
     <div
       className='template template--page-modulaire'
