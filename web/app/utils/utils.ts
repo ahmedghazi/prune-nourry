@@ -20,7 +20,7 @@ export const _linkResolver = (
     case "project":
       return `/project/${node.slug?.current}`;
     case "product":
-      return `/product/${node.slug?.current}`;
+      return `/edition/${node.slug?.current}`;
     case "artwork":
       return `/artwork/${node.slug?.current}`;
 

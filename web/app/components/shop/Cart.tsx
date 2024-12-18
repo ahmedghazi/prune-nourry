@@ -32,8 +32,8 @@ const CartSuccess = (props: CartSuccessProps) => {
   const [cartItems] = useLocalStorage("cartItems", "");
   const [checkoutSession] = useLocalStorage("checkoutSession", "");
 
-  console.log(cartItems);
-  console.log(checkoutSession);
+  // console.log(cartItems);
+  // console.log(checkoutSession);
   return (
     <div className='cart-success'>
       {/* {checkoutSession && (
