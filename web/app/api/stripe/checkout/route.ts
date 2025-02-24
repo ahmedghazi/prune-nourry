@@ -66,9 +66,9 @@ export async function POST(
           {
             shipping_rate: "shr_1QKhlwJIJCqsla6xcSzMW56l",
           },
-          {
-            shipping_rate: "shr_1QKhj9JIJCqsla6x9ULs7SwM",
-          },
+          // {
+          //   shipping_rate: "shr_1QKhj9JIJCqsla6x9ULs7SwM",
+          // },
         ],
 
         mode: "payment",
