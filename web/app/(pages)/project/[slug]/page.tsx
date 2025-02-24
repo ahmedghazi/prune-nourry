@@ -7,6 +7,8 @@ import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React from "react";
 
+export const revalidate = 0; // revalidate every hour
+
 type PageProps = {
   params: {
     slug: string;

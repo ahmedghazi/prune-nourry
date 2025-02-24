@@ -14,8 +14,9 @@ import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React from "react";
 
-export const revalidate = 300; // revalidate every hour
-export const dynamic = "force-dynamic";
+// export const revalidate = 300; // revalidate every hour
+// export const dynamic = "force-dynamic";
+export const revalidate = 0; // revalidate every hour
 
 type PageProps = {
   params: {
