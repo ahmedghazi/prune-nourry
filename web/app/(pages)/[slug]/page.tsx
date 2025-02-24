@@ -12,7 +12,7 @@ import React from "react";
 import { notFound } from "next/navigation";
 
 export const revalidate = 0; // revalidate every hour
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 type PageProps = {
   params: {
