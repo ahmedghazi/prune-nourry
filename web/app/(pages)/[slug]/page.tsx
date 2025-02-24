@@ -11,7 +11,7 @@ import { draftMode } from "next/headers";
 import React from "react";
 import { notFound } from "next/navigation";
 
-export const revalidate = 3600; // revalidate every hour
+export const revalidate = 0; // revalidate every hour
 export const dynamic = "force-dynamic";
 
 type PageProps = {
