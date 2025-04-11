@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { JSX, useEffect, useMemo, useRef, useState } from "react";
 import clsx from "clsx";
 import FigureComponent from "../ui/Figure";
 import { Figure, ModuleImages } from "@/app/types/schema";

@@ -3,10 +3,10 @@ import { Metadata } from "next";
 import React from "react";
 import { Suspense } from "react";
 
+type Params = Promise<{ slug: string }>;
+
 type PageProps = {
-  params: {
-    slug: string;
-  };
+  params: Params;
 };
 
 export async function generateMetadata({

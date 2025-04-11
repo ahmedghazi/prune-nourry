@@ -5,15 +5,15 @@ import { getClient } from "@/app/utils/sanity-client";
 import { getInfos, infosQuery } from "@/app/utils/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
-import React from "react";
+import React, { JSX } from "react";
 
 // export const revalidate = 3600; // revalidate every hour
 export const dynamic = "force-dynamic";
 
+type Params = Promise<{ slug: string }>;
+
 type PageProps = {
-  params: {
-    slug: string;
-  };
+  params: Params;
 };
 
 export async function generateMetadata({
@@ -28,10 +28,9 @@ export async function generateMetadata({
     },
   };
 }
-const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
-  params,
-}) => {
-  const { isEnabled: preview } = draftMode();
+const Page: ({ params }: PageProps) => Promise<JSX.Element> = async (props) => {
+  const params = await props.params;
+  const { isEnabled: preview } = await draftMode();
   let data: Infos;
   if (preview) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(

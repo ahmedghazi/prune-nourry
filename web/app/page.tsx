@@ -7,9 +7,16 @@ import { getClient } from "./utils/sanity-client";
 import { getHome, homeQuery } from "./utils/sanity-queries";
 import ContentHome from "./components/ContentHome";
 import { Home } from "./types/schema";
+import { JSX } from "react";
 
 export const revalidate = 3600; // revalidate every hour
 export const dynamic = "force-dynamic";
+
+type Params = Promise<{ slug: string }>;
+
+type PageProps = {
+  params: Params;
+};
 
 export async function generateMetadata({
   params,
@@ -24,16 +31,9 @@ export async function generateMetadata({
   };
 }
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-const Page: ({ params }: PageProps) => Promise<JSX.Element> = async ({
-  params,
-}) => {
-  const { isEnabled: preview } = draftMode();
+const Page: ({ params }: PageProps) => Promise<JSX.Element> = async (props) => {
+  const params = await props.params;
+  const { isEnabled: preview } = await draftMode();
   let data: Home;
   if (preview) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(

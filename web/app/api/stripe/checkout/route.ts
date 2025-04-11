@@ -8,14 +8,10 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(
   // export default async function handler(
-  req: NextRequest,
-  res: NextApiResponse
+  req: NextRequest
 ) {
   if (req.method !== "POST") {
-    return new NextResponse(JSON.stringify({ message: "INVALID_METHOD" }), {
-      status: 405,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ message: "INVALID_METHOD" }, { status: 405 });
   }
 
   const payload = await req.json(); // res now contains payload
@@ -72,8 +68,8 @@ export async function POST(
         ],
 
         mode: "payment",
-        success_url: `${headers().get("referer")}/?success=true`,
-        cancel_url: `${headers().get("referer")}/?canceled=true`,
+        success_url: `${(await headers()).get("referer")}/?success=true`,
+        cancel_url: `${(await headers()).get("referer")}/?canceled=true`,
         expires_at: Math.floor(Date.now() / 1000) + 3600 * 2,
       });
 
@@ -85,14 +81,22 @@ export async function POST(
       ok: true,
     });
   } catch (error) {
-    const error_response = {
-      status: "error",
-      message: error.message,
-      raw: error,
-    };
-    return new NextResponse(JSON.stringify(error_response), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    // const error_response = {
+    //   status: "error",
+    //   message: error.message,
+    //   raw: error,
+    // };
+    // return new NextResponse(JSON.stringify(error_response), {
+    //   status: 500,
+    //   headers: { "Content-Type": "application/json" },
+    // });
+    return NextResponse.json(
+      {
+        status: "error",
+        message: error.message,
+        raw: error,
+      },
+      { status: 500 }
+    );
   }
 }

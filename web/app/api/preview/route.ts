@@ -30,6 +30,6 @@ export async function GET(request: Request) {
   // console.log(request.url)
   // console.log(type, slug, target)
 
-  draftMode().enable();
+  (await draftMode()).enable();
   redirect(target);
 }

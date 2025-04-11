@@ -62,7 +62,7 @@ export const PageContextProvider = (props: PageContextProps) => {
     // document.documentElement.style.setProperty("--app-height", wh + "px");
 
     const header = document.querySelector("header");
-    let headerBounding = {} || { height: 50 };
+    let headerBounding = { height: 50 };
     if (header) {
       headerBounding = header.getBoundingClientRect();
 
