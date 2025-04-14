@@ -1,3 +1,4 @@
+@use "../variables";
 .content-news {
   // form .inner {
   //   font-size: var(--text-md);
@@ -50,7 +51,7 @@
       object-position: left top;
     }
 
-    @media all and (max-width: $md) {
+    @media all and (max-width: variables.$md) {
       padding: var(--header-height) var(--space-md--mobile)
         var(--space-md--mobile);
       .media {

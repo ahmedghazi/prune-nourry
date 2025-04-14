@@ -3,6 +3,7 @@ import pageModulaire from './documents/pageModulaire'
 import project from './documents/project'
 import artwork from './documents/artwork'
 import tag from './documents/tag'
+import tagProjectArtwork from './documents/tag-project-artwork'
 import infos from './singletons/infos'
 import news from './singletons/news'
 import contact from './singletons/contact'
@@ -59,6 +60,7 @@ export const schemaTypes = [
   project,
   artwork,
   tag,
+  tagProjectArtwork,
   news,
   contact,
   // tagGroup,

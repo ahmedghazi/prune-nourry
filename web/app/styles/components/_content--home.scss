@@ -1,3 +1,4 @@
+@use "../variables";
 // html:has(body[data-template="is-home"]),
 // body[data-template="is-home"] {
 //   // overflow: hidden;
@@ -31,7 +32,7 @@ body[data-template="is-home"] main {
   }
 }
 
-@media all and (max-width: $md) {
+@media all and (max-width: variables.$md) {
   .content-home {
     .slick-slider {
       .caption {

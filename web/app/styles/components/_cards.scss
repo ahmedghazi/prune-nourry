@@ -1,10 +1,11 @@
+@use "../variables";
 .card--project,
 .card--video,
 .card--product,
 .card--artwork {
   .header {
     padding: 0.75em 0 1em 0;
-    @media all and (max-width: $md) {
+    @media all and (max-width: variables.$md) {
       // padding: 0.3em 0 1em 0;
     }
   }
@@ -12,7 +13,7 @@
 
 .card--product {
   .header {
-    @media all and (min-width: $md) {
+    @media all and (min-width: variables.$md) {
       text-align: center;
     }
   }
@@ -50,7 +51,7 @@
 }
 
 .card--project .header {
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
     // padding: 0.3em 0 0.1em 0;
     padding-bottom: calc(1em + var(--space-sm));
   }
@@ -96,7 +97,7 @@
     text-overflow: ellipsis;
   }
 
-  @media all and (min-width: $md) {
+  @media all and (min-width: variables.$md) {
     span {
       white-space: nowrap;
     }
@@ -104,7 +105,7 @@
       max-width: 56vw;
     }
   }
-  @media all and (max-width: $md) {
+  @media all and (max-width: variables.$md) {
     h2 {
       display: -webkit-box;
       -webkit-box-orient: vertical;

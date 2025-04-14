@@ -12,6 +12,7 @@ import {
   Settings,
 } from "../types/schema";
 import {
+  artworkCard,
   blockContent,
   figure,
   moduleArtworks,
@@ -28,7 +29,11 @@ import {
   seo,
 } from "./fragments";
 import { cache } from "react";
-import { ProductExtend } from "../types/extend";
+import {
+  ITagProjectArtwork,
+  ProductExtend,
+  ProjectExtend,
+} from "../types/extend";
 
 export const cachedClient = cache(client.fetch.bind(client));
 
@@ -156,6 +161,17 @@ export const projectQuery = groq`
       slug
     }
   },
+  tagProjectArtwork->{
+    _type,
+    slug
+  },
+  "artworks": *[
+     _type == "artwork"
+     && tagProjectArtwork._ref == ^.tagProjectArtwork._ref
+    ]
+    {
+      slug
+    },
   modules[]{
     ...,
     ${moduleImages},
@@ -167,7 +183,7 @@ export const projectQuery = groq`
 
 }
 `;
-export async function getProject(slug: string): Promise<Project> {
+export async function getProject(slug: string): Promise<ProjectExtend> {
   return cachedClient(projectQuery, { slug: slug });
 }
 
@@ -202,6 +218,30 @@ export const artworkQuery = groq`
 `;
 export async function getArtwork(slug: string): Promise<Artwork> {
   return cachedClient(artworkQuery, { slug: slug });
+}
+
+/********************************************************************************************
+ * Product
+ */
+export const tagProjectArtworkQuery = groq`
+  {
+    'tag':*[_type == "tagProjectArtwork" && slug.current == $slug][0]{
+      ...
+    },
+
+    'items':
+      *[
+      _type in ["artwork"] &&
+      tagProjectArtwork->slug.current == $slug] {
+        ${artworkCard}
+
+    }
+  }
+`;
+export async function getTagProjectArtworkQuery(
+  slug: string
+): Promise<ITagProjectArtwork> {
+  return cachedClient(tagProjectArtworkQuery, { slug: slug });
 }
 
 /********************************************************************************************

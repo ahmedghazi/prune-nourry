@@ -1,5 +1,6 @@
 import ContentProject from "@/app/components/ContentProject";
 import website from "@/app/config/website";
+import { ProjectExtend } from "@/app/types/extend";
 import { Project } from "@/app/types/schema";
 import { getClient } from "@/app/utils/sanity-client";
 import { getProject, projectQuery } from "@/app/utils/sanity-queries";
@@ -30,14 +31,14 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 const Page: ({ params }: PageProps) => Promise<JSX.Element> = async (props) => {
   const params = await props.params;
   const { isEnabled: preview } = await draftMode();
-  let data: Project;
+  let data: ProjectExtend;
   if (preview) {
     data = await getClient({ token: process.env.SANITY_API_READ_TOKEN }).fetch(
       projectQuery,
       params
     );
   } else {
-    data = (await getProject(params.slug)) as Project;
+    data = (await getProject(params.slug)) as ProjectExtend;
   }
   if (!data) return <div>please edit page</div>;
 

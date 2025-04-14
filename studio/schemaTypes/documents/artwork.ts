@@ -10,7 +10,7 @@ export default defineType({
   icon: FolderIcon,
   groups: [
     {
-      default: true,
+      // default: true,
       name: 'editorial',
       title: 'Editorial',
     },
@@ -53,6 +53,13 @@ export default defineType({
         maxLength: 96,
       },
       validation: (Rule) => Rule.required(),
+      group: 'editorial',
+    }),
+    defineField({
+      name: 'tagProjectArtwork',
+      title: 'Tag Project Artwork',
+      type: 'reference',
+      to: [{type: 'tagProjectArtwork'}],
       group: 'editorial',
     }),
     defineField({

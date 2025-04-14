@@ -300,6 +300,13 @@ export interface Project extends SanityDocument {
   subTitle?: string;
 
   /**
+   * Tag Project Artwork — `reference`
+   *
+   *
+   */
+  tagProjectArtwork?: SanityReference<TagProjectArtwork>;
+
+  /**
    * Année — `string`
    *
    *
@@ -395,6 +402,13 @@ export interface Artwork extends SanityDocument {
   slug?: { _type: "slug"; current: string };
 
   /**
+   * Tag Project Artwork — `reference`
+   *
+   *
+   */
+  tagProjectArtwork?: SanityReference<TagProjectArtwork>;
+
+  /**
    * Descrition — `string`
    *
    *
@@ -449,6 +463,29 @@ export interface Tag extends SanityDocument {
    *
    */
   title?: LocaleString;
+}
+
+/**
+ * Tag Project Artwork
+ *
+ * Tag to link Project and Artwork
+ */
+export interface TagProjectArtwork extends SanityDocument {
+  _type: "tagProjectArtwork";
+
+  /**
+   * Title — `localeString`
+   *
+   *
+   */
+  title?: LocaleString;
+
+  /**
+   * Slug — `slug`
+   *
+   * URL basée sur le titre (sans espace ni caractère autre que a-z-0-9
+   */
+  slug?: { _type: "slug"; current: string };
 }
 
 /**
@@ -590,7 +627,7 @@ export interface Product extends SanityDocument {
   /**
    * External link — `linkExternal`
    *
-   * si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url
+   * Produit externe (non vendu par Prune). Si renseigné remplace le add to cart stripe local et ouvre un nouvel onglet vers cette url
    */
   externalProductLink?: LinkExternal;
 
@@ -1374,6 +1411,7 @@ export type Documents =
   | Project
   | Artwork
   | Tag
+  | TagProjectArtwork
   | News
   | Contact
   | Product;

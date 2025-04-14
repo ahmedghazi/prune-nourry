@@ -1,3 +1,6 @@
+@use "sass:list";
+@use "sass:string";
+
 @mixin flex_center_h_v {
   @include flexbox();
   @include align-items(center);
@@ -40,9 +43,9 @@
   $list: ();
 
   @each $input in $inputs {
-    $input: unquote($input);
+    $input: string.unquote($input);
     $input: if($pseudo, $input + ":" + $pseudo, $input);
-    $list: append($list, $input, comma);
+    $list: list.append($list, $input, comma);
   }
 
   @return $list;
@@ -181,7 +184,8 @@ $all-text-inputs-focus: assign-inputs($inputs-list, focus);
 
 // Vendor prefixes
 $sass-burger-add-vendor-prefixes: true !default;
-
+$burger-height: null;
+$burger-gutter: null;
 // Burger
 @mixin burger(
   $width: 30px,
@@ -641,6 +645,7 @@ $browser-context: 14;
 }
 
 @function toRem($value) {
-  $remValue: ($value / 16) + rem;
+  // $remValue: ($value / 16) + rem;
+  $remValue: calc($value / 16) + rem;
   @return $remValue;
 }

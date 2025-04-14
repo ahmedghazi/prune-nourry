@@ -1,31 +1,28 @@
-@import "reset";
-@import "variables";
-@import "vendor/flexboxgrid/flexboxgrid";
-// @import 'vendor/slickslider/slick';
+@use "reset";
+@use "variables";
+// @use "vendor/flexboxgrid/flexboxgrid";
 
-@import "mixins";
-@import "utils";
+@use "mixins";
+@use "utils";
 
-@import "typography";
+@use "typography";
 
-@import "layout";
+@use "layout";
 
-@import "components/header";
-@import "components/footer";
-// @import "components/card";
-// @import "components/infos";
-@import "components/content--home";
-@import "components/content--news";
-@import "components/content--contact";
-@import "components/content--product";
-@import "components/content--project";
-@import "components/articles";
-@import "components/cards";
+@use "components/header";
+@use "components/footer";
+@use "components/content--home";
+@use "components/content--news";
+@use "components/content--contact";
+@use "components/content--product";
+@use "components/content--project";
+@use "components/articles";
+@use "components/cards";
 
-@import "components/ui/search";
-@import "components/ui/image-expand";
-@import "components/ui/burger";
-@import "components/ui/mailchimp";
+@use "components/ui/search";
+@use "components/ui/image-expand";
+@use "components/ui/burger";
+@use "components/ui/mailchimp";
 
-@import "shop/cart";
-@import "shop/cart-aside";
+@use "shop/cart";
+@use "shop/cart-aside";

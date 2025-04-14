@@ -8,10 +8,19 @@ import {
   PageModulaire,
   Project,
   Tag,
+  TagProjectArtwork,
 } from "../types/schema";
 
 export const _linkResolver = (
-  node: Infos | PageModulaire | Home | Project | Artwork | Tag | any
+  node:
+    | Infos
+    | PageModulaire
+    | Home
+    | Project
+    | Artwork
+    | Tag
+    | TagProjectArtwork
+    | any
 ) => {
   // console.log(node);
   if (!node || !node._type || node._type === "home") return "/";
@@ -23,7 +32,9 @@ export const _linkResolver = (
       return `/edition/${node.slug?.current}`;
     case "artwork":
       return `/artwork/${node.slug?.current}`;
-
+    case "tagProjectArtwork":
+      console.log(node);
+      return `/tag-project-artwork/${node.slug?.current}`;
     default:
       return `/${node.slug?.current}`;
   }

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Slider from "./ui/slick-slider/index";
 import { Project } from "../types/schema";
 import Modules from "./modules";
@@ -9,14 +9,26 @@ import portableTextComponents from "../utils/portableTextComponents";
 import SanityExcerptToText from "./ui/SanityExcerptToText";
 import Link from "next/link";
 import clsx from "clsx";
+import { ProjectExtend } from "../types/extend";
 
 type Props = {
-  input: Project;
+  input: ProjectExtend;
 };
 
 const ContentProject = ({ input }: Props) => {
   // console.log(input);
   const [sticky, setSticky] = useState<boolean>(false);
+  const linkToArtworks = useMemo(() => {
+    if (!input.artworks) return null;
+    console.log(input.artworks);
+    const artworksExists = input.artworks && input.artworks.length > 0;
+    if (artworksExists) {
+      return _linkResolver(input.tagProjectArtwork);
+    } else if (input.link) {
+      return _linkResolver(input.link.link);
+    }
+  }, [input.artworks, input.link, input.tagProjectArtwork]);
+
   return (
     <article className='content--project'>
       <div className='md:grid md:grid-cols-12 gap-lg'>
@@ -49,9 +61,10 @@ const ContentProject = ({ input }: Props) => {
               </div>
             )}
 
-            {input.link && (
-              <Link href={_linkResolver(input.link.link)} className='td-u'>
-                {_localizeField(input.link.label)}
+            {linkToArtworks && (
+              <Link href={linkToArtworks} className='td-u'>
+                {/* {_localizeField(input.link.label)} */}
+                Link to Artworks
               </Link>
             )}
 

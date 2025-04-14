@@ -236,8 +236,8 @@ audio,
 canvas,
 video {
   display: inline-block;
-  *display: inline;
-  *zoom: 1;
+  // *display: inline;
+  // *zoom: 1;
 }
 
 audio:not([controls]) {
@@ -254,13 +254,13 @@ textarea {
   font-size: 100%;
   margin: 0;
   vertical-align: baseline;
-  *vertical-align: middle;
+  // *vertical-align: middle;
 }
 
 button,
 input {
   line-height: normal;
-  *overflow: visible;
+  // *overflow: visible;
 }
 
 button::-moz-focus-inner,

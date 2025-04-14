@@ -10,7 +10,7 @@ export default defineType({
   icon: FolderIcon,
   groups: [
     {
-      default: true,
+      // default: true,
       name: 'editorial',
       title: 'Editorial',
     },
@@ -61,6 +61,13 @@ export default defineType({
       title: 'Soustitre',
       group: 'editorial',
       hidden: true,
+    }),
+    defineField({
+      name: 'tagProjectArtwork',
+      title: 'Tag Project Artwork',
+      type: 'reference',
+      to: [{type: 'tagProjectArtwork'}],
+      group: 'editorial',
     }),
     defineField({
       name: 'year',

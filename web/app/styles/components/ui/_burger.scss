@@ -1,3 +1,6 @@
+// @use "../../variables";
+@use "../../mixins" as *;
+
 .burger-wrapper {
   position: fixed;
   right: var(--space-md--mobile);
@@ -16,7 +19,8 @@
   }
   &.is-active {
     .burger {
-      @include burger-to-cross();
+      // @include burger-to-cross();
+      @include burger-to-cross;
     }
     & + nav {
       display: block;

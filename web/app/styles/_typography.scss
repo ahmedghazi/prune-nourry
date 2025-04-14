@@ -1,3 +1,4 @@
+@use "variables";
 @font-face {
   font-family: "MNKYKlaus-Medium";
   src: url("./fonts/MNKYKlaus-Medium.woff") format("woff"),
@@ -171,7 +172,7 @@ p,
   white-space: nowrap;
 }
 .md-ellipsis {
-  @media all and (min-width: $md) {
+  @media all and (min-width: variables.$md) {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -296,7 +297,7 @@ sub {
   top: 0.5ex;
 }
 
-@media all and (max-width: $md) {
+@media all and (max-width: variables.$md) {
   .text-lg,
   h1 {
     font-size: var(--text-lg--mobile);

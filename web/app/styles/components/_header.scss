@@ -1,3 +1,4 @@
+@use "../variables";
 header {
   position: fixed;
   width: 100%;
@@ -90,7 +91,7 @@ header {
 }
 
 body[data-template="is-home"] {
-  @media all and (min-width: $md) {
+  @media all and (min-width: variables.$md) {
     &.is-above-fold header nav {
       visibility: visible;
     }
@@ -130,7 +131,7 @@ body[data-template="is-artwork"] header {
   }
 }
 
-@media all and (max-width: $md) {
+@media all and (max-width: variables.$md) {
   header {
     padding: var(--space-md--mobile);
     .site-name {

@@ -38,7 +38,7 @@ const Modules = ({ input }: any) => {
   // console.log(input);
   const _renderModules = () => {
     const _modules = input.map((module: any, i: number) => {
-      console.log(module._type);
+      // console.log(module._type);
       switch (module._type) {
         case "moduleText":
           return <ModuleTextUI key={module._key} input={module} />;
