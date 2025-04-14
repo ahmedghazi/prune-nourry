@@ -288,6 +288,7 @@ $burger-gutter: null;
 @mixin burger-to-cross($color: auto) {
   & {
     background-color: transparent;
+    //transform: rotate(360deg); opacity: 0;
   }
 
   @if ($color !=auto) {
