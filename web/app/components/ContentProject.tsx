@@ -20,10 +20,10 @@ const ContentProject = ({ input }: Props) => {
   const [sticky, setSticky] = useState<boolean>(false);
   const linkToArtworks = useMemo(() => {
     if (!input.artworks) return null;
-    console.log(input.tagProjectArtwork);
+    // console.log(input.tagProjectArtwork);
     const artworksExists =
       input.artworks && input.artworks.length > 0 && input.tagProjectArtwork;
-    console.log({ artworksExists });
+    // console.log({ artworksExists });
 
     if (artworksExists) {
       return _linkResolver(input.tagProjectArtwork);
