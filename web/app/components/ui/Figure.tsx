@@ -18,6 +18,7 @@ const Figure = ({ asset, width = 1000, alt = website.title }: Props) => {
   return (
     <figure>
       <Image
+        unoptimized
         src={urlFor(asset, width)}
         width={asset?.metadata?.dimensions.width || width}
         height={asset?.metadata?.dimensions.height || width}
