@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import website from "./config/website";
 import { getSitemapEntries } from "./sanity-api/sanity-queries";
-import { _linkResolver } from "./sanity-api/utils";
+import { _linkResolver } from "./lib/utils";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const items = await getSitemapEntries();

@@ -112,9 +112,9 @@ const Search = (props: Props) => {
     }
   };
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value) {
-      setTerm(event.target?.value);
+  const changeHandler = (event: React.InputEvent<HTMLInputElement>) => {
+    if (event.currentTarget.value) {
+      setTerm(event.currentTarget.value);
     } else {
       if (setSearchResult) setSearchResult([]);
     }
