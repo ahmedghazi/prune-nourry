@@ -1,16 +1,5 @@
-import { groq } from "next-sanity";
-import { client } from "./sanity-client";
-import {
-  Artwork,
-  Contact,
-  Home,
-  Infos,
-  News,
-  PageModulaire,
-  Product,
-  Project,
-  Settings,
-} from "../types/schema";
+import { defineQuery } from "next-sanity";
+import { sanityFetch } from "./sanity-client";
 import {
   artworkCard,
   blockContent,
@@ -28,65 +17,71 @@ import {
   projetCard,
   seo,
 } from "./fragments";
-import { cache } from "react";
-import {
-  ITagProjectArtwork,
-  ProductExtend,
-  ProjectExtend,
-} from "../types/extend";
-
-export const cachedClient = cache(client.fetch.bind(client));
+import type {
+  SETTINGS_QUERYResult,
+  HOME_QUERYResult,
+  PAGE_MODULAIRE_QUERYResult,
+  PROJECT_QUERYResult,
+  ARTWORK_QUERYResult,
+  TAG_PROJECT_ARTWORK_QUERYResult,
+  PRODUCT_QUERYResult,
+  INFOS_QUERYResult,
+  NEWS_QUERYResult,
+  CONTACT_QUERYResult,
+  SITEMAP_QUERYResult,
+} from "../types/sanity.types";
 
 /********************************************************************************************
  * SETTINGS
  */
-export async function getSettings(): Promise<Settings> {
-  return client.fetch(
-    groq`*[_type == "settings"][0]{
-      ...,
+export const SETTINGS_QUERY = defineQuery(`*[_type == "settings"][0]{
+  ...,
 
-      navPrimary[]{
+  navPrimary[]{
+    ...,
+    _type == 'menuItem' => {
+      ...,
+      link{
         ...,
-        _type == 'menuItem' => {
-          ...,
-          link{
-            ...,
-            link->{
-              _type,
-              slug
-            }
-          },
-          subMenu[]{
-            ...,
-             link->{
-              _type,
-              slug
-            }
-          }
+        link->{
+          _type,
+          slug
         }
       },
-      navSecondary[]{
+      subMenu[]{
         ...,
-        _type == 'linkExternal' => {
-          ...
-        },
-        _type == 'linkInternal' => {
-          ...,
-          link->
+         link->{
+          _type,
+          slug
         }
-      },
-      messageCookies{
-        ${blockContent}
       }
-    }`
-  );
+    }
+  },
+  navSecondary[]{
+    ...,
+    _type == 'linkExternal' => {
+      ...
+    },
+    _type == 'linkInternal' => {
+      ...,
+      link->
+    }
+  },
+  messageCookies{
+    ${blockContent}
+  }
+}`);
+export async function getSettings(): Promise<SETTINGS_QUERYResult> {
+  return sanityFetch({
+    query: SETTINGS_QUERY,
+    tags: ["settings"],
+  });
 }
 
 /********************************************************************************************
  * HOME
  */
-
-export const homeQuery = groq`*[_type == "home"][0]{
+export const HOME_QUERY = defineQuery(`*[_type == "home"][0]{
   ...,
   seo{
     ${seo}
@@ -108,15 +103,18 @@ export const homeQuery = groq`*[_type == "home"][0]{
   projects[]->{
     ${projetCard}
   }
-}`;
-export async function getHome(): Promise<Home> {
-  return cachedClient(homeQuery, {});
+}`);
+export async function getHome(): Promise<HOME_QUERYResult> {
+  return sanityFetch({
+    query: HOME_QUERY,
+    tags: ["home"],
+  });
 }
 
 /********************************************************************************************
  * PAGE MODULAIRE
  */
-export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.current == $slug][0]{
+export const PAGE_MODULAIRE_QUERY = defineQuery(`*[_type == "pageModulaire" && slug.current == $slug][0]{
   ...,
   seo{
     ${seo}
@@ -133,15 +131,21 @@ export const pageModulaireQuery = groq`*[_type == "pageModulaire" && slug.curren
     ${modulePress},
     ${moduleExhibitions}
   },
-}`;
-export async function getPageModulaire(slug: string): Promise<PageModulaire> {
-  return cachedClient(pageModulaireQuery, { slug: slug });
+}`);
+export async function getPageModulaire(
+  slug: string,
+): Promise<PAGE_MODULAIRE_QUERYResult> {
+  return sanityFetch({
+    query: PAGE_MODULAIRE_QUERY,
+    qParams: { slug },
+    tags: ["pageModulaire", `pageModulaire:${slug}`],
+  });
 }
 
 /********************************************************************************************
  * Project
  */
-export const projectQuery = groq`
+export const PROJECT_QUERY = defineQuery(`
 *[_type == "project" && slug.current == $slug][0]{
   ...,
   seo{
@@ -182,15 +186,19 @@ export const projectQuery = groq`
   },
 
 }
-`;
-export async function getProject(slug: string): Promise<ProjectExtend> {
-  return cachedClient(projectQuery, { slug: slug });
+`);
+export async function getProject(slug: string): Promise<PROJECT_QUERYResult> {
+  return sanityFetch({
+    query: PROJECT_QUERY,
+    qParams: { slug },
+    tags: ["project", `project:${slug}`],
+  });
 }
 
 /********************************************************************************************
- * Product
+ * Artwork
  */
-export const artworkQuery = groq`
+export const ARTWORK_QUERY = defineQuery(`
   *[_type == "artwork" && slug.current == $slug][0]{
     ...,
     seo{
@@ -215,15 +223,19 @@ export const artworkQuery = groq`
       }
     },
   }
-`;
-export async function getArtwork(slug: string): Promise<Artwork> {
-  return cachedClient(artworkQuery, { slug: slug });
+`);
+export async function getArtwork(slug: string): Promise<ARTWORK_QUERYResult> {
+  return sanityFetch({
+    query: ARTWORK_QUERY,
+    qParams: { slug },
+    tags: ["artwork", `artwork:${slug}`],
+  });
 }
 
 /********************************************************************************************
- * Product
+ * Tag Project Artwork
  */
-export const tagProjectArtworkQuery = groq`
+export const TAG_PROJECT_ARTWORK_QUERY = defineQuery(`
   {
     'tag':*[_type == "tagProjectArtwork" && slug.current == $slug][0]{
       ...
@@ -237,17 +249,21 @@ export const tagProjectArtworkQuery = groq`
 
     }
   }
-`;
+`);
 export async function getTagProjectArtworkQuery(
-  slug: string
-): Promise<ITagProjectArtwork> {
-  return cachedClient(tagProjectArtworkQuery, { slug: slug });
+  slug: string,
+): Promise<TAG_PROJECT_ARTWORK_QUERYResult> {
+  return sanityFetch({
+    query: TAG_PROJECT_ARTWORK_QUERY,
+    qParams: { slug },
+    tags: ["tagProjectArtwork", `tagProjectArtwork:${slug}`],
+  });
 }
 
 /********************************************************************************************
  * Product
  */
-export const productQuery = groq`
+export const PRODUCT_QUERY = defineQuery(`
   *[_type == "product" && slug.current == $slug][0]{
     ...,
     seo{
@@ -262,15 +278,19 @@ export const productQuery = groq`
     },
     tag->{title}
   }
-`;
-export async function getProduct(slug: string): Promise<ProductExtend> {
-  return cachedClient(productQuery, { slug: slug });
+`);
+export async function getProduct(slug: string): Promise<PRODUCT_QUERYResult> {
+  return sanityFetch({
+    query: PRODUCT_QUERY,
+    qParams: { slug },
+    tags: ["product", `product:${slug}`],
+  });
 }
 
 /********************************************************************************************
  * INFOS
  */
-export const infosQuery = groq`
+export const INFOS_QUERY = defineQuery(`
   *[_type == "infos" ][0]{
     ...,
     seo{
@@ -281,15 +301,18 @@ export const infosQuery = groq`
       ${figure}
     },
   }
-`;
-export async function getInfos(): Promise<Infos> {
-  return cachedClient(infosQuery, {});
+`);
+export async function getInfos(): Promise<INFOS_QUERYResult> {
+  return sanityFetch({
+    query: INFOS_QUERY,
+    tags: ["infos"],
+  });
 }
 
 /********************************************************************************************
  * NEWS
  */
-export const newsQuery = groq`
+export const NEWS_QUERY = defineQuery(`
   *[_type == "news" ][0]{
     ...,
     seo{
@@ -307,15 +330,18 @@ export const newsQuery = groq`
 
     },
   }
-`;
-export async function getNews(): Promise<News> {
-  return cachedClient(newsQuery, {});
+`);
+export async function getNews(): Promise<NEWS_QUERYResult> {
+  return sanityFetch({
+    query: NEWS_QUERY,
+    tags: ["news"],
+  });
 }
 
 /********************************************************************************************
  * CONTACT
  */
-export const contactQuery = groq`
+export const CONTACT_QUERY = defineQuery(`
   *[_type == "contact" ][0]{
     ...,
     seo{
@@ -324,7 +350,27 @@ export const contactQuery = groq`
 
 
   }
-`;
-export async function getContact(): Promise<Contact> {
-  return cachedClient(contactQuery, {});
+`);
+export async function getContact(): Promise<CONTACT_QUERYResult> {
+  return sanityFetch({
+    query: CONTACT_QUERY,
+    tags: ["contact"],
+  });
+}
+
+/********************************************************************************************
+ * SITEMAP
+ */
+export const SITEMAP_QUERY = defineQuery(`
+  *[_type in ["project", "product", "artwork", "tagProjectArtwork", "pageModulaire"] && defined(slug.current)]{
+    _type,
+    slug,
+    _updatedAt
+  }
+`);
+export async function getSitemapEntries(): Promise<SITEMAP_QUERYResult> {
+  return sanityFetch({
+    query: SITEMAP_QUERY,
+    tags: ["sitemap"],
+  });
 }

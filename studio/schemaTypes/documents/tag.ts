@@ -1,5 +1,5 @@
 import {defineField, defineType} from 'sanity'
-import {TagIcon} from '@sanity/icons'
+import {TagIcon} from '@sanity/icons/Tag'
 import {baseLanguage} from '../locale/supportedLanguages'
 
 export default defineType({
@@ -7,17 +7,6 @@ export default defineType({
   title: 'Tag',
   type: 'document',
   icon: TagIcon,
-  fields: [
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'localeString',
-    }),
-  ],
-  preview: {
-    select: {
-      title: `title.${baseLanguage}`,
-      subtitle: 'tagType',
-    },
-  },
+  fields: [defineField({name: 'title', title: 'Title', type: 'localeString'})],
+  preview: {select: {title: `title.${baseLanguage}`, subtitle: 'tagType'}},
 })

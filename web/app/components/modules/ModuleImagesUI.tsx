@@ -70,7 +70,7 @@ const Item = ({
     <div
       ref={ref}
       className={clsx(
-        "item cursor-pointer"
+        "item cursor-pointer",
         // canExpand && "cursor-zoom-in"
         // canExpand && active && "col-span-4 is-active cursor-zoom-out"
         // imageRatio
@@ -157,7 +157,7 @@ const ModuleImagesUI = ({ input }: Props): JSX.Element => {
   }, [viewSlider]);
 
   useEffect(() => {
-    console.log(sliderIndex);
+    // console.log(sliderIndex);
 
     publish("SLIDER_INDEX", sliderIndex);
 
@@ -167,7 +167,7 @@ const ModuleImagesUI = ({ input }: Props): JSX.Element => {
     //   });
     // }
   }, [sliderIndex]);
-  console.log(items);
+  // console.log(items);
   return (
     <section className={clsx("module module--images mb-md")}>
       {viewSlider && (
@@ -209,7 +209,7 @@ const ModuleImagesUI = ({ input }: Props): JSX.Element => {
         className={clsx(
           "grid gap-md",
           `md:grid-cols-${gridSize || 4}`,
-          gridSize === 4 && "is-mosaic"
+          gridSize === 4 && "is-mosaic",
         )}>
         {items?.map((item, i) => (
           <Item

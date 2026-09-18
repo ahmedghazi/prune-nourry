@@ -20,7 +20,7 @@ const ContentProject = ({ input }: Props) => {
   const [sticky, setSticky] = useState<boolean>(false);
   const linkToArtworks = useMemo(() => {
     if (!input.artworks) return null;
-    console.log(input.artworks);
+    // console.log(input.artworks);
     const artworksExists = input.artworks && input.artworks.length > 0;
     if (artworksExists) {
       return _linkResolver(input.tagProjectArtwork);
@@ -36,7 +36,7 @@ const ContentProject = ({ input }: Props) => {
           <div
             className={clsx(
               "inner ",
-              sticky && "md:sticky md:top-header-height"
+              sticky && "md:sticky md:top-header-height",
             )}>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
 

@@ -12,7 +12,6 @@ type Props = {
 };
 
 const ContentInfos = ({ input }: Props) => {
-  console.log(input.list);
   return (
     <div className='content-infos'>
       <article>

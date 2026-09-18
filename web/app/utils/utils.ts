@@ -33,7 +33,6 @@ export const _linkResolver = (
     case "artwork":
       return `/artwork/${node.slug?.current}`;
     case "tagProjectArtwork":
-      console.log(node);
       return `/tag-project-artwork/${node.slug?.current}`;
     default:
       return `/${node.slug?.current}`;
