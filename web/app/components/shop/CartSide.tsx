@@ -5,12 +5,12 @@ import { subscribe, unsubscribe } from "pubsub-js";
 import clsx from "clsx";
 import Qty from "./Qty";
 import { loadStripe } from "@stripe/stripe-js";
-import { _localizeField } from "@/app/utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 
 type Props = {};
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "",
 );
 
 const CartAside = (props: Props) => {

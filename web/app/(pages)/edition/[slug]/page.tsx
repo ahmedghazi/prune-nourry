@@ -1,8 +1,8 @@
 import ContentProduct from "@/app/components/ContentProduct";
 import website from "@/app/config/website";
 import { ProductExtend } from "@/app/types/extend";
-import { getClient } from "@/app/utils/sanity-client";
-import { getProduct, PRODUCT_QUERY } from "@/app/utils/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity-client";
+import { getProduct, PRODUCT_QUERY } from "@/app/sanity-api/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
@@ -29,7 +29,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 const PageProduct: ({ params }: PageProps) => Promise<JSX.Element> = async (
-  props
+  props,
 ) => {
   const params = await props.params;
   const { isEnabled: preview } = await draftMode();

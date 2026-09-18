@@ -1,7 +1,7 @@
 import { ProductExtend } from "@/app/types/extend";
 import React, { useEffect, useMemo, useState } from "react";
 import useShop from "./ShopContext";
-import { _localizeText } from "@/app/utils/utils";
+import { _localizeText } from "@/app/lib/utils";
 import Link from "next/link";
 
 type Props = {

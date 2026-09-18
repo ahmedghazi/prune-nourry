@@ -1,11 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
-import {
-  _linkResolver,
-  _localizeField,
-  _localizeText,
-} from "@/app/utils/utils";
+import { _linkResolver, _localizeField, _localizeText } from "@/app/lib/utils";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";

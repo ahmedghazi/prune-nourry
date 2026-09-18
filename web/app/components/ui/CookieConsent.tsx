@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { hasCookie, setCookie } from "cookies-next";
 import { BlockContent, LocaleBlockContent } from "@/app/types/schema";
 import { PortableText } from "@portabletext/react";
-import components from "@/app/utils/portableTextComponents";
-import { _localizeField, _localizeText } from "@/app/utils/utils";
+import components from "@/app/sanity-api/portableTextComponents";
+import { _localizeField, _localizeText } from "@/app/lib/utils";
 
 type Props = {
   message: LocaleBlockContent;

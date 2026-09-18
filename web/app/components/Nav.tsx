@@ -6,7 +6,7 @@ import {
   MenuItem,
   SanityKeyed,
 } from "../types/schema";
-import { _linkResolver, _localizeField } from "../utils/utils";
+import { _linkResolver, _localizeField } from "@/app/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
@@ -24,7 +24,7 @@ const SubMenuItem = ({ input }: LinkInternal | LinkExternal | any) => {
       href={_linkResolver(input.link)}
       className={clsx(
         " ",
-        _isCurrent(_linkResolver(input.link)) ? "is-current" : ""
+        _isCurrent(_linkResolver(input.link)) ? "is-current" : "",
       )}>
       <div className='label'>{_localizeField(input.label)}</div>
     </Link>
@@ -61,7 +61,7 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
           _isCurrent(_linkResolver(input.link?.link)) && "is-current",
           !hasSubmenu && _isCurrent(_linkResolver(input.link?.link))
             ? "is-current"
-            : ""
+            : "",
         )}>
         <div className='label'>{_localizeField(input.link?.label)}</div>
       </Link>
@@ -70,14 +70,14 @@ const MenuItemNode = ({ input }: MenuItem | any) => {
           ref={ref}
           className={clsx(
             "sub-menu",
-            `parent-${input.link?.link?.slug?.current}`
+            `parent-${input.link?.link?.slug?.current}`,
           )}>
           {input.subMenu.map(
             (_item: LinkInternal | LinkExternal | any, j: number) => (
               <li key={j} className='depth-1'>
                 <SubMenuItem input={_item} />
               </li>
-            )
+            ),
           )}
         </ul>
       )}
@@ -121,7 +121,7 @@ const Nav = ({ input }: Props) => {
               item._type === "menuItem" &&
                 item.link?.link?.slug?.current === "shop"
                 ? "menu-product"
-                : ""
+                : "",
               // `type-${item.link ? item.link : ""}`
             )}>
             {item && item._type === "menuItem" && (

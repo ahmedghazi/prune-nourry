@@ -1,29 +1,15 @@
 import { PortableTextComponents } from "@portabletext/react";
-import { urlFor } from "./sanity-utils";
-import Image from "next/image";
+// import { urlFor } from "./sanity-utils";
+// import Image from "next/image";
 import Link from "next/link";
-import { _linkResolver } from "./utils";
+import { _linkResolver } from "@/app/lib/utils";
 
 const portableTextComponents: PortableTextComponents = {
-  // block(props) {
-  //   console.log(props)
-  //   switch (props.node?.style) {
-  //     case "h2":
-  //       return <h2>{props.children}</h2>
-  //     case "text-lg":
-  //       return <p className="text-lg">{props.children}</p>
-  //     case "text-xl":
-  //       return <p className="text-xl">{props.children}</p>
-  //     default:
-  //       return <p>{props.children}</p>
-  //   }
-  // },
   block: {
     h2: ({ children }) => <h2>{children}</h2>,
     "text-lg": ({ children }) => (
       <p className='text-md md:text-lg'>{children}</p>
     ),
-    // align_center: ({ children }) => <p className="text-center">{children}</p>,
   },
   types: {
     // image: ({ value }) => {

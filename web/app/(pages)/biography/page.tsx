@@ -1,8 +1,8 @@
 import ContentInfos from "@/app/components/ContentInfos";
 import website from "@/app/config/website";
 import { Infos } from "@/app/types/schema";
-import { getClient } from "@/app/utils/sanity-client";
-import { getInfos, INFOS_QUERY } from "@/app/utils/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity-client";
+import { getInfos, INFOS_QUERY } from "@/app/sanity-api/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";

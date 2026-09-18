@@ -3,8 +3,8 @@ import { draftMode } from "next/headers";
 import { Metadata } from "next";
 import website from "./config/website";
 
-import { getClient } from "./utils/sanity-client";
-import { getHome, HOME_QUERY } from "./utils/sanity-queries";
+import { getClient } from "./sanity-api/sanity-client";
+import { getHome, HOME_QUERY } from "./sanity-api/sanity-queries";
 import ContentHome from "./components/ContentHome";
 import { Home } from "./types/schema";
 import { notFound } from "next/navigation";

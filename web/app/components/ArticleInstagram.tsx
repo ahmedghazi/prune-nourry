@@ -1,11 +1,11 @@
 import React from "react";
 import Slider from "./ui/slick-slider/index";
 import { NewsInstagram } from "../types/schema";
-import { _localizeField } from "../utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 import Figure from "./ui/Figure";
 import SanityExcerptToText from "./ui/SanityExcerptToText";
 import { PortableText } from "next-sanity";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 type Props = {
   input: NewsInstagram;
 };

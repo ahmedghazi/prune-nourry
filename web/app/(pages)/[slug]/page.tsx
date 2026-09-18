@@ -1,11 +1,11 @@
 import ContentPageModulaire from "@/app/components/ContentPageModulaire";
 import website from "@/app/config/website";
 import { PageModulaire } from "@/app/types/schema";
-import { getClient } from "@/app/utils/sanity-client";
+import { getClient } from "@/app/sanity-api/sanity-client";
 import {
   getPageModulaire,
   PAGE_MODULAIRE_QUERY,
-} from "@/app/utils/sanity-queries";
+} from "@/app/sanity-api/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import React, { JSX } from "react";

@@ -1,6 +1,6 @@
 import React from "react";
 import { Product, Project } from "@/app/types/schema";
-import { _localizeField } from "@/app/utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 // import PreJson from "../ui/PreJson";
 import ProjectCard from "../CardProject";
 import Masonry from "react-masonry-css";

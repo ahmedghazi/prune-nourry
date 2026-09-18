@@ -1,7 +1,7 @@
 import React from "react";
 import { Embed } from "../types/schema";
 // import ReactPlayer from "react-player";
-import { _localizeField } from "../utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 // import website from "../config/website";
 import PlayerVideo from "./ui/PlayerVideo";
 

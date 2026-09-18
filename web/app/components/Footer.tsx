@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Settings } from "../types/schema";
-import { _linkResolver, _localizeField } from "../utils/utils";
+import { _linkResolver, _localizeField } from "@/app/lib/utils";
 import Link from "next/link";
 import website from "../config/website";
 

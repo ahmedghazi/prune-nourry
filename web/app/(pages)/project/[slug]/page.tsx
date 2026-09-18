@@ -1,8 +1,8 @@
 import ContentProject from "@/app/components/ContentProject";
 import website from "@/app/config/website";
 import { ProjectExtend } from "@/app/types/extend";
-import { getClient } from "@/app/utils/sanity-client";
-import { getProject, PROJECT_QUERY } from "@/app/utils/sanity-queries";
+import { getClient } from "@/app/sanity-api/sanity-client";
+import { getProject, PROJECT_QUERY } from "@/app/sanity-api/sanity-queries";
 import { Metadata } from "next";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";

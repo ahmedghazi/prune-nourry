@@ -4,7 +4,7 @@ import Slider from "./ui/slick-slider/index";
 import { Home } from "../types/schema";
 import Figure from "./ui/Figure";
 import { useRouter } from "next/navigation";
-import { _linkResolver } from "../utils/utils";
+import { _linkResolver } from "@/app/lib/utils";
 import Link from "next/link";
 import Masonry from "react-masonry-css";
 import ProjectCard from "./CardProject";

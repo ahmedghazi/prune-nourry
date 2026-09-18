@@ -4,7 +4,7 @@ import useShop from "./ShopContext";
 import { publish } from "pubsub-js";
 import { useRouter } from "next/navigation";
 import clsx from "clsx";
-import { _localizeText } from "@/app/utils/utils";
+import { _localizeText } from "@/app/lib/utils";
 
 type Props = {};
 

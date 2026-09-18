@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { Exhibition } from "../types/schema";
-import { _localizeField } from "../utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 import { PortableText } from "next-sanity";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import Slider from "./ui/slick-slider";
 import Figure from "./ui/Figure";
 import { useInView } from "react-intersection-observer";

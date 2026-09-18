@@ -4,7 +4,7 @@ import "./global.css";
 
 import Header from "./components/Header";
 import website from "./config/website";
-import { getSettings } from "./utils/sanity-queries";
+import { getSettings } from "./sanity-api/sanity-queries";
 import { Settings } from "./types/schema";
 import { PageContextProvider } from "./context/PageContext";
 import { LocaleContextProvider } from "./context/LocaleContext";
