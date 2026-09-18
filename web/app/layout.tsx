@@ -9,13 +9,11 @@ import { Settings } from "./types/schema";
 import { PageContextProvider } from "./context/PageContext";
 import { LocaleContextProvider } from "./context/LocaleContext";
 import { ShopWrapper } from "./components/shop/ShopContext";
-import CartAside from "./components/shop/CartSide";
-import ImageExpand from "./components/ui/ImageExpand";
-import PageTransition from "./components/ui/PageTransition";
 import Footer from "./components/Footer";
 import CookieWrapper from "./components/ui/CookieWrapper";
 import { draftMode } from "next/headers";
 import VisualEditingClient from "./components/VisualEditingClient";
+import { ViewTransition } from "react";
 
 export const metadata = {
   metadataBase: new URL(website.url),
@@ -41,7 +39,9 @@ export default async function RootLayout({
             <ShopWrapper>
               <PageContextProvider settings={settings}>
                 <Header settings={settings} />
-                <main className='md:px-lg md:pb-lg'>{children}</main>
+                <ViewTransition>
+                  <main className='md:px-lg md:pb-lg'>{children}</main>
+                </ViewTransition>
                 <Footer settings={settings} />
                 <CookieWrapper />
                 {isEnabled && <VisualEditingClient />}
