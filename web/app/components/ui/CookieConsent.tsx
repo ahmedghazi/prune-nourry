@@ -11,16 +11,24 @@ type Props = {
 };
 
 const CookieConsent = ({ message }: Props) => {
-  const [showConsent, setShowConsent] = useState<boolean>(true);
+  // const [showConsent, setShowConsent] = useState<boolean>(true);
+  // const hasCookieValue = hasCookie("localConsent");
+  const [showConsent, setShowConsent] = React.useState<
+    boolean | Promise<boolean>
+  >(true);
+  const has: boolean | Promise<boolean> = hasCookie("localConsent");
 
   useEffect(() => {
-    setShowConsent(hasCookie("localConsent"));
+    setShowConsent(has);
   }, []);
 
   const acceptCookie = () => {
     setShowConsent(true);
     setCookie("localConsent", "true", {});
   };
+
+  const localizedMessage = _localizeField(message);
+  const acceptLabel = _localizeText("accept");
 
   if (showConsent) {
     return null;
@@ -35,15 +43,12 @@ const CookieConsent = ({ message }: Props) => {
           website you consent to all cookies in accordance with our Cookie
           Policy. */}
 
-          <PortableText
-            value={_localizeField(message)}
-            components={components}
-          />
+          <PortableText value={localizedMessage} components={components} />
         </div>
         <button
           className=' py-2 px-8  underline uppercase'
           onClick={() => acceptCookie()}>
-          {_localizeText("accept")}
+          {acceptLabel}
         </button>
       </div>
     </div>

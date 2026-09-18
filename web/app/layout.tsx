@@ -1,5 +1,7 @@
-import "./styles/tailwind.css";
+// import "./styles/tailwind.css";
 import "./styles/index.scss";
+import "./global.css";
+
 import Header from "./components/Header";
 import website from "./config/website";
 import { getSettings } from "./utils/sanity-queries";

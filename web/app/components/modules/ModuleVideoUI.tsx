@@ -1,6 +1,6 @@
 import React from "react";
 import { ModuleVideo } from "@/app/types/schema";
-import ReactPlayer from "react-player/lazy";
+// import ReactPlayer from "react-player/lazy";
 import PlayerVideo from "../ui/PlayerVideo";
 import { _localizeText } from "@/app/utils/utils";
 

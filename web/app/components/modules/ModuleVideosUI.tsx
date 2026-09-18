@@ -1,6 +1,6 @@
 import React from "react";
 import { ModuleVideo, ModuleVideos } from "@/app/types/schema";
-import ReactPlayer from "react-player/lazy";
+// import ReactPlayer from "react-player/lazy";
 import CardVideo from "../CardVideo";
 import Masonry from "react-masonry-css";
 
