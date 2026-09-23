@@ -112,7 +112,7 @@ const Search = (props: Props) => {
     }
   };
 
-  const changeHandler = (event: React.InputEvent<HTMLInputElement>) => {
+  const changeHandler = (event: React.FormEvent<HTMLInputElement>) => {
     if (event.currentTarget.value) {
       setTerm(event.currentTarget.value);
     } else {

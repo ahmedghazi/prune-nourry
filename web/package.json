@@ -51,9 +51,5 @@
     "postcss": "^8",
     "tailwindcss": "^4.3.3",
     "typescript": "^7"
-  },
-  "resolutions": {
-    "@types/react": "19.1.1",
-    "@types/react-dom": "19.1.2"
   }
 }
