@@ -3,24 +3,32 @@ import React, { useEffect, useState } from "react";
 import { hasCookie, setCookie } from "cookies-next";
 import { BlockContent, LocaleBlockContent } from "@/app/types/schema";
 import { PortableText } from "@portabletext/react";
-import components from "@/app/utils/portableTextComponents";
-import { _localizeField, _localizeText } from "@/app/utils/utils";
+import components from "@/app/sanity-api/portableTextComponents";
+import { _localizeField, _localizeText } from "@/app/lib/utils";
 
 type Props = {
   message: LocaleBlockContent;
 };
 
 const CookieConsent = ({ message }: Props) => {
-  const [showConsent, setShowConsent] = useState<boolean>(true);
+  // const [showConsent, setShowConsent] = useState<boolean>(true);
+  // const hasCookieValue = hasCookie("localConsent");
+  const [showConsent, setShowConsent] = React.useState<
+    boolean | Promise<boolean>
+  >(true);
+  const has: boolean | Promise<boolean> = hasCookie("localConsent");
 
   useEffect(() => {
-    setShowConsent(hasCookie("localConsent"));
+    setShowConsent(has);
   }, []);
 
   const acceptCookie = () => {
     setShowConsent(true);
     setCookie("localConsent", "true", {});
   };
+
+  const localizedMessage = _localizeField(message);
+  const acceptLabel = _localizeText("accept");
 
   if (showConsent) {
     return null;
@@ -35,15 +43,12 @@ const CookieConsent = ({ message }: Props) => {
           website you consent to all cookies in accordance with our Cookie
           Policy. */}
 
-          <PortableText
-            value={_localizeField(message)}
-            components={components}
-          />
+          <PortableText value={localizedMessage} components={components} />
         </div>
         <button
           className=' py-2 px-8  underline uppercase'
           onClick={() => acceptCookie()}>
-          {_localizeText("accept")}
+          {acceptLabel}
         </button>
       </div>
     </div>

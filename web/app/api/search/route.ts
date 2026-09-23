@@ -1,4 +1,4 @@
-// import { client } from "@/app/utils/sanity-client";
+// import { client } from "@/app/sanity-api/sanity-client";
 import { NextRequest, NextResponse } from "next/server";
 
 import sanityClient from "@sanity/client";

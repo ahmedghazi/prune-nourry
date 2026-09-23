@@ -1,6 +1,6 @@
 import { LocaleBlockContent } from "@/app/types/schema";
-import portableTextComponents from "@/app/utils/portableTextComponents";
-import { _localizeField } from "@/app/utils/utils";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
+import { _localizeField } from "@/app/lib/utils";
 import { PortableText } from "next-sanity";
 import React, { useEffect, useMemo, useState } from "react";
 

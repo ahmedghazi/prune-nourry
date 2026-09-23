@@ -1,6 +1,6 @@
 import React from "react";
 import { News, NewsArticle } from "../types/schema";
-import { _datePress, _localizeField } from "../utils/utils";
+import { _datePress, _localizeField } from "@/app/lib/utils";
 import Figure from "./ui/Figure";
 
 type Props = {

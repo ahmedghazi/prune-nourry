@@ -1,11 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 
-import {
-  _linkResolver,
-  _localizeField,
-  _localizeText,
-} from "@/app/utils/utils";
+import { _linkResolver, _localizeField, _localizeText } from "@/app/lib/utils";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import Link from "next/link";
@@ -116,9 +112,9 @@ const Search = (props: Props) => {
     }
   };
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value) {
-      setTerm(event.target?.value);
+  const changeHandler = (event: React.FormEvent<HTMLInputElement>) => {
+    if (event.currentTarget.value) {
+      setTerm(event.currentTarget.value);
     } else {
       if (setSearchResult) setSearchResult([]);
     }

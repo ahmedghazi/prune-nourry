@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Product } from "../types/schema";
-import { _localizeField, _localizeText } from "../utils/utils";
+import { _localizeField, _localizeText } from "@/app/lib/utils";
 import { PortableText } from "next-sanity";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import Figure from "./ui/Figure";
 import useShop from "./shop/ShopContext";
 import Qty from "./shop/Qty";

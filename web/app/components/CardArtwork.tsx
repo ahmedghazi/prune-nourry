@@ -1,7 +1,7 @@
 import React from "react";
 import { Artwork } from "../types/schema";
 import Figure from "./ui/Figure";
-import { _linkResolver, _localizeField } from "../utils/utils";
+import { _linkResolver, _localizeField } from "@/app/lib/utils";
 import Link from "next/link";
 
 type Props = {

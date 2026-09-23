@@ -7,7 +7,6 @@ import React, {
   useState,
 } from "react";
 import { usePathname } from "next/navigation";
-import { getSettings } from "../utils/sanity-queries";
 import { Settings } from "../types/schema";
 // import { getSettings } from "../utils/sanity-queries";
 
@@ -68,7 +67,7 @@ export const PageContextProvider = (props: PageContextProps) => {
 
       document.documentElement.style.setProperty(
         "--header-height",
-        headerBounding.height + "px"
+        headerBounding.height + "px",
       );
     }
 
@@ -77,7 +76,7 @@ export const PageContextProvider = (props: PageContextProps) => {
 
   const _handlePageTemplate = () => {
     const mainDiv: HTMLElement = document.querySelector(
-      "main [data-template]"
+      "main [data-template]",
     ) as HTMLElement;
     // console.log(mainDiv);
     if (mainDiv) {

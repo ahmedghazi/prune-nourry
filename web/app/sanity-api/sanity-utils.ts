@@ -1,24 +1,10 @@
-import createImageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder, type SanityImageSource } from "@sanity/image-url";
 // import { definePreview } from 'next-sanity/preview'
 import { sanityConfig } from "./sanity-client";
-import {
-  SanityImageAsset,
-  SanityImageCrop,
-  SanityImageHotspot,
-} from "sanity-codegen";
-// import { SanityAsset } from "@sanity/image-url/lib/types/types";
 
 const imageBuilder = createImageUrlBuilder(sanityConfig);
 
-type SanityImage = {
-  _type: "image";
-  assetId: string;
-  asset: SanityImageAsset;
-  crop?: SanityImageCrop;
-  hotspot?: SanityImageHotspot;
-};
-
-export function urlFor(source: SanityImageAsset, maxWidth: number = 2000): any {
+export function urlFor(source: SanityImageSource, maxWidth: number = 2000): any {
   // console.log(source.assetId);
   if (!source) {
     return "/placeholder.png";

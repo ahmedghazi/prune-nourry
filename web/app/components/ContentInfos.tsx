@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { Infos } from "../types/schema";
-import { _localizeField } from "../utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 import { PortableText } from "@portabletext/react";
-import components from "../utils/portableTextComponents";
+import components from "@/app/sanity-api/portableTextComponents";
 import Figure from "./ui/Figure";
 import website from "../config/website";
 
@@ -12,7 +12,6 @@ type Props = {
 };
 
 const ContentInfos = ({ input }: Props) => {
-  console.log(input.list);
   return (
     <div className='content-infos'>
       <article>

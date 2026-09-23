@@ -3,9 +3,9 @@ import React, { useMemo, useState } from "react";
 import Slider from "./ui/slick-slider/index";
 import { Project } from "../types/schema";
 import Modules from "./modules";
-import { _linkResolver, _localizeField } from "../utils/utils";
+import { _linkResolver, _localizeField } from "@/app/lib/utils";
 import { PortableText } from "next-sanity";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import SanityExcerptToText from "./ui/SanityExcerptToText";
 import Link from "next/link";
 import clsx from "clsx";
@@ -20,11 +20,8 @@ const ContentProject = ({ input }: Props) => {
   const [sticky, setSticky] = useState<boolean>(false);
   const linkToArtworks = useMemo(() => {
     if (!input.artworks) return null;
-    // console.log(input.tagProjectArtwork);
-    const artworksExists =
-      input.artworks && input.artworks.length > 0 && input.tagProjectArtwork;
-    // console.log({ artworksExists });
-
+    // console.log(input.artworks);
+    const artworksExists = input.artworks && input.artworks.length > 0;
     if (artworksExists) {
       return _linkResolver(input.tagProjectArtwork);
     } else if (input.link) {
@@ -39,7 +36,7 @@ const ContentProject = ({ input }: Props) => {
           <div
             className={clsx(
               "inner ",
-              sticky && "md:sticky md:top-header-height"
+              sticky && "md:sticky md:top-header-height",
             )}>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
 

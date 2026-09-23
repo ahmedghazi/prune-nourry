@@ -6,7 +6,7 @@ import jsonp from "jsonp";
 // import styled, { css } from "styled-components"
 import clsx from "clsx";
 import { publish } from "pubsub-js";
-import { _localizeText } from "@/app/utils/utils";
+import { _localizeText } from "@/app/lib/utils";
 
 type FieldProp = {
   name: string;

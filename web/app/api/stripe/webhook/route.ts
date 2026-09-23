@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 // import { OrderTable, db } from "@/lib/drizzleOrm";
 import { headers } from "next/headers";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2024-04-10",
+  apiVersion: "2026-08-26.dahlia",
   typescript: true,
 });
 
@@ -82,7 +82,7 @@ const _handleEventCompleted = async (session_id: string) => {
         },
         body: JSON.stringify(mutations),
         method: "POST",
-      }
+      },
     );
 
     const json = await result.json();
@@ -159,7 +159,7 @@ const _updateDatabase = async (lineItems: any) => {
         },
         body: JSON.stringify(mutations),
         method: "POST",
-      }
+      },
     );
 
     const json = await result.json();

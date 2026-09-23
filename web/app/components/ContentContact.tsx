@@ -1,13 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { Contact, News, NewsInstagram } from "../types/schema";
-import { _localizeField, _localizeText } from "../utils/utils";
+import { _localizeField, _localizeText } from "@/app/lib/utils";
 import { PortableText } from "@portabletext/react";
-import components from "../utils/portableTextComponents";
+import components from "@/app/sanity-api/portableTextComponents";
 import Figure from "./ui/Figure";
 import ArticleInstagram from "./ArticleInstagram";
 import Mailchimp from "./ui/Mailchimp";
-import portableTextComponents from "../utils/portableTextComponents";
+import portableTextComponents from "@/app/sanity-api/portableTextComponents";
 import { usePageContext } from "../context/PageContext";
 
 type Props = {

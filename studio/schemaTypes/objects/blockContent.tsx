@@ -1,6 +1,6 @@
 import {defineType, defineArrayMember} from 'sanity'
 // import { FiExternalLink, LinkIcon } from 'react-icons/fi'
-import {LinkIcon} from '@sanity/icons'
+import {LinkIcon} from '@sanity/icons/Link'
 import {FiExternalLink} from 'react-icons/fi'
 /**
  * This is the schema definition for the rich text fields used for

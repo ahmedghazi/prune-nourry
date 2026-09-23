@@ -5,7 +5,7 @@ import { subscribe, unsubscribe } from "pubsub-js";
 import clsx from "clsx";
 import Qty from "./Qty";
 import { loadStripe } from "@stripe/stripe-js";
-import { _localizeField, _localizeText } from "@/app/utils/utils";
+import { _localizeField, _localizeText } from "@/app/lib/utils";
 import Figure from "../ui/Figure";
 import { useRouter } from "next/navigation";
 import { useSearchParams } from "next/navigation";
@@ -14,7 +14,7 @@ import Stripe from "stripe";
 import useLocalStorage from "@/app/hooks/useLocalStorage";
 
 const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || "",
 );
 
 const totalPrice = (cartItems: ProductExtend[]) => {
@@ -177,7 +177,7 @@ const Cart = (props: Props) => {
       <div className='header flex justify-between md:absolute left-0'>
         {!isPostCheckout && (
           <button onClick={() => router.back()}>{`< ${_localizeText(
-            "back"
+            "back",
           )}`}</button>
         )}
         {/* <div className='label'>Cart</div> */}

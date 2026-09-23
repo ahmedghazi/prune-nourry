@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+[data-theme="theme-pn"] {
+  --app-height: 100vh;
+  --header-height: 43.5px;
+
+  --color-red: red;
+  --color-primary: #000;
+  --color-gray: rgb(175, 176, 176);
+  --color-hover: rgb(175, 176, 176);
+  --color-muted: rgb(175, 176, 176);
+
+  --font-primary:
+    "MNKYKlaus-Medium", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-primary-i:
+    "MNKYKlaus-MediumItalic", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-primary-b:
+    "MNKYKlaus-Bold", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+  --font-primary-bi:
+    "MNKYKlaus-BoldItalic", "Helvetica Neue", "HelveticaNeueRoman",
+    "HelveticaNeue-Roman", "Helvetica Neue Roman", "TeXGyreHerosRegular",
+    "Helvetica", "Arial", sans-serif;
+
+  --space-sm: 0.875rem; /*14*/
+  --space-md: 1.75rem; /*28*/
+  --space-lg: 2.563rem; /*41*/
+  --space-md--mobile: 1.375rem; /*16px;*/
+
+  --text-sm: 0.875rem; /*11pt / 14px*/
+  --text-md: 1.125rem; /*14pt / 18px*/
+  --text-lg: 2.813rem; /*34pt / 45px*/
+
+  --text-sm--mobile: 0.75rem; /*12px*/
+  --text-lg--mobile: 1.625rem; /*26.8px*/
+  /*
+  xs: 8pt 10px
+  md: 12pt 16px
+  lg: 18pt 24px
+  xl: 30pt 40px
+  */
+
+  --cubic: cubic-bezier(0.775, 0, 0.17, 1.005);
+
+  --border-width: 2px;
+  --border: var(--border-width) solid;
+  --border-width-lg: 2px;
+  --border-lg: var(--border-width-lg) solid;
+
+  --gutter: 9px;
+
+  --screen-sm: 768px;
+  --screen-md: 1080px;
+  --screen-lg: 1441px;
+}
+
+/*
+ * Tailwind v4 theme mapping. `inline` is required here because these
+ * values live on [data-theme="theme-pn"] rather than :root — inline
+ * keeps the generated utilities referencing var(--x) instead of
+ * baking in a value at build time. See:
+ * https://tailwindcss.com/docs/theme#generating-all-css-variables
+ */
+@theme inline {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 768px;
+  --breakpoint-md: 1080px;
+  --breakpoint-lg: 1600px;
+
+  --spacing-*: initial;
+  --spacing-0: 0;
+  --spacing-02e: 0.2em;
+  --spacing-05e: 0.5em;
+  --spacing-1: 1px;
+  --spacing-1e: 1em;
+  --spacing-1re: 1rem;
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-md--mobile: var(--space-md--mobile);
+  --spacing-gutter: var(--gutter);
+  --spacing-header-height: var(--header-height);
+
+  --color-*: initial;
+  --color-black: black;
+  --color-white: white;
+  --color-red: var(--color-red);
+  --color-gray: var(--color-gray);
+
+  --text-*: initial;
+  --text-sm: var(--text-sm);
+  --text-sm--line-height: 1.1;
+  --text-md: var(--text-md);
+  --text-md--line-height: 1.4;
+  --text-lg: var(--text-lg);
+  --text-lg--line-height: 1;
+  --text-sm--mobile: var(--text-sm--mobile);
+  --text-sm--mobile--line-height: 1.1;
+  --text-lg--mobile: var(--text-lg--mobile);
+  --text-lg--mobile--line-height: 1;
+
+  --font-*: initial;
+}

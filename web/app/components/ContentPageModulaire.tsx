@@ -14,7 +14,7 @@ import {
   ModuleExhibitions,
 } from "../types/schema";
 import Modules from "./modules";
-import { _localizeField } from "../utils/utils";
+import { _localizeField } from "@/app/lib/utils";
 import clsx from "clsx";
 
 type Props = {
