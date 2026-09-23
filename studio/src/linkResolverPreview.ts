@@ -61,7 +61,6 @@ export const linkResolverPreview: PresentationPluginOptions['resolve'] = {
         title: 'title.fr',
         slug: 'slug.current',
       },
-      // Those fields are available in the resolve callback function
       resolve: (doc) => ({
         locations: [
           {
