@@ -31,6 +31,7 @@
     "react-masonry-css": "^1.0.16",
     "react-player": "^3.4.0",
     "react-slick": "^0.31.0",
+    "react-zoom-pan-pinch": "^4.2.0",
     "sanity-codegen": "^0.9.8",
     "sass": "^1.104.1",
     "stripe": "^22.6.2",
