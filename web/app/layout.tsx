@@ -30,7 +30,7 @@ export default async function RootLayout({
 }) {
   const settings = (await getSettings()) as unknown as Settings;
   const { isEnabled } = await draftMode();
-
+  console.log(settings);
   return (
     <html lang='en'>
       <body className={"is-loading"}>
