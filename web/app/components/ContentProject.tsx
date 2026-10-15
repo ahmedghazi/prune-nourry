@@ -18,6 +18,7 @@ type Props = {
 const ContentProject = ({ input }: Props) => {
   // console.log(input);
   const [sticky, setSticky] = useState<boolean>(false);
+
   const linkToArtworks = useMemo(() => {
     if (!input.artworks) return null;
     // console.log(input.artworks);
@@ -25,8 +26,9 @@ const ContentProject = ({ input }: Props) => {
     if (artworksExists) {
       return _linkResolver(input.tagProjectArtwork);
     } else if (input.link) {
-      return _linkResolver(input.link.link);
+      return input.link ? _linkResolver(input.link.link) : null;
     }
+    return null;
   }, [input.artworks, input.link, input.tagProjectArtwork]);
 
   return (
@@ -39,7 +41,6 @@ const ContentProject = ({ input }: Props) => {
               sticky && "md:sticky md:top-header-height",
             )}>
             <h1 className='mb-md'>{_localizeField(input.title)}</h1>
-
             {input.excerpt && input.text ? (
               <div className='mb-md'>
                 <SanityExcerptToText
@@ -60,14 +61,12 @@ const ContentProject = ({ input }: Props) => {
                 </div>
               </div>
             )}
-
             {linkToArtworks && (
               <Link href={linkToArtworks} className='td-u'>
                 {/* {_localizeField(input.link.label)} */}
                 Link to Artworks
               </Link>
             )}
-
             {input.credits && (
               <div className='text'>
                 <PortableText

@@ -17,6 +17,17 @@ const previewURL = window.location.hostname === 'localhost' ? localURL : remoteU
 
 const plugins = [
   structureTool({structure}),
+  presentationTool({
+    title: 'Live preview',
+    resolve: linkResolverPreview,
+    previewUrl: {
+      origin: previewURL,
+      previewMode: {
+        enable: '/api/preview',
+        disable: '/api/exit-preview',
+      },
+    },
+  }),
   media({
     // creditLine: {
     //   enabled: true,
@@ -33,17 +44,7 @@ const plugins = [
   }),
   visionTool(),
   // ...(isDev ? devOnlyPlugins : []),
-  presentationTool({
-    title: 'Live preview',
-    resolve: linkResolverPreview,
-    previewUrl: {
-      origin: previewURL,
-      previewMode: {
-        enable: '/api/preview',
-        disable: '/api/exit-preview',
-      },
-    },
-  }),
+
 ]
 
 export default defineConfig({

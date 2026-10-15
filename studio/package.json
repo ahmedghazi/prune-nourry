@@ -18,27 +18,28 @@
   ],
   "dependencies": {
     "@sanity/asset-utils": "^2.3.0",
+    "@sanity/client": "^8.6.2",
     "@sanity/color-input": "^6.1.4",
     "@sanity/icons": "^5.2.2",
-    "@sanity/ui": "^4.2.1",
-    "@sanity/vision": "^6.16.0",
+    "@sanity/ui": "^4.2.3",
+    "@sanity/vision": "^6.19.0",
     "lodash.get": "^4.4.2",
     "pluralize-esm": "^9.0.5",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-icons": "^5.7.0",
     "react-player": "^3.4.0",
-    "sanity": "^6.16.0",
+    "sanity": "^6.19.0",
     "sanity-plugin-hotspot-array": "^5.0.17",
-    "sanity-plugin-media": "^6.2.0",
+    "sanity-plugin-media": "^6.3.0",
     "slug": "^12.0.1",
     "styled-components": "^6.5.3"
   },
   "devDependencies": {
     "@sanity/eslint-config-studio": "^7.0.0",
     "@types/react": "^19.3.0",
-    "eslint": "^10.10.0",
-    "prettier": "^3.9.8",
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.9",
     "typescript": "^7.0.2"
   },
   "prettier": {
@@ -46,5 +47,11 @@
     "printWidth": 100,
     "bracketSpacing": false,
     "singleQuote": true
+  },
+  "pnpm": {
+    "overrides": {
+      "@sentry/react": "10.75.2",
+      "@sentry/browser": "10.75.2"
+    }
   }
 }

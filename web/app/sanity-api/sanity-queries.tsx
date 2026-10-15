@@ -114,7 +114,8 @@ export async function getHome(): Promise<HOME_QUERYResult> {
 /********************************************************************************************
  * PAGE MODULAIRE
  */
-export const PAGE_MODULAIRE_QUERY = defineQuery(`*[_type == "pageModulaire" && slug.current == $slug][0]{
+export const PAGE_MODULAIRE_QUERY =
+  defineQuery(`*[_type == "pageModulaire" && slug.current == $slug][0]{
   ...,
   seo{
     ${seo}
@@ -170,12 +171,14 @@ export const PROJECT_QUERY = defineQuery(`
     slug
   },
   "artworks": *[
-     _type == "artwork"
-     && tagProjectArtwork._ref == ^.tagProjectArtwork._ref
-    ]
-    {
-      slug
-    },
+    _type == "artwork"
+    && defined(tagProjectArtwork)
+    && tagProjectArtwork._ref == ^.tagProjectArtwork._ref
+  ]
+  {
+    slug,
+    tagProjectArtwork
+  },
   modules[]{
     ...,
     ${moduleImages},
