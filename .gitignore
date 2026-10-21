@@ -102,3 +102,5 @@ next-env.d.ts
 archive/
 # Local Netlify folder
 .netlify
+update-sanity-types.sh
+db.md
