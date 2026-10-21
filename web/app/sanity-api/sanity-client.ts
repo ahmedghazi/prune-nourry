@@ -12,6 +12,9 @@ const config: ClientConfig = {
   apiVersion,
   useCdn: true,
   token,
+  // With a token and apiVersion < 2025-02-19 the API defaults to the "raw"
+  // perspective, which returns drafts alongside published docs.
+  perspective: "published",
 };
 
 export const sanityConfig = {
