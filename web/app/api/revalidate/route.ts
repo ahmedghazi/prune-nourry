@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
 
     const tags = [body._type, "sitemap"];
     if (body.slug) tags.push(`${body._type}:${body.slug}`);
-
+    console.log({ slug: body.slug });
     tags.forEach((tag) => revalidateTag(tag, { expire: 0 }));
 
     return NextResponse.json({ revalidated: tags, now: Date.now() });
