@@ -53,6 +53,9 @@ export async function sanityFetch<QueryResponse>({
   tags: string[];
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, qParams, {
+    // Next caches the result and the webhook revalidates it, so skip the
+    // Sanity CDN to avoid re-caching stale data right after a publish.
+    useCdn: false,
     cache: process.env.NODE_ENV === "development" ? "no-store" : "force-cache",
     next: { tags },
   });
