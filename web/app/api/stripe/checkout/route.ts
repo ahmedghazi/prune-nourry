@@ -8,7 +8,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 export async function POST(
   // export default async function handler(
-  req: NextRequest
+  req: NextRequest,
 ) {
   if (req.method !== "POST") {
     return NextResponse.json({ message: "INVALID_METHOD" }, { status: 405 });
@@ -66,7 +66,7 @@ export async function POST(
           //   shipping_rate: "shr_1QKhj9JIJCqsla6x9ULs7SwM",
           // },
         ],
-
+        billing_address_collection: "required",
         mode: "payment",
         success_url: `${(await headers()).get("referer")}/?success=true`,
         cancel_url: `${(await headers()).get("referer")}/?canceled=true`,
@@ -96,7 +96,7 @@ export async function POST(
         message: error.message,
         raw: error,
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
