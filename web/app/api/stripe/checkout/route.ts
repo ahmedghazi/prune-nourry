@@ -67,6 +67,9 @@ export async function POST(
           // },
         ],
         billing_address_collection: "required",
+        phone_number_collection: {
+          enabled: true,
+        },
         mode: "payment",
         success_url: `${(await headers()).get("referer")}/?success=true`,
         cancel_url: `${(await headers()).get("referer")}/?canceled=true`,
